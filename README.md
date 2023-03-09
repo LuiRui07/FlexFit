@@ -5,4 +5,4 @@ INTEGRANTES:
 -Pablo García Platero
 -José Luis López Ruiz
 -Luis Ruiz Núñez
--Alba la Torre Segato
+-Alba de la Torre Segato :(
