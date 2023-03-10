@@ -1,0 +1,14 @@
+.LoginPage {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  background-color: #7fffd4;
+  height: 800px;
+  margin-top: 0px;
+  background-image: url("../images/Biceps.png");
+}
+
+.LoginPageTitle {
+  margin-top: 20%;
+  color: #fb465a;
+}
