@@ -1,7 +1,7 @@
 import "./css/Login.css";
 import App from "./App.js";
 
-export default function LoginPage() {
+export default function LoginLui() {
   return (
     <div className="LoginPage">
       <h1 className="LoginPageTitle">Log in to FlexFit</h1>

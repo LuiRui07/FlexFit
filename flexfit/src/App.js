@@ -1,8 +1,15 @@
 import "./css/App.css";
-import Login from "./Login.js";
+import Login from "./Routes/Login.js";
+import Home from "./Routes/Home.js";
 
-function App() {
-  return <Login />;
+function App(props) {
+
+    if(props){
+      return <Login />
+    }else {
+      return <Home/>
+    }
+    
 }
 
 export default App;
