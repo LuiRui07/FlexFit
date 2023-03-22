@@ -6,6 +6,7 @@ import Login from "./Routes/Login.js";
 import Register from "./Routes/Register.js";
 import Home from "./Routes/Home";
 import AddWorkout from "./Routes/AddWorkout";
+import AllWorkouts from "./Routes/AllWorkouts";
 
 import { RouterProvider, createBrowserRouter} from 'react-router-dom';
 
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
   { path: '/login', element: <Login /> },
   { path: '/register', element:<Register />},
   { path: '/home', element: <Home />},
-  { path: '/cw', element: <AddWorkout />}
+  { path: '/cw', element: <AddWorkout />},
+  { path: '/workouts', element: <AllWorkouts />}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
