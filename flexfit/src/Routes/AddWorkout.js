@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../css/AddWorkout.css";
 
 export default function AddWorkout() {
