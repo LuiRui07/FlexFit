@@ -1,0 +1,9 @@
+.nav {
+    background-color: rgb(227, 215, 215);
+    background-color: #fb465a;
+    border-bottom: none ;
+}
+
+li  a {
+    color: black !important;
+}

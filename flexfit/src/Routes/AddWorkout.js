@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../css/AddWorkout.css";
+import HeaderFF from "./HeaderFF.js";
 
 export default function AddWorkout() {
 
@@ -22,38 +23,43 @@ export default function AddWorkout() {
     }
 
     return (
-      <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-        <h1>Register a new Workout</h1>
-        <form className="d-flex gap-5 align-items-center" action="/saveWorkout" method="post">
-            <div>
-                <img src={workoutType.image} alt="Not avaliable"></img>
-                <select className="form-select" id="sportSelector" onChange={() => changeWorkOut(document.getElementById('sportSelector').value)}>
-                    {workoutTypes.map((workoutX) => (
-                        <option value={workoutX.name}>{workoutX.name}</option>
-                    ))}
-                </select>
-            </div>
-            <div className="justify-content-around">
-                <input type="text" placeholder="Workout Name" className="w-100 form-control formData"/>
-                <div className="d-flex w-100 align-items-center justify-content-between formData">
-                    <input type="number" placeholder="Reps" className="p-1 form-control reps hours" min="0"/>
-                    <input type="number" placeholder="Weight" className="p-1 form-control sets hours" min="0"/>
+        <div>
+            <HeaderFF/>
+                <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+                    <h1>Register a new Workout</h1>
+                    <form className="d-flex gap-5 align-items-center" action="/saveWorkout" method="post">
+                        <div>
+                            <img src={workoutType.image} alt="Not avaliable"></img>
+                            <select className="form-select" id="sportSelector" onChange={() => changeWorkOut(document.getElementById('sportSelector').value)}>
+                                {workoutTypes.map((workoutX) => (
+                                    <option value={workoutX.name}>{workoutX.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="justify-content-around">
+                            <input type="text" placeholder="Workout Name" className="w-100 form-control formData"/>
+                            <div className="d-flex w-100 align-items-center justify-content-between formData">
+                                <input type="number" placeholder="Reps" className="p-1 form-control reps hours" min="0"/>
+                                <input type="number" placeholder="Weight" className="p-1 form-control sets hours" min="0"/>
+                            </div>
+
+                            <div className="d-flex w-100 align-items-center justify-content-between formData">
+                                <input type="time" placeholder="Time Spent" className="p-1 form-control hours"/>
+                                <div className="small-ratings w-70">
+                                    <span className="fa fa-star checked"></span>
+                                    <span className="fa fa-star checked"></span>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star"></span>
+                                    <span className="fa fa-star"></span>
+                                </div>
+                            </div>
+                            <input type="submit" className="btn btn-outline-primary w-100 formData" value="Register!" />
+                        </div>
+
+                    </form>
                 </div>
 
-                <div className="d-flex w-100 align-items-center justify-content-between formData">
-                    <input type="time" placeholder="Time Spent" className="p-1 form-control hours"/>
-                    <div className="small-ratings w-70">
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star checked"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                        <span className="fa fa-star"></span>
-                    </div>
-                </div>
-                <input type="submit" className="btn btn-outline-primary w-100 formData" value="Register!" />
-            </div>
-
-        </form>
-      </div>
+        </div>
+        
     );
 }
