@@ -1,0 +1,15 @@
+.checked {
+    color: rgb(29, 97, 254);
+}
+
+.fa-star:hover {
+    color: rgb(52, 74, 117);
+}
+
+.hours{
+    width: 30% !important;
+}
+
+.formData{
+    margin-top: 10px;
+}

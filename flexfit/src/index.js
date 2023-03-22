@@ -5,14 +5,16 @@ import App from "./App";
 import Login from "./Routes/Login.js";
 import Register from "./Routes/Register.js";
 import Home from "./Routes/Home";
+import AddWorkout from "./Routes/AddWorkout";
 
 import { RouterProvider, createBrowserRouter} from 'react-router-dom';
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
   { path: '/login', element: <Login /> },
-  { path:'/register', element:<Register />},
-  { path: '/home', element: <Home />}
+  { path: '/register', element:<Register />},
+  { path: '/home', element: <Home />},
+  { path: '/cw', element: <AddWorkout />}
 ])
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
