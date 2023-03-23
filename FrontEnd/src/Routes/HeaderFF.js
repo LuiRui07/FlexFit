@@ -12,7 +12,7 @@ export default function HeaderFF() {
                 <a className="nav-link" href="home">Home</a>
             </li>
             <li className="nav-item-col">
-                <a className="nav-link" href="workouts">Workout</a>
+                <a className="nav-link" href="workouts">Workouts</a>
             </li>
             <li className="nav-item-col">
                 <a className="nav-link" href='cw'>Add Workout</a>
