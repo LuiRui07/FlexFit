@@ -5,10 +5,10 @@ export default function HeaderFF() {
   return (
     <div className='d-flex w-100'>
         <ul className="nav nav-tabs align-items-center w-100">
-            <li className="nav-item">
+            <li className="nav-item-col">
                 <img src={Logo} width="50" height="50" alt="no disponible"/>
             </li>
-            <li className="nav-item-col">
+            <li className="nav-item-col active">
                 <a className="nav-link" href="home">Home</a>
             </li>
             <li className="nav-item-col">
