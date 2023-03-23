@@ -87,6 +87,12 @@ export default function AddWorkout() {
             <div className="d-flex w-100 align-items-center justify-content-between formData">
               <input
                 type="number"
+                placeholder="Sets"
+                className="p-1 form-control reps hours"
+                min="0"
+              />
+              <input
+                type="number"
                 placeholder="Reps"
                 className="p-1 form-control reps hours"
                 min="0"
@@ -97,21 +103,6 @@ export default function AddWorkout() {
                 className="p-1 form-control sets hours"
                 min="0"
               />
-            </div>
-
-            <div className="d-flex w-100 align-items-center justify-content-between formData">
-              <input
-                type="time"
-                placeholder="Time Spent"
-                className="p-1 form-control hours"
-              />
-              <div className="small-ratings w-70">
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-              </div>
             </div>
             <input
               type="submit"
