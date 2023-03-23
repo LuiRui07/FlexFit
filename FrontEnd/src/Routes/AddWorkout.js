@@ -65,7 +65,12 @@ export default function AddWorkout() {
           method="post"
         >
           <div>
-            <img src={workoutType.image} alt="Not avaliable" height="250"></img>
+            <img
+              src={workoutType.image}
+              alt="Not avaliable"
+              height="350"
+              width="350"
+            ></img>
             <select
               className="form-select"
               id="sportSelector"
