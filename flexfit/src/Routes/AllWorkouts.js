@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeaderFF from "../Routes/HeaderFF.js";
 
 export default function AllWorkouts() {
 
@@ -43,31 +44,35 @@ export default function AllWorkouts() {
     }
 
     return (
-        <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto ">
-            <h1>Workouts</h1>
+        <div>
+            <HeaderFF/>
+            <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto ">
+                <h1>Workouts</h1>
 
-            <div className="d-flex pb-3">
-                <select className="form-select" onChange={filterByMuscle}>
-                    <option value="All">All</option>
-                    <option value="Chest">Chest</option>
-                    <option value="Shoulders">Shoulders</option>
-                </select>
-            </div>
+                <div className="d-flex pb-3">
+                    <select className="form-select" onChange={filterByMuscle}>
+                        <option value="All">All</option>
+                        <option value="Chest">Chest</option>
+                        <option value="Shoulders">Shoulders</option>
+                    </select>
+                </div>
 
-            <div className="d-flex gap-5 cardTag" id="cardsSport">
-                {workouts.map((workout) => (
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 className="card-title">{workout.name}</h5>
-                            <h6 className="card-subtitle mb-2 text-muted">{workout.workoutType.name} - {workout.workoutType.bodyPart}</h6>
-                            <p className="card-text">Date: {workout.date}</p>
-                            <p className="card-text">Reps: {workout.reps}</p>
-                            <p className="card-text">Weight: {workout.weight}</p>
-                            <p className="card-text">Time: {workout.time}</p>
+                <div className="d-flex gap-5 cardTag" id="cardsSport">
+                    {workouts.map((workout) => (
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">{workout.name}</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">{workout.workoutType.name} - {workout.workoutType.bodyPart}</h6>
+                                <p className="card-text">Date: {workout.date}</p>
+                                <p className="card-text">Reps: {workout.reps}</p>
+                                <p className="card-text">Weight: {workout.weight}</p>
+                                <p className="card-text">Time: {workout.time}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
+        
     );
 }
