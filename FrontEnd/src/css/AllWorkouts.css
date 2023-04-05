@@ -1,0 +1,33 @@
+.input {
+  outline: none;
+  box-sizing: border-box;
+  height: 60px;
+  width: 0px;
+  padding: 0 20px;
+  border-radius: 40px;
+  font-size: 20px;
+  border: 1px solid #fb465a;
+  transition: all 0.7s ease;
+}
+
+.btn#search {
+  background: #fb465a;
+  transition: 0.5s;
+  margin-left: 2%;
+}
+
+.btn i {
+  font-size: 20px;
+  color: white;
+  line-height: 40px;
+  transition: all 0.7s ease;
+  height: auto;
+}
+
+.container:hover input {
+  width: 350px;
+}
+
+.container:hover i {
+  transform: rotate(-360deg);
+}
