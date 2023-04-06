@@ -1,4 +1,4 @@
-.input {
+input.barra {
   outline: none;
   box-sizing: border-box;
   height: 60px;
@@ -24,10 +24,14 @@
   height: auto;
 }
 
-.container:hover input {
+.container:hover input.barra {
   width: 350px;
 }
 
 .container:hover i {
   transform: rotate(-360deg);
+}
+
+li#add {
+  margin-top: 1%;
 }

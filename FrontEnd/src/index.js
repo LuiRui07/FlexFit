@@ -4,15 +4,19 @@ import "./css/index.css";
 import App from "./App";
 import Home from "./Routes/Home";
 import AddWorkout from "./Routes/AddWorkout";
-import AllWorkouts from "./Routes/AllWorkouts";
+import AllWorkouts from "./Routes/Workouts";
+import Historial from "./Routes/Historial";
+import Cuenta from "./Routes/Cuenta";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/home", element: <Home /> },
-  { path: "/cw", element: <AddWorkout /> },
+  { path: "/add", element: <AddWorkout /> },
   { path: "/workouts", element: <AllWorkouts /> },
+  { path: "/historial", element: <Historial /> },
+  { path: "/cuenta", element: <Cuenta /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

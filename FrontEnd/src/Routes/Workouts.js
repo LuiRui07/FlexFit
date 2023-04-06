@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../css/AllWorkouts.css";
-import HeaderFF from "../Routes/HeaderFF.js";
+import "../css/Workouts.css";
+import HeaderFF from "./HeaderFF.js";
 
 export default function AllWorkouts() {
   const WorkoutDB = [
@@ -51,7 +51,7 @@ export default function AllWorkouts() {
         <h1>Workouts</h1>
 
         <div className="d-flex pb-3">
-          <input className="input" type="text" placeholder="Buscar"></input>
+          <input className="barra" type="text" placeholder="Buscar"></input>
           <div className="btn" id="search">
             <i className="fa fa-search"></i>
           </div>
@@ -73,6 +73,11 @@ export default function AllWorkouts() {
             </div>
           ))}
         </div>
+        <li className="list-group-item" id="add">
+          <a className="btn btn-outline-primary" href="add">
+            Add Workout
+          </a>
+        </li>
       </div>
     </div>
   );
