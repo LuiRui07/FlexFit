@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/AddWorkout.css";
+import "../css/AddExercise.css";
 import HeaderFF from "./HeaderFF.js";
 
 export default function AddWorkout() {

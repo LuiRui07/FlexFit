@@ -6,39 +6,21 @@ export default function AllWorkouts() {
   const WorkoutDB = [
     {
       name: "Rutina 1",
-      date: "12:00",
-      reps: 10,
-      weight: 60,
-      time: "00:35:00",
-      workoutType: {
-        name: "Bench Press",
-        image:
-          "https://us.123rf.com/450wm/volyk/volyk1709/volyk170900096/85501646-hombre-levantando-m%C3%BAsculos-en-press-de-banca.jpg",
-      },
+      desc: "Frecuencia 1",
+      sets: 20,
+      time: "1h30min",
     },
     {
       name: "Rutina 2",
-      date: "13:00",
-      reps: 6,
-      weight: 45,
-      time: "00:15:00",
-      workoutType: {
-        name: "Militar Press",
-        image:
-          "https://us.123rf.com/450wm/lioputra/lioputra2206/lioputra220600144/187453581-man-doing-seated-barbell-shoulder-press-exercise-flat-vector-illustration-isolated-on-white.jpg?ver=6",
-      },
+      desc: "Frecuencia 2",
+      sets: 15,
+      time: "1h",
     },
     {
       name: "Rutina 3",
-      date: "14:00",
-      reps: 112,
-      weight: 333,
-      time: "00:15:00",
-      workoutType: {
-        name: "Sentadilla",
-        image:
-          "https://us.123rf.com/450wm/lioputra/lioputra2206/lioputra220600144/187453581-man-doing-seated-barbell-shoulder-press-exercise-flat-vector-illustration-isolated-on-white.jpg?ver=6",
-      },
+      desc: "FullBody",
+      sets: 15,
+      time: "30 min",
     },
   ];
 
@@ -62,19 +44,15 @@ export default function AllWorkouts() {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{workout.name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">
-                  {workout.workoutType.name} - {workout.workoutType.bodyPart}
-                </h6>
-                <p className="card-text">Date: {workout.date}</p>
-                <p className="card-text">Reps: {workout.reps}</p>
-                <p className="card-text">Weight: {workout.weight}</p>
+                <p className="card-text">Description: {workout.desc}</p>
+                <p className="card-text">Sets: {workout.sets}</p>
                 <p className="card-text">Time: {workout.time}</p>
               </div>
             </div>
           ))}
         </div>
         <li className="list-group-item" id="add">
-          <a className="btn btn-outline-primary" href="add">
+          <a className="btn btn-outline-primary" href="addro">
             Add Workout
           </a>
         </li>
