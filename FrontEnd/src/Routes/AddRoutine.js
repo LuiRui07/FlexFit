@@ -10,10 +10,22 @@ function anyadir_dia() {
 
   const enlace_dia = document.createElement("a");
   enlace_dia.href = "#";
-  enlace_dia.className = "btn btn-outline-danger mt-4 ";
+  enlace_dia.className = "btn btn-outline-danger mt-4 me-2 ";
   enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
+
+  const boton_eliminar = document.createElement("button");
+  boton_eliminar.className = "btn btn-warning mt-4";
+  boton_eliminar.textContent = "Delete";
+  boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
+
   boton_dia.appendChild(enlace_dia);
+  boton_dia.appendChild(boton_eliminar);
   lista.appendChild(boton_dia);
+}
+
+function eliminar_dia(elemento) {
+  let lista = document.getElementById("listaDias");
+  lista.removeChild(elemento);
 }
 
 export default function addRoutine() {
