@@ -2,20 +2,21 @@ import { useState } from "react";
 import HeaderFF from "./HeaderFF.js";
 import "../css/AddRoutine.css";
 
-function anyadir_dia(){
-  
-  const nombreDia = "Dia " ;
+function anyadir_dia() {
+  const nombreDia = "Dia ";
   const boton_dia = document.createElement("li");
-  boton_dia.classList.add("nombreDia", "flex-grow-1");
+  boton_dia.classList.add("nombreDia", "list-group-item");
   let lista = document.getElementById("listaDias");
 
-  boton_dia.textContent = nombreDia + (lista.childElementCount + 1);
-  lista.appendChild(boton_dia)
+  const enlace_dia = document.createElement("a");
+  enlace_dia.href = "#";
+  enlace_dia.className = "btn btn-outline-danger mt-4 ";
+  enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
+  boton_dia.appendChild(enlace_dia);
+  lista.appendChild(boton_dia);
 }
 
 export default function addRoutine() {
-  
-  
   return (
     <div>
       <HeaderFF />
@@ -25,13 +26,11 @@ export default function addRoutine() {
           placeholder="Workout Name"
           className="w-50 form-control formData"
         />
+        <ul className="align-items-center" id="listaDias"></ul>
 
-        <ul id="listaDias">
-
-        </ul>
-
-        <button className="btn btn-outline-primary" onClick={anyadir_dia}>Add Day</button>
-        
+        <button className="btn btn-primary" onClick={anyadir_dia}>
+          Add Day
+        </button>
       </div>
     </div>
   );

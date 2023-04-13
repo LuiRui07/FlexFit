@@ -2,7 +2,11 @@ input {
   text-align: center;
 }
 
-button{
+button {
   height: 40px;
   text-align: center;
+}
+
+#listaDias li {
+  margin-right: 30px;
 }

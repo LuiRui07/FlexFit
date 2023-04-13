@@ -7,20 +7,17 @@ export default function AllWorkouts() {
     {
       name: "Rutina 1",
       desc: "Frecuencia 1",
-      sets: 20,
-      time: "1h30min",
+      dias: 5,
     },
     {
       name: "Rutina 2",
       desc: "Frecuencia 2",
-      sets: 15,
-      time: "1h",
+      dias: 8,
     },
     {
       name: "Rutina 3",
       desc: "FullBody",
-      sets: 15,
-      time: "30 min",
+      dias: 4,
     },
   ];
 
@@ -45,17 +42,14 @@ export default function AllWorkouts() {
               <div className="card-body">
                 <h5 className="card-title">{workout.name}</h5>
                 <p className="card-text">Description: {workout.desc}</p>
-                <p className="card-text">Sets: {workout.sets}</p>
-                <p className="card-text">Time: {workout.time}</p>
+                <p className="card-text">Dias: {workout.dias}</p>
               </div>
             </div>
           ))}
         </div>
-        <li className="list-group-item" id="add">
-          <a className="btn btn-outline-primary" href="addro">
-            Add Workout
-          </a>
-        </li>
+        <a className="btn btn-outline-primary mt-4" href="addro">
+          Add Workout
+        </a>
       </div>
     </div>
   );
