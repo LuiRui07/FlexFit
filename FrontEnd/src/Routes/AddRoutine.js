@@ -2,7 +2,20 @@ import { useState } from "react";
 import HeaderFF from "./HeaderFF.js";
 import "../css/AddRoutine.css";
 
+function anyadir_dia(){
+  
+  const nombreDia = "Dia " ;
+  const boton_dia = document.createElement("li");
+  boton_dia.classList.add("nombreDia", "flex-grow-1");
+  let lista = document.getElementById("listaDias");
+
+  boton_dia.textContent = nombreDia + (lista.childElementCount + 1);
+  lista.appendChild(boton_dia)
+}
+
 export default function addRoutine() {
+  
+  
   return (
     <div>
       <HeaderFF />
@@ -12,17 +25,13 @@ export default function addRoutine() {
           placeholder="Workout Name"
           className="w-50 form-control formData"
         />
-        <div>
-          <input
-            type="text"
-            placeholder="Day"
-            className="w-200 form-control formData"
-          />
-        </div>
 
-        <li className="list-group-item" id="add">
-          <a className="btn btn-outline-primary">Add Day</a>
-        </li>
+        <ul id="listaDias">
+
+        </ul>
+
+        <button className="btn btn-outline-primary" onClick={anyadir_dia}>Add Day</button>
+        
       </div>
     </div>
   );
