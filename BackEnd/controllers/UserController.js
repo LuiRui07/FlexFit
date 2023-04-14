@@ -170,7 +170,9 @@ export const updateUser = async (req, res) => {
 }
 
 export const logInUser = async (req, res) => {
-    const {username, password} = req.body;
+    const {username, password} = req.params;
+    
+    console.log(username + " " + password);
     try {
         let User = await UserModel.findOne({
             where: {
