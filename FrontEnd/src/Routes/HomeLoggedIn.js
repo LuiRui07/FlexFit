@@ -6,9 +6,12 @@ import HeaderFF from "./HeaderFF";
 import "../css/HomeLoggedIn.css";
 
 function HomeLoggedIn() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+
 
   useEffect(() => {
+
     document.getElementById("homeHeaderLi").classList.add("active");
     const bootstrapCss = document.createElement("link");
     const bootstrapJs = document.createElement("script");
@@ -26,8 +29,8 @@ function HomeLoggedIn() {
     document.head.appendChild(bootstrapCss);
     document.body.appendChild(bootstrapJs);
 
-    localStorage.getItem("user") &&
-      setUser(JSON.parse(localStorage.getItem("user")));
+    
+
   }, []);
 
   return (
@@ -37,7 +40,7 @@ function HomeLoggedIn() {
       <div className="fuerte">
         <div className="p-4 ">
           <h1>
-            Hola {JSON.stringify(user)}
+            Hola {user.username}
             <br></br>
             Ready to do exercise?
           </h1>
@@ -92,7 +95,7 @@ function HomeLoggedIn() {
                 <a href="/Historial" className="btn btn-primary">Historial</a>
               </div>
             </div>
-  </div>*/}
+          </div>*/}
         </div>
       </div>
     </div>

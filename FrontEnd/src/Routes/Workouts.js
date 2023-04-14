@@ -23,6 +23,12 @@ export default function AllWorkouts() {
 
   const [workouts, setWorkouts] = useState(WorkoutDB);
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+  if(user === null){
+    window.location.href = "/home";
+  }
+
   useEffect(() => {
     document.getElementById("workoutsHeaderLi").classList.add("active");
   },[]);

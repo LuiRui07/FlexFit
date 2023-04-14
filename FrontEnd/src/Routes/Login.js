@@ -4,7 +4,8 @@ import Logo from "../images/logoRed.png";
 
 import axios from 'axios';
 
-const iniciarSesion = () => {
+const iniciarSesion = (e) => {
+    e.preventDefault();
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -13,12 +14,12 @@ const iniciarSesion = () => {
 
     axios.get('http://localhost:7777/api/user/'+username+'/'+password).then(res => {
     
-
-        var user = JSON.stringify(res.data);
+        var user = JSON.stringify(res.data.data);
         localStorage.setItem('user', user);
         window.location.href = "/home";
+
     }).catch(err => {
-        alert("Usuario o contraseña incorrectos");
+        alert("Usuario o contraseña incorrectos " + err);
         window.location.href = "/home";
     });
 

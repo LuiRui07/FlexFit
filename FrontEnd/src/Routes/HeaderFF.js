@@ -9,7 +9,7 @@ const cerrarSesion = () => {
 export default function HeaderFF() {
   return (
     <div className="d-flex w-100">
-      <ul className="nav nav-tabs align-items-center w-100">
+      <ul className="nav nav-tabs align-items-center w-100 headerTabs">
         <li className="nav-item">
           <img src={Logo} width="50" height="50" alt="no disponible" />
         </li>
@@ -23,23 +23,28 @@ export default function HeaderFF() {
             Workouts
           </a>
         </li>
+        {/*
         <li className="nav-item-col" id="historyHeaderLi">
           <a className="nav-link" href="historial">
             Historial
           </a>
         </li>
+        */}
         <li className="nav-item-col" id="cuentaHeaderLi">
           <a className="nav-link" href="cuenta">
             Cuenta
           </a>
         </li>
 
-        <li className="nav-item-col logout" id="cuentaHeaderLi">
+        <li className="nav-item-col">
           <a className="nav-link logout" onClick={cerrarSesion}>
-            Cerrar Sesion
+              Cerrar Sesión
           </a>
         </li>
+
       </ul>
+
+
     </div>
   );
 }

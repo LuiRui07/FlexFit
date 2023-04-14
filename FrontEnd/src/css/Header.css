@@ -7,8 +7,12 @@
   --bs-nav-tabs-link-hover-border-color: none;
 }
 
-.nav-tabs .nav-link {
+.nav-tabs, .nav-link {
   border: none !important;
+}
+
+.nav-tabs {
+  border-bottom: none;
 }
 
 li a {
@@ -36,7 +40,7 @@ li a {
 }
 
 .logout {
-  float: right;
+  position: relative;
 }
 
 .logout:hover {
