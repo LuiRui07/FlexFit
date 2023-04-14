@@ -1,6 +1,11 @@
 import Logo from "../images/logo.png";
 import "../css/Header.css";
 
+const cerrarSesion = () => {
+  localStorage.removeItem("user");
+  window.location.href = "/home";
+};
+
 export default function HeaderFF() {
   return (
     <div className="d-flex w-100">
@@ -8,24 +13,30 @@ export default function HeaderFF() {
         <li className="nav-item-col">
           <img src={Logo} width="50" height="50" alt="no disponible" />
         </li>
-        <li className="nav-item-col active">
+        <li className="nav-item-col" id="homeHeaderLi">
           <a className="nav-link" href="home">
             Home
           </a>
         </li>
-        <li className="nav-item-col">
+        <li className="nav-item-col" id="workoutsHeaderLi">
           <a className="nav-link" href="workouts">
             Workouts
           </a>
         </li>
-        <li className="nav-item-col">
+        <li className="nav-item-col" id="historyHeaderLi">
           <a className="nav-link" href="historial">
             Historial
           </a>
         </li>
-        <li className="nav-item-col">
+        <li className="nav-item-col" id="cuentaHeaderLi">
           <a className="nav-link" href="cuenta">
             Cuenta
+          </a>
+        </li>
+
+        <li className="nav-item-col logout" id="cuentaHeaderLi">
+          <a className="nav-link logout" onClick={cerrarSesion}>
+            Cerrar Sesion
           </a>
         </li>
       </ul>

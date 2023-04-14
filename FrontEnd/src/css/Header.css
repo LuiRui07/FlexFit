@@ -8,6 +8,38 @@
 }
 
 
+.nav-tabs .nav-link{
+    border: none !important;
+}
+
 li  a {
     color: black !important;
+}
+
+.active {
+    background-color: #7e3e46;
+    border-color: #fb465a;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.active > a {
+    color: #fff !important;
+    
+}
+
+.nav-item-col:hover, .nav-link:hover{
+    border: none !important;
+    background-color: #7e3e46;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.logout{
+    float: right;
+    
+}
+
+.logout:hover{
+    cursor: pointer;
 }

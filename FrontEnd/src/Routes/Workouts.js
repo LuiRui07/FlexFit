@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import "../css/Workouts.css";
 import HeaderFF from "./HeaderFF.js";
 
@@ -22,6 +22,10 @@ export default function AllWorkouts() {
   ];
 
   const [workouts, setWorkouts] = useState(WorkoutDB);
+
+  useEffect(() => {
+    document.getElementById("workoutsHeaderLi").classList.add("active");
+  },[]);
 
   return (
     <div>

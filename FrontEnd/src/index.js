@@ -8,6 +8,7 @@ import AllWorkouts from "./Routes/Workouts";
 import Historial from "./Routes/Historial";
 import Cuenta from "./Routes/Cuenta";
 import AddRoutine from "./Routes/AddRoutine";
+import Register from "./Routes/Register";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   { path: "/historial", element: <Historial /> },
   { path: "/cuenta", element: <Cuenta /> },
   { path: "/addro", element: <AddRoutine /> },
+  { path: "/register", element: <Register /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
