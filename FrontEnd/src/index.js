@@ -11,6 +11,7 @@ import AddRoutine from "./Routes/AddRoutine";
 import Register from "./Routes/Register";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Tips from "./Routes/Tips";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   { path: "/addex", element: <AddWorkout /> },
   { path: "/workouts", element: <AllWorkouts /> },
   { path: "/historial", element: <Historial /> },
+  {path: "/tips", element: <Tips />},
   { path: "/cuenta", element: <Cuenta /> },
   { path: "/addro", element: <AddRoutine /> },
   { path: "/register", element: <Register /> },

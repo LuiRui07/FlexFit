@@ -45,7 +45,8 @@ function HomeLoggedIn() {
                 <h5 className="card-title">Principiantes</h5>
                 <img src={foto1} class="img-fluid" alt="image not found"/>
                 <p className="card-text pt-3" style={{ fontSize: '19px' }}>Para usuarios sin previa experiencia, tenemos un catálogo de rutinas prediseñadas.</p>
-                <a href="/Workouts" className="btn btn-primary">Catálogo</a>
+                <a href="/Workouts" className="btn btn-primary">Catálogo</a><br></br>
+                <a href="/Tips" className="btn btn-primary">Consejos</a>
               </div>
             </div>
           </div>
