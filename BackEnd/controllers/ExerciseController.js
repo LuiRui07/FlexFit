@@ -4,7 +4,7 @@ import ExerciseModel from "../models/ExerciseModel.js";
 
 // CREATE EXERCISE
 export const createExercise = async (req, res) => {
-    const { name, image, idBodyPart } = req.body;
+    const { name, image,subpart, idBodyPart } = req.body;
     try {
         let Exercise = await ExerciseModel.findOne({
             where: {
@@ -20,10 +20,12 @@ export const createExercise = async (req, res) => {
 
             let newExercise = await ExerciseModel.create({
                 name,
+                description,
                 image,
                 idBodyPart
+                
             }, {
-                fields: ['name', 'image', 'idBodyPart']
+                fields: ['name', 'description', 'image', 'idBodyPart']
             });
             if (newExercise) {
                 return res.json({
@@ -131,7 +133,7 @@ export const deleteExercise = async (req, res) => {
 // UPDATE EXERCISE
 export const updateExercise = async (req, res) => {
     const { id } = req.params;
-    const { name, image, idBodyPart } = req.body;
+    const { name, description, image, idBodyPart } = req.body;
     try {
         let Exercise = await ExerciseModel.findOne({
             where: {
@@ -141,10 +143,11 @@ export const updateExercise = async (req, res) => {
         if (Exercise) {
             await Exercise.update({
                 name,
+                description,
                 image,
                 idBodyPart
             }, {
-                fields: ['name', 'image', 'idBodyPart']
+                fields: ['name', 'description' ,'image', 'idBodyPart']
             });
             return res.json({
                 message: 'Exercise updated successfully',

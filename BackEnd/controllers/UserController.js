@@ -168,3 +168,32 @@ export const updateUser = async (req, res) => {
         });
     }
 }
+
+export const logInUser = async (req, res) => {
+    const {username, password} = req.body;
+    try {
+        let User = await UserModel.findOne({
+            where: {
+                username,
+                password
+            }
+        });
+        if (User) {
+            return res.json({
+                message: 'User found successfully',
+                data: User
+            });
+        }else{
+            return res.json({
+                message: 'Invalid username or password',
+                data: {}
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
