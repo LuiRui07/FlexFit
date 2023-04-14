@@ -1,30 +1,33 @@
 import foto1 from "../images/pt.png";
-import foto2 from "../images/avanzado.png"
-import foto3 from "../images/historial.png"
-import React, { useEffect, useState } from 'react';
-import HeaderFF from './HeaderFF';
-import '../css/HomeLoggedIn.css';
+import foto2 from "../images/avanzado.png";
+import foto3 from "../images/historial.png";
+import React, { useEffect, useState } from "react";
+import HeaderFF from "./HeaderFF";
+import "../css/HomeLoggedIn.css";
 
 function HomeLoggedIn() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    document.getElementById('homeHeaderLi').classList.add('active');
-    const bootstrapCss = document.createElement('link');
-    const bootstrapJs = document.createElement('script');
+    document.getElementById("homeHeaderLi").classList.add("active");
+    const bootstrapCss = document.createElement("link");
+    const bootstrapJs = document.createElement("script");
 
-    bootstrapCss.href = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css';
-    bootstrapCss.rel = 'stylesheet';
-    bootstrapCss.type = 'text/css';
+    bootstrapCss.href =
+      "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css";
+    bootstrapCss.rel = "stylesheet";
+    bootstrapCss.type = "text/css";
 
-    bootstrapJs.src = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js';
-    bootstrapJs.type = 'text/javascript';
+    bootstrapJs.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js";
+    bootstrapJs.type = "text/javascript";
     bootstrapJs.async = true;
 
     document.head.appendChild(bootstrapCss);
     document.body.appendChild(bootstrapJs);
 
-    localStorage.getItem('user') && setUser(JSON.parse(localStorage.getItem('user')));
+    localStorage.getItem("user") &&
+      setUser(JSON.parse(localStorage.getItem("user")));
   }, []);
 
   return (
@@ -34,33 +37,45 @@ function HomeLoggedIn() {
       <div className="fuerte">
         <div className="p-4">
           <h1>
-            Hola {JSON.stringify(user)}<br></br>
+            Hola {JSON.stringify(user)}
+            <br></br>
             Ready to do exercise?
           </h1>
         </div>
-        <div className="row p-4">
-          <div className="col-sm">
-            <div className="card h-100">
+        <div className="row p-2 pt-0">
+          <div className="col-4">
+            <div className="card">
               <div className="card-body text-dark">
                 <h5 className="card-title">Principiantes</h5>
-                <img src={foto1} class="img-fluid" alt="image not found"/>
-                <p className="card-text pt-3" style={{ fontSize: '19px' }}>Para usuarios sin previa experiencia, tenemos un catálogo de rutinas prediseñadas.</p>
-                <a href="/Workouts" className="btn btn-primary">Catálogo</a><br></br>
-                <a href="/Tips" className="btn btn-primary">Consejos</a>
+                <img src={foto1} class="img-fluid" alt="image not found" />
+                <p className="card-text pt-3" style={{ fontSize: "19px" }}>
+                  Para usuarios sin previa experiencia, tenemos un catálogo de
+                  rutinas prediseñadas.
+                </p>
+                <a href="/Workouts" className="btn btn-primary ">
+                  Catálogo
+                </a>
+                <a href="/Tips" className="btn btn-primary ">
+                  Consejos
+                </a>
               </div>
             </div>
           </div>
-          <div className="col-sm">
-            <div className="card h-100">
+          <div className="col-4">
+            <div className="card">
               <div className="card-body text-dark">
                 <h5 className="card-title">Avanzado</h5>
-                <img src={foto2} class="img-fluid" alt="image not found"/>
-                <p className="card-text pt-3" style={{ fontSize: '19px' }}>Diseñe su propia rutina, para usuarios con más experiencia.</p>
-                <a href="/Workouts" className="btn btn-primary">Diseñar rutina</a>
+                <img src={foto2} class="img-fluid" alt="image not found" />
+                <p className="card-text pt-3" style={{ fontSize: "19px" }}>
+                  Diseñe su propia rutina, para usuarios con más experiencia.
+                </p>
+                <a href="/Workouts" className="btn btn-primary">
+                  Diseñar rutina
+                </a>
               </div>
             </div>
           </div>
-          {/*<div className="col-sm">
+          {/*<div className="col-4">
             <div className="card h-100">
               <div className="card-body text-dark">
                 <h5 className="card-title">Historial</h5>
@@ -77,5 +92,3 @@ function HomeLoggedIn() {
 }
 
 export default HomeLoggedIn;
-
-

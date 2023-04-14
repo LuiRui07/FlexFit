@@ -10,7 +10,7 @@ export default function HeaderFF() {
   return (
     <div className="d-flex w-100">
       <ul className="nav nav-tabs align-items-center w-100">
-        <li className="nav-item-col">
+        <li className="nav-item">
           <img src={Logo} width="50" height="50" alt="no disponible" />
         </li>
         <li className="nav-item-col" id="homeHeaderLi">
