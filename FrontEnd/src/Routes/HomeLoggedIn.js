@@ -35,7 +35,7 @@ function HomeLoggedIn() {
       <HeaderFF />
 
       <div className="fuerte">
-        <div className="p-4">
+        <div className="p-4 ">
           <h1>
             Hola {JSON.stringify(user)}
             <br></br>
@@ -47,7 +47,11 @@ function HomeLoggedIn() {
             <div className="card">
               <div className="card-body text-dark">
                 <h5 className="card-title">Principiantes</h5>
-                <img src={foto1} class="img-fluid" alt="image not found" />
+                <img
+                  src={foto1}
+                  class="rounded img-fluid"
+                  alt="image not found"
+                />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Para usuarios sin previa experiencia, tenemos un catálogo de
                   rutinas prediseñadas.
@@ -65,7 +69,11 @@ function HomeLoggedIn() {
             <div className="card">
               <div className="card-body text-dark">
                 <h5 className="card-title">Avanzado</h5>
-                <img src={foto2} class="img-fluid" alt="image not found" />
+                <img
+                  src={foto2}
+                  class="rounded img-fluid"
+                  alt="image not found"
+                />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Diseñe su propia rutina, para usuarios con más experiencia.
                 </p>
