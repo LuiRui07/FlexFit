@@ -1,36 +1,63 @@
 import React from 'react'
 import '../css/Login.css'
 import Logo from "../images/logoRed.png";
+import { useState } from 'react';
 
 import axios from 'axios';
 
-const iniciarSesion = (e) => {
-    e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
 
-    console.log(username, password);
-
-    axios.get('http://localhost:7777/api/user/'+username+'/'+password).then(res => {
-    
-        var user = JSON.stringify(res.data.data);
-        localStorage.setItem('user', user);
-        window.location.href = "/home";
-
-    }).catch(err => {
-        alert("Usuario o contraseña incorrectos " + err);
-        window.location.href = "/home";
-    });
-    
-}
 
 
 function Login() {
+
+
+    
+ const [statusMessage, setStatusMessage] = useState('');
+ 
+ const showPopup = () => {
+    const popup = document.getElementById('popup');
+    popup.classList.add('showPopup');
+    setTimeout(() => {
+        popup.classList.remove('showPopup');
+    }, 1000);
+}
+
+    const iniciarSesion = (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        console.log(username, password);
+
+        axios.get('http://localhost:7777/api/user/'+username+'/'+password).then(res => {
+        
+            var user = JSON.stringify(res.data.data);
+            localStorage.setItem('user', user);
+            window.location.href = "/home";
+
+        }).catch(err => {
+            setStatusMessage('Usuario o contraseña incorrectos');
+            showPopup();
+        });
+        
+    }
+
+
+
   return (
     <div className='bg-form'>
 
         <div className='container'>
+            <div className='popupStatus' id='popup'>
+                    <div style={{backgroundColor: 'white'}}>
+                        <div className='d-flex'>
+                            <p className='display-5' style={{color: 'black'}}>{statusMessage}</p>
+                        </div>
+                       
+                    </div>
+            </div>
             <form className='formLogin' >
                 <div className='form-group d-flex align-items-center'>
                     <div >

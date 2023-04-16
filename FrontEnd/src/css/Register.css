@@ -147,3 +147,32 @@
     outline-color: transparent;
   }
 
+
+.popupStatus{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: all 0.5s ease-in-out;
+}
+
+.showPopup{
+    display: flex;
+}
+
+.popupStatus > div{
+    padding: 30px;
+    border-radius: 20px;
+    width: 20%px;
+    height: 80%px;
+}
+
+.registerbutton{
+    margin: auto;
+}

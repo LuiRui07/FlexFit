@@ -13,7 +13,7 @@ export const createUser = async (req, res) => {
         });
         if (User) {
             return res.json({
-                message: 'This user already exists',
+                message: 'Este nombre de usuario ya existe',
                 data: {}
             });
         }else{
@@ -32,8 +32,8 @@ export const createUser = async (req, res) => {
                 fields: ['nombre', 'apellido1', 'apellido2', 'edad', 'altura', 'peso', 'sexo', 'username', 'password']
             });
             if (newUser) {
-                return res.json({
-                    message: 'User created successfully',
+                return res.status(200).json({
+                    message: 'Usuario creado correctamente',
                     data: newUser
                 });
             }
