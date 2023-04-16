@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/user', UserRoutes);
 app.use('/api/exercise', ExerciseRoutes);
+app.use('/api/day',DayRoutes)
 
 try{
     db.authenticate();

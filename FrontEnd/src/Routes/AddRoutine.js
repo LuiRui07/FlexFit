@@ -9,9 +9,9 @@ function anyadir_dia() {
   let lista = document.getElementById("listaDias");
 
   const enlace_dia = document.createElement("a");
-  enlace_dia.href = "#";
   enlace_dia.className = "btn btn-outline-danger mt-4 me-2 ";
   enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
+  enlace_dia.href = "addro/" + (lista.childElementCount + 1);                     //Paso el nombre del dia dinamico
 
   const boton_eliminar = document.createElement("button");
   boton_eliminar.className = "btn btn-warning mt-4";
@@ -38,6 +38,8 @@ export default function addRoutine() {
           placeholder="Workout Name"
           className="w-50 form-control formData"
         />
+
+        
         <ul className="align-items-center" id="listaDias"></ul>
 
         <button className="btn btn-primary" onClick={anyadir_dia}>

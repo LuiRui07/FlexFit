@@ -14,3 +14,13 @@
 .formData {
   margin-top: 10px;
 }
+
+.addExercise{
+  display: none;
+  z-index: 99;
+  position: absolute;
+}
+
+.ventanaActiva{
+  display: block !important; 
+}

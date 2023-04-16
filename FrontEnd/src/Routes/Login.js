@@ -22,7 +22,7 @@ const iniciarSesion = (e) => {
         alert("Usuario o contraseña incorrectos " + err);
         window.location.href = "/home";
     });
-
+    
 }
 
 

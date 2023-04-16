@@ -56,7 +56,6 @@ export default function AddWorkout() {
 
   return (
     <div>
-      <HeaderFF />
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
         <h1>Register a new Workout</h1>
         <form
