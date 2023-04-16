@@ -2,19 +2,18 @@ import { useParams } from "react-router-dom";
 import HeaderFF from "./HeaderFF.js";
 import AddExercise from "./AddExercise.js"
 import axios from "axios";
+import "../css/AddExercise_Day.css";
 
 const URL_DIA = "http://localhost:7777/api/day"
 
 function anyadir_ejer() {
 
-    const ventana = document.getElementById("ventana_anyadir")
-    ventana.classList.add("ventanaActiva")
-
     const nombreEjer = "Ejer ";
     const boton_ejer = document.createElement("li");
-    boton_ejer.classList.add("nombreEjer", "list-group-item");
+    boton_ejer.classList.add("nombreEjer", "list-group-item","d-flex");
     let lista = document.getElementById("listaEjers");
-  
+    
+
     const enlace_ejer = document.createElement("a");
     enlace_ejer.className = "btn btn-outline-danger mt-4 me-2 ";
     enlace_ejer.textContent = nombreEjer + (lista.childElementCount + 1);
@@ -35,6 +34,16 @@ function anyadir_ejer() {
     lista.removeChild(elemento);
   }
 
+const mostrarVentana = () => {
+    const ventana = document.getElementById("ventana_anyadir")
+    ventana.classList.add("ventanaActiva")
+}
+
+const cerrarVentana = () => {
+    const ventana = document.getElementById("ventana_anyadir")
+    ventana.classList.remove("ventanaActiva")
+}
+
 const AddExercise_Day = () => {
     let params = useParams();
     let dias = axios.get(URL_DIA);
@@ -44,15 +53,15 @@ const AddExercise_Day = () => {
 
         <div>
             <HeaderFF />
-            <div class="addExercise" id="ventana_anyadir">
-                <AddExercise/>
-            </div>
+
+            <AddExercise/>
+
             <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
 
 
                 <ul className="align-items-center" id="listaEjers"></ul>
 
-                <button className="btn btn-primary" onClick={anyadir_ejer}>
+                <button className="btn btn-primary" onClick={mostrarVentana}>
                     Añadir Ejercicio
                 </button>
             </div>

@@ -6,6 +6,6 @@ var BodyPartModel = db.define('bodypart', {
     idBodyPart: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, allowNull: false },
     subpart: { type: DataTypes.STRING, allowNull: true },
-}, {freezeTableName: true} );
+}, {freezeTableName: true,timestamps: false,underscored: false} );
 
 export default BodyPartModel;

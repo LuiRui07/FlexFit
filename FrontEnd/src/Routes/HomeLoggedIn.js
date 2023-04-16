@@ -45,7 +45,7 @@ function HomeLoggedIn() {
             Ready to do exercise?
           </h1>
         </div>
-        <div className="row p-2 pt-0">
+        <div className="d-flex justify-content-around" >
           <div className="col-4">
             <div className="card">
               <div className="card-body text-dark">
@@ -54,15 +54,16 @@ function HomeLoggedIn() {
                   src={foto1}
                   class="rounded img-fluid"
                   alt="image not found"
+
                 />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Para usuarios sin previa experiencia, tenemos un catálogo de
                   rutinas prediseñadas.
                 </p>
-                <a href="/Workouts" className="btn btn-primary ">
+                <a href="/Workouts" className="btn btn-danger ">
                   Catálogo
                 </a>
-                <a href="/Tips" className="btn btn-primary ">
+                <a href="/Tips" className="btn btn-danger ">
                   Consejos
                 </a>
               </div>
@@ -80,7 +81,7 @@ function HomeLoggedIn() {
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Diseñe su propia rutina, para usuarios con más experiencia.
                 </p>
-                <a href="/Workouts" className="btn btn-primary">
+                <a href="/Workouts" className="btn btn-danger">
                   Diseñar rutina
                 </a>
               </div>

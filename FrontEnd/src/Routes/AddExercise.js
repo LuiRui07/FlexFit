@@ -1,6 +1,15 @@
 import { useState } from "react";
 import "../css/AddExercise.css";
-import HeaderFF from "./HeaderFF.js";
+
+const mostrarVentana = () => {
+  const ventana = document.getElementById("ventana_anyadir")
+  ventana.classList.add("ventanaActiva")
+}
+
+const cerrarVentana = () => {
+  const ventana = document.getElementById("ventana_anyadir")
+  ventana.classList.remove("ventanaActiva")
+}
 
 export default function AddWorkout() {
   const workoutTypes = [
@@ -55,9 +64,13 @@ export default function AddWorkout() {
   }
 
   return (
-    <div>
+    <div class="addExercise" id="ventana_anyadir">
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+        <div className="card-header">
         <h1>Register a new Workout</h1>
+        <h2 onClick={cerrarVentana}>x</h2>
+        </div>
+        
         <form
           className="d-flex gap-5 align-items-center"
           action="/saveWorkout"
@@ -107,13 +120,15 @@ export default function AddWorkout() {
                 className="p-1 form-control sets hours"
                 min="0"
               />
+              
             </div>
             <input
               type="submit"
-              className="btn btn-outline-primary w-100 formData"
+              className="btn btn-outline-danger w-100 formData"
               value="Register!"
             />
           </div>
+          
         </form>
       </div>
     </div>

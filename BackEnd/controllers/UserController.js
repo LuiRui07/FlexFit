@@ -51,7 +51,9 @@ export const createUser = async (req, res) => {
 // GET ALL USERS
 export const getAllUsers = async (req, res) => {
     try {
-        let Users = await UserModel.findAll();
+        let Users = await UserModel.findAll({
+            include: [{all: true,nested: true}]
+        });
         if (Users) {
             return res.json({
                 message: `${Users.length} Users found`,
@@ -79,7 +81,8 @@ export const getUser = async (req, res) => {
         let User = await UserModel.findOne({
             where: {
                 username
-            }
+            },
+            include: [{all: true}]
         });
         if (User) {
             return res.json({

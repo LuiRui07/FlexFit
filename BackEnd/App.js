@@ -5,6 +5,8 @@ import db from './database/DB.js';
 
 import UserRoutes from './routes/UserRoutes.js';
 import ExerciseRoutes from './routes/ExerciseRoutes.js';
+import DayRoutes from './routes/DayRoutes.js';
+import WorkoutRoutes from './routes/WorkoutRoutes.js';
 
 const app = express();
 
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use('/api/user', UserRoutes);
 app.use('/api/exercise', ExerciseRoutes);
 app.use('/api/day',DayRoutes)
+app.use('/api/workout',WorkoutRoutes)
 
 try{
     db.authenticate();

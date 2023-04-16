@@ -1,4 +1,5 @@
 import db from '../database/DB.js';
+import WorkoutModel from './WorkoutModel.js';
 
 import { DataTypes } from 'sequelize';
 
@@ -13,6 +14,9 @@ var UserModel = db.define('user', {
     sexo: { type: DataTypes.CHAR, allowNull: false },
     username: { type: DataTypes.STRING, allowNull: false },
     password: { type: DataTypes.STRING, allowNull: false },
-}, {freezeTableName: true} );
+}, {freezeTableName: true,timestamps: false,underscored: false} );
+
+UserModel.hasMany(WorkoutModel, {foreignKey: 'user_id' }, {as : 'Workouts'}, {onDelete: 'CASCADE'}, {onUpdate: 'CASCADE'})
+
 
 export default UserModel;

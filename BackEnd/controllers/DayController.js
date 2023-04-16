@@ -1,27 +1,23 @@
-import DayModel from "../models/DayModel.js"
+import WorkoutDayModel from "../models/WorkoutDayModel.js"
+import WorkoutModel from "../models/WorkoutModel.js";
 
 //CREAR DIAS
 
-export const createExercise = async (req, res) => {
-    const { name} = req.body;
+export const createDay = async (req, res) => {
+    const { name, routineId } = req.body;
     try {
-        let Day = await DayModel.findOne({
-            where: {
-                name
-            }
+        let newDay = await WorkoutDayModel.create({
+            name,
+            routineId
+        }, {
+            fields: ['name', 'routineId']
         });
-            let newDay = await DayModel.create({
-                name
-                
-            }, {
-                fields: ['name']
+        if (newDay) {
+            return res.json({
+                message: 'Day created successfully',
+                data: newDay
             });
-            if (newExercise) {
-                return res.json({
-                    message: 'Day created successfully',
-                    data: newDay
-                });
-            }
+        }
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -31,18 +27,91 @@ export const createExercise = async (req, res) => {
     }
 }
 
-//GET DIAS
+//OBTENER TODOS LOS DIAS
 export const getAllDays = async (req, res) => {
     try {
-        let Days = await DayModel.findAll();
-        if (Days) {
+        const days = await WorkoutDayModel.findAll({
+            include: []
+        });
+        res.json({
+            data: days,
+            
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+
+//OBTENER UN DIA
+export const getOneDay = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const day = await WorkoutDayModel.findOne({
+            where: {
+                id
+            }
+        });
+        res.json({
+            data: day
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+
+//OBTENER DIAS POR RUTINA
+export const getDayByRoutine = async (req, res) => {
+    try {
+        const { routineId } = req.params;
+        const days = await WorkoutDayModel.findAll({
+            where: {
+                routineId
+            }
+        });
+        res.json({
+            data: days
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+
+//ACTUALIZAR DIAS
+export const updateDay = async (req, res) => {
+    const { id } = req.params;
+    const { name, routineId } = req.body;
+    try {
+        let day = await WorkoutDayModel.findOne({
+            where: {
+                id
+            }
+        });
+        if (day) {
+            await day.update({
+                name,
+                routineId
+            }, {
+                fields: ['name', 'routineId']
+            });
             return res.json({
-                message: `${Days.length} Days found`,
-                data: Days
+                message: 'Day updated successfully',
+                data: day
             });
         }else{
             return res.json({
-                message: 'No Days found',
+                message: 'No Day found',
                 data: {}
             });
         }
@@ -54,3 +123,27 @@ export const getAllDays = async (req, res) => {
         });
     }
 }
+
+
+//ELIMINAR DIAS
+export const deleteDay = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteRowCount = await WorkoutDayModel.destroy({
+            where: {
+                id
+            }
+        });
+        res.json({
+            message: 'Day deleted successfully',
+            count: deleteRowCount
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+

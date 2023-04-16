@@ -3,7 +3,7 @@ import "../css/Header.css";
 
 const cerrarSesion = () => {
   localStorage.removeItem("user");
-  window.location.href = "/home";
+  window.location.href = "../home";
 };
 
 export default function HeaderFF() {
@@ -14,12 +14,12 @@ export default function HeaderFF() {
           <img src={Logo} width="50" height="50" alt="no disponible" />
         </li>
         <li className="nav-item-col" id="homeHeaderLi">
-          <a className="nav-link" href="home">
+          <a className="nav-link" href="../home">
             Home
           </a>
         </li>
         <li className="nav-item-col" id="workoutsHeaderLi">
-          <a className="nav-link" href="workouts">
+          <a className="nav-link" href="../workouts">
             Workouts
           </a>
         </li>
@@ -31,7 +31,7 @@ export default function HeaderFF() {
         </li>
         */}
         <li className="nav-item-col" id="cuentaHeaderLi">
-          <a className="nav-link" href="cuenta">
+          <a className="nav-link" href="../cuenta">
             Cuenta
           </a>
         </li>

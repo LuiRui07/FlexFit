@@ -35,3 +35,22 @@ input.barra {
 li#add {
   margin-top: 1%;
 }
+
+.titleWorkout{
+  text-align: center;
+  color: white !important;
+  background-color: #fb465a;
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+}
+
+.rutinaClikcable {
+  transition: all 0.3s ease-in-out;
+}
+
+.rutinaClikcable:hover{
+  cursor: pointer;
+  transform: scale(1.05) rotate3d(1, 1, 1, -5deg);
+}
