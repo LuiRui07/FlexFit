@@ -35,18 +35,7 @@ export default function HeaderFF() {
             Cuenta
           </a>
         </li>
-
-
-
-        <li className="nav-item-col">
-          <a className="nav-link logout" onClick={cerrarSesion}>
-              Cerrar Sesión
-          </a>
-        </li>
-
       </ul>
-
-
     </div>
   );
 }

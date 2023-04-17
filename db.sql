@@ -159,7 +159,7 @@ CREATE TABLE `workout` (
   `last_time` datetime DEFAULT NULL,
   `private` int NOT NULL DEFAULT '1',
   `favorite` int NOT NULL DEFAULT '0',
-  `difficulty` varchar(45) NOT NULL DEFAULT 'EASY',
+  `difficulty` varchar(45) NOT NULL DEFAULT 'FÁCIL',
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-17 23:17:37
+-- Dump completed on 2023-04-18  0:23:38
