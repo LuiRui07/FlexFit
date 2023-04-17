@@ -19,10 +19,9 @@ h3 {
 }
 
 .img {
-  border-radius:50px;
+  border-radius: 50px;
+  border-style: double;
   width: 100px;
-}
-
-.nombreUser {
-  
+  margin-top: 45%;
+  margin-left: 20%;
 }
