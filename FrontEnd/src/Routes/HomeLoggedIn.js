@@ -35,7 +35,7 @@ function HomeLoggedIn() {
         <div className="p-4 ">
           <h1>
             Hola {user.username}
-            <br></br>
+            <br />
             Ready to do exercise?
           </h1>
         </div>

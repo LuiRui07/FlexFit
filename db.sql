@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: flexfit
 -- ------------------------------------------------------
@@ -58,11 +58,11 @@ CREATE TABLE `dayexercise` (
   `weight` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`idExercise`),
   UNIQUE KEY `idExercise_UNIQUE` (`idExercise`),
-  KEY `workoutday_idx` (`workoutday`),
   KEY `exerciseID_idx` (`exerciseId`),
+  KEY `workoutDay_idx` (`workoutday`),
   CONSTRAINT `exerciseID` FOREIGN KEY (`exerciseId`) REFERENCES `exercise` (`id`),
-  CONSTRAINT `workoutday` FOREIGN KEY (`workoutday`) REFERENCES `workout_day` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `workoutDay` FOREIGN KEY (`workoutday`) REFERENCES `workout_day` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +71,7 @@ CREATE TABLE `dayexercise` (
 
 LOCK TABLES `dayexercise` WRITE;
 /*!40000 ALTER TABLE `dayexercise` DISABLE KEYS */;
+INSERT INTO `dayexercise` VALUES (1,1,6,8,30);
 /*!40000 ALTER TABLE `dayexercise` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +139,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',170,'2023-04-14 01:59:28','2023-04-14 01:59:28'),(6,'luisruiz','lui','Luis','Ruiz','Nunez',20,90,'H',190,'2023-04-17 14:34:53','2023-04-17 14:34:53');
+INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',170,'2023-04-14 01:59:28','2023-04-14 01:59:28'),(6,'paco','pacoco','paco','juan','jose',23,67,'',198,'2023-04-16 20:37:26','2023-04-16 20:37:26'),(8,'rafa','rafa','rafa','rafa','rafa',43,43,'H',34,'2023-04-16 21:20:47','2023-04-16 21:20:47');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +163,7 @@ CREATE TABLE `workout` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_workout_user1_idx` (`user_id`),
   CONSTRAINT `fk_workout_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +172,7 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
+INSERT INTO `workout` VALUES (1,'Para flakos','Pal willy macho',NULL,1,0,'FÁCIL',5);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +184,7 @@ DROP TABLE IF EXISTS `workout_day`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `workout_day` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `workout_id` int NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -191,7 +193,7 @@ CREATE TABLE `workout_day` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_workout_day_workout1_idx` (`workout_id`),
   CONSTRAINT `fk_workout_day_workout1` FOREIGN KEY (`workout_id`) REFERENCES `workout` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +202,7 @@ CREATE TABLE `workout_day` (
 
 LOCK TABLES `workout_day` WRITE;
 /*!40000 ALTER TABLE `workout_day` DISABLE KEYS */;
+INSERT INTO `workout_day` VALUES (1,'dia 1',1,'2023-04-16 03:03:44','2023-04-16 03:03:44');
 /*!40000 ALTER TABLE `workout_day` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -212,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-17 14:40:40
+-- Dump completed on 2023-04-16 23:27:12
