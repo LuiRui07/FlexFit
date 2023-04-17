@@ -4,7 +4,7 @@ import UserModel from "../models/UserModel.js";
 
 // CREATE USER
 export const createUser = async (req, res) => {
-    const { nombre, apellido1, apellido2, edad, altura, peso, sexo, username, password } = req.body;
+    const { nombre, apellido1, apellido2, edad, altura, peso, sexo, username, password, image } = req.body;
     try {
         let User = await UserModel.findOne({
             where: {
@@ -27,9 +27,10 @@ export const createUser = async (req, res) => {
                 peso,
                 sexo,
                 username,
-                password
+                password,
+                image
             }, {
-                fields: ['nombre', 'apellido1', 'apellido2', 'edad', 'altura', 'peso', 'sexo', 'username', 'password']
+                fields: ['nombre', 'apellido1', 'apellido2', 'edad', 'altura', 'peso', 'sexo', 'username', 'password','image']
             });
             if (newUser) {
                 return res.status(200).json({
@@ -52,7 +53,7 @@ export const createUser = async (req, res) => {
 export const getAllUsers = async (req, res) => {
     try {
         let Users = await UserModel.findAll({
-            include: [{all: true,nested: true}]
+            include: [{all: true}]
         });
         if (Users) {
             return res.json({
@@ -136,10 +137,10 @@ export const deleteUser = async (req, res) => {
 // UPDATE AN USER
 export const updateUser = async (req, res) => {
     const { id } = req.params;
-    const { nombre, apellido1, apellido2, edad, altura, peso, sexo, username, password } = req.body;
+    const { nombre, apellido1, apellido2, edad, altura, peso, sexo, username, password, image} = req.body;
     try {
         let User = await UserModel.findAll({
-            attributes: ['id', 'nombre', 'apellido1', 'apellido2', 'edad', 'altura', 'peso', 'sexo', 'username', 'password'],
+            attributes: ['id', 'nombre', 'apellido1', 'apellido2', 'edad', 'altura', 'peso', 'sexo', 'username', 'password', 'image'],
             where: {
                 id
             }
@@ -155,7 +156,8 @@ export const updateUser = async (req, res) => {
                     peso,
                     sexo,
                     username,
-                    password
+                    password,
+                    image
                 });
             });
         }

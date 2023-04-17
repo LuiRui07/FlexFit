@@ -25,3 +25,35 @@ h3 {
   margin-top: 45%;
   margin-left: 20%;
 }
+
+
+.containerInfoUser{
+  color: black;
+  margin: auto;
+  width: 40%;
+}
+
+
+.containerInfoUser .imagenUser{
+  width: 100px;
+  height: 100px;
+  border-top-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  
+}
+
+.headerContainerInfoUser{
+  display: flex;
+  align-items: center;
+}
+
+.nameInfoContainer{
+  background-color: #fb465a;
+  height: max-content;
+  position: relative;
+  padding: 20px;
+  padding-top: 23px;
+  color:white;
+  width: 100%;
+  margin-left: 10px;
+}

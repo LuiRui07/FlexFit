@@ -1,5 +1,7 @@
 import WorkoutModel from "../models/WorkoutModel.js";
 
+import { Op } from "sequelize";
+
 // Creamos el CRUD PARA EL Workout
 
 // CREATE Workout
@@ -173,6 +175,64 @@ export const getAllWorkoutsFromUser = async (req, res) => {
             where: {
                 user_id: id
             },  
+            include:[{all:true}]
+        });
+        if (Workouts) {
+            return res.json({
+                message: `${Workouts.length} Workouts found`,
+                data: Workouts
+            });
+        }else{
+            return res.json({
+                message: 'No Workouts found',
+                data: {}
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+
+export const getAllWorkoutsOfAnUserAndPublicOnes = async (req, res) => {
+    const { id } = req.params;
+    try {
+        let Workouts = await WorkoutModel.findAll({
+            where: {
+                [Op.or]: [{user_id: id}, {private: false}]
+            },
+            include:[{all:true}]
+        });
+        if (Workouts) {
+            return res.json({
+                message: `${Workouts.length} Workouts found`,
+                data: Workouts
+            });
+        }else{
+            return res.json({
+                message: 'No Workouts found',
+                data: {}
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        });
+    }
+}
+
+
+export const getAllPublicWorkouts = async (req, res) => {
+    try {
+        let Workouts = await WorkoutModel.findAll({
+            where: {
+                private: false
+            },
             include:[{all:true}]
         });
         if (Workouts) {

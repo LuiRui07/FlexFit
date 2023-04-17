@@ -4,6 +4,10 @@ import { useEffect } from "react";
 
 export default function Tips() {
 
+  useEffect(() => {
+    document.getElementById("tipsHeaderLi").classList.add("active");
+  }, []);
+
   return (
     <div className="h-100">
       <HeaderFF />
@@ -15,7 +19,7 @@ export default function Tips() {
           <div className="row p-4">
           <div className="col-sm">
             <div className="card h-100">
-              <div className="card-body text-dark">
+              <div className="card-body text-dark gap-5 d-flex flex-column p-4">
                <h5>
                1. Cuando empieces en el gimnasio, es importante que no te esfuerces demasiado al principio. Trata de empezar con algunas de las rutinas simples que recomendamos y aumentar gradualmente la intensidad de tus ejercicios.
                </h5>

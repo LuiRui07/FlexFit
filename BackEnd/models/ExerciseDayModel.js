@@ -10,6 +10,6 @@ var ExerciseDayModel = db.define('dayexercise', {
 }, {freezeTableName: true,timestamps: false,underscored: false});
 
 
-ExerciseDayModel.hasOne(ExerciseModel, {foreignKey: 'exerciseId' }, {as: 'Exercise'} , {onDelete: 'NO ACTION'}, {onUpdate: 'NO ACTION'})
+ExerciseDayModel.hasOne(ExerciseModel, {foreignKey: 'id' }, {as: 'Exercise'} , {onDelete: 'NO ACTION'}, {onUpdate: 'NO ACTION'})
 
 export default ExerciseDayModel;

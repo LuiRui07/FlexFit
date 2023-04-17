@@ -8,6 +8,7 @@ var WorkoutModel = db.define('workout', {
     name: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.STRING, allowNull: false },
     last_time: { type: DataTypes.DATE, allowNull: true },
+    private: { type: DataTypes.BOOLEAN, allowNull: false },
     favorite: { type: DataTypes.BOOLEAN, allowNull: false },
     difficulty: { type: DataTypes.STRING, allowNull: false },
     user_id: { type: DataTypes.INTEGER, allowNull: false }

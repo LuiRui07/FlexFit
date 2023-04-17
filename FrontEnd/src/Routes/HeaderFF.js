@@ -30,6 +30,12 @@ export default function HeaderFF() {
           </a>
         </li>
 
+        <li className="nav-item-col" id="tipsHeaderLi">
+          <a className="nav-link" href="../Tips">
+            Tips
+          </a>
+        </li>
+
         <li className="nav-item-col">
           <a className="nav-link logout" onClick={cerrarSesion}>
               Cerrar Sesión
