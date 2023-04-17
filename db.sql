@@ -56,6 +56,7 @@ CREATE TABLE `dayexercise` (
   `exerciseId` int NOT NULL,
   `reps` int NOT NULL DEFAULT '0',
   `weight` int NOT NULL DEFAULT '0',
+  `series` int NOT NULL,
   PRIMARY KEY (`idExercise`),
   UNIQUE KEY `idExercise_UNIQUE` (`idExercise`),
   KEY `exerciseID_idx` (`exerciseId`),
@@ -71,7 +72,7 @@ CREATE TABLE `dayexercise` (
 
 LOCK TABLES `dayexercise` WRITE;
 /*!40000 ALTER TABLE `dayexercise` DISABLE KEYS */;
-INSERT INTO `dayexercise` VALUES (1,1,3,10,25),(2,1,31,10,20),(3,1,16,10,10),(4,1,4,10,10),(5,1,5,10,5),(6,1,10,10,7),(17,13,19,10,0),(18,13,9,10,20),(19,13,18,8,25),(20,13,32,10,15),(21,13,24,8,10);
+INSERT INTO `dayexercise` VALUES (1,1,3,10,25,3),(2,1,31,10,20,3),(3,1,16,10,10,3),(4,1,4,10,10,3),(5,1,5,10,5,3),(6,1,10,10,7,3),(17,13,19,10,0,3),(18,13,9,10,20,3),(19,13,18,8,25,3),(20,13,32,10,15,3),(21,13,24,8,10,3);
 /*!40000 ALTER TABLE `dayexercise` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,6 +128,7 @@ CREATE TABLE `user` (
   `altura` int NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `image` varchar(300) DEFAULT 'https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
@@ -139,7 +141,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',170,'2023-04-14 01:59:28','2023-04-14 01:59:28'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34');
+INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',170,'2023-04-14 01:59:28','2023-04-14 01:59:28','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-17 19:31:11
+-- Dump completed on 2023-04-17 19:56:40
