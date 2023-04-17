@@ -141,7 +141,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',171,'2023-04-14 01:59:28','2023-04-14 01:59:28','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
+INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',171,'2023-04-14 01:59:28','2023-04-14 01:59:28','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26','https://media.thetab.com/blogs.dir/90/files/2020/10/eiddclywsamofb9-819x1024.jpeg'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-18  0:23:38
+-- Dump completed on 2023-04-18  0:29:34
