@@ -5,7 +5,10 @@ import React, { useEffect, useState } from "react";
 import HeaderFF from "./HeaderFF";
 import "../css/HomeLoggedIn.css";
 
+
 function HomeLoggedIn() {
+
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   useEffect(() => {
@@ -27,6 +30,10 @@ function HomeLoggedIn() {
     document.body.appendChild(bootstrapJs);
   }, []);
 
+  String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  };
+
   return (
     <div>
       <HeaderFF />
@@ -34,36 +41,43 @@ function HomeLoggedIn() {
       <div className="fuerte">
         <div className="p-4 ">
           <h1>
-            Hola {user.username}
+            Hola <span className="usernameHello">{user.username.toString().capitalize()}</span>
             <br />
-            Ready to do exercise?
           </h1>
+
+          <div className="d-flex align-items: stretch;">
+            <h2 >¿Listo para hacer ejercicio?</h2>
+
+          </div>
+
+
         </div>
-        <div className="d-flex justify-content-around">
-          <div className="col-4">
-            <div className="card">
+        <div className="d-flex justify-content-around gridElements">
+          <div className="col-4 card" >
+            <div className="">
               <div className="card-body text-dark">
                 <h5 className="card-title">Principiantes</h5>
                 <img
                   src={foto1}
                   class="rounded img-fluid"
                   alt="image not found"
+                  
                 />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Para usuarios sin experiencia previa, tenemos un catálogo de
                   rutinas prediseñadas.
                 </p>
-                <a href="/Workouts" className="btn btn-danger ">
+                <a href="/Workouts" className="btn btn-danger" style={{marginTop: 0 + "px"}}>
                   Catálogo
                 </a>
-                <a href="/Tips" className="btn btn-danger ">
+                <a href="/Tips" className="btn btn-danger" style={{marginTop: 0 + "px"}}>
                   Consejos
                 </a>
               </div>
             </div>
           </div>
-          <div className="col-4">
-            <div className="card">
+          <div className="col-4 card">
+            <div className="">
               <div className="card-body text-dark">
                 <h5 className="card-title">Avanzado</h5>
                 <img
@@ -74,22 +88,12 @@ function HomeLoggedIn() {
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Diseñe su propia rutina, para usuarios con más experiencia.
                 </p>
-                <a href="/Workouts" className="btn btn-danger">
+                <a href="/Workouts" className="btn btn-danger" style={{marginTop : 50 + 'px'}}>
                   Diseñar rutina
                 </a>
               </div>
             </div>
           </div>
-          {/*<div className="col-4">
-            <div className="card h-100">
-              <div className="card-body text-dark">
-                <h5 className="card-title">Historial</h5>
-                <img src={foto3} class="img-fluid" alt="image not found"/>
-                <p className="card-text pt-3 pb-4" style={{ fontSize: '19px' }}>Consulte antiguas rutinas realizadas.</p>
-                <a href="/Historial" className="btn btn-primary">Historial</a>
-              </div>
-            </div>
-          </div>*/}
         </div>
       </div>
     </div>

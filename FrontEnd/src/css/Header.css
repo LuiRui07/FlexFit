@@ -1,7 +1,7 @@
 .nav {
   background-color: rgb(227, 215, 215);
   background-color: #fb465a;
-  border: none;
+  border: none; 
 }
 .nav-tabs {
   --bs-nav-tabs-link-hover-border-color: none;

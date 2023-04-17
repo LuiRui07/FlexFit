@@ -23,13 +23,7 @@ export default function HeaderFF() {
             Workouts
           </a>
         </li>
-        {/*
-        <li className="nav-item-col" id="historyHeaderLi">
-          <a className="nav-link" href="historial">
-            Historial
-          </a>
-        </li>
-        */}
+
         <li className="nav-item-col" id="cuentaHeaderLi">
           <a className="nav-link" href="../cuenta">
             Cuenta

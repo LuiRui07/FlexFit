@@ -33,9 +33,16 @@ function Login() {
 
         axios.get('http://localhost:7777/api/user/'+username+'/'+password).then(res => {
         
-            var user = JSON.stringify(res.data.data);
-            localStorage.setItem('user', user);
-            window.location.href = "/home";
+            if(res.data.message === 'Invalid username or password') {
+                setStatusMessage('Usuario o contraseña incorrectos');
+                showPopup();
+            } else {
+                var user = JSON.stringify(res.data.data);
+            
+                localStorage.setItem('user', user);
+                window.location.href = "/home";
+            }
+
 
         }).catch(err => {
             setStatusMessage('Usuario o contraseña incorrectos');
