@@ -5,7 +5,6 @@ import App from "./App";
 import Home from "./Routes/Home";
 import AddWorkout from "./Routes/AddExercise";
 import AllWorkouts from "./Routes/Workouts";
-import Historial from "./Routes/Historial";
 import Cuenta from "./Routes/Cuenta";
 import AddRoutine from "./Routes/AddRoutine";
 import Register from "./Routes/Register";
@@ -19,13 +18,12 @@ const router = createBrowserRouter([
   { path: "/home", element: <Home /> },
   { path: "/addex", element: <AddWorkout /> },
   { path: "/workouts", element: <AllWorkouts /> },
-  { path: "/historial", element: <Historial /> },
-  {path: "/tips", element: <Tips />},
+  { path: "/tips", element: <Tips /> },
   { path: "/cuenta", element: <Cuenta /> },
   { path: "/addro", element: <AddRoutine /> },
   { path: "/register", element: <Register /> },
-  { path: "/addro/:dia", element: <AddExercise_Day/>},
-  { path: "/addro/:dia/:nombreEjer", element: <AddExercise_Day/>}
+  { path: "/addro/:dia", element: <AddExercise_Day /> },
+  { path: "/addro/:dia/:nombreEjer", element: <AddExercise_Day /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

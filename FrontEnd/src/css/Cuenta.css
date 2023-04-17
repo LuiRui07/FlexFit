@@ -17,3 +17,11 @@ h3 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
+
+.img {
+  border-radius: 50px;
+  border-style: double;
+  width: 100px;
+  margin-top: 45%;
+  margin-left: 20%;
+}
