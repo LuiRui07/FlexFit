@@ -8,10 +8,7 @@ import "../css/HomeLoggedIn.css";
 function HomeLoggedIn() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-
-
   useEffect(() => {
-
     document.getElementById("homeHeaderLi").classList.add("active");
     const bootstrapCss = document.createElement("link");
     const bootstrapJs = document.createElement("script");
@@ -28,9 +25,6 @@ function HomeLoggedIn() {
 
     document.head.appendChild(bootstrapCss);
     document.body.appendChild(bootstrapJs);
-
-    
-
   }, []);
 
   return (
@@ -45,7 +39,7 @@ function HomeLoggedIn() {
             Ready to do exercise?
           </h1>
         </div>
-        <div className="d-flex justify-content-around" >
+        <div className="d-flex justify-content-around">
           <div className="col-4">
             <div className="card">
               <div className="card-body text-dark">
@@ -54,10 +48,9 @@ function HomeLoggedIn() {
                   src={foto1}
                   class="rounded img-fluid"
                   alt="image not found"
-
                 />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
-                  Para usuarios sin previa experiencia, tenemos un catálogo de
+                  Para usuarios sin experiencia previa, tenemos un catálogo de
                   rutinas prediseñadas.
                 </p>
                 <a href="/Workouts" className="btn btn-danger ">
