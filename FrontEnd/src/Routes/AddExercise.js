@@ -2,14 +2,14 @@ import { useState } from "react";
 import "../css/AddExercise.css";
 
 const mostrarVentana = () => {
-  const ventana = document.getElementById("ventana_anyadir")
-  ventana.classList.add("ventanaActiva")
-}
+  const ventana = document.getElementById("ventana_anyadir");
+  ventana.classList.add("ventanaActiva");
+};
 
 const cerrarVentana = () => {
-  const ventana = document.getElementById("ventana_anyadir")
-  ventana.classList.remove("ventanaActiva")
-}
+  const ventana = document.getElementById("ventana_anyadir");
+  ventana.classList.remove("ventanaActiva");
+};
 
 export default function AddWorkout() {
   const workoutTypes = [
@@ -67,10 +67,10 @@ export default function AddWorkout() {
     <div class="addExercise" id="ventana_anyadir">
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
         <div className="card-header">
-        <h1>Register a new Workout</h1>
-        <h2 onClick={cerrarVentana}>x</h2>
+          <h1>Register a new Exercise</h1>
+          <h2 onClick={cerrarVentana}>x</h2>
         </div>
-        
+
         <form
           className="d-flex gap-5 align-items-center"
           action="/saveWorkout"
@@ -96,11 +96,6 @@ export default function AddWorkout() {
             </select>
           </div>
           <div className="justify-content-around">
-            <input
-              type="text"
-              placeholder="Workout Name"
-              className="w-100 form-control formData"
-            />
             <div className="d-flex w-100 align-items-center justify-content-between formData">
               <input
                 type="number"
@@ -120,7 +115,6 @@ export default function AddWorkout() {
                 className="p-1 form-control sets hours"
                 min="0"
               />
-              
             </div>
             <input
               type="submit"
@@ -128,7 +122,6 @@ export default function AddWorkout() {
               value="Register!"
             />
           </div>
-          
         </form>
       </div>
     </div>
