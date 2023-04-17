@@ -4,23 +4,6 @@ import HeaderFF from "./HeaderFF.js";
 import axios from "axios";
 
 export default function AllWorkouts() {
-  // const WorkoutDB = [
-  //   {
-  //     name: "Rutina 1",
-  //     desc: "Frecuencia 1",
-  //     dias: 5,
-  //   },
-  //   {
-  //     name: "Rutina 2",
-  //     desc: "Frecuencia 2",
-  //     dias: 8,
-  //   },
-  //   {
-  //     name: "Rutina 3",
-  //     desc: "FullBody",
-  //     dias: 4,
-  //   },
-  // ];
 
   const getWorkouts = async () => {
     const response = await axios.get(

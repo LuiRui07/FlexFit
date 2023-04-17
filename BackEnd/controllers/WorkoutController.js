@@ -6,37 +6,23 @@ import { Op } from "sequelize";
 
 // CREATE Workout
 export const createWorkout = async (req, res) => {
-    const { nombre, descripcion, tipo, duracion, fecha, usuario } = req.body;
+    const { name, description, user_id } = req.body;
+    console.log
     try {
-        let Workout = await WorkoutModel.findOne({
-            where: {
-                nombre
-            }
+        let newWorkout = await WorkoutModel.create({
+            name,
+            description,
+            user_id
+        }, {
+            fields: ['name', 'description','user_id']
         });
-        if (Workout) {
+        if (newWorkout) {
             return res.json({
-                message: 'This workout already exists',
-                data: {}
+                message: 'Workout created successfully',
+                data: newWorkout
             });
-        }else{
-                
-                let newWorkout = await WorkoutModel.create({
-                    nombre,
-                    descripcion,
-                    tipo,
-                    duracion,
-                    fecha,
-                    usuario
-                }, {
-                    fields: ['nombre', 'descripcion', 'tipo', 'duracion', 'fecha', 'usuario']
-                });
-                if (newWorkout) {
-                    return res.json({
-                        message: 'Workout created successfully',
-                        data: newWorkout
-                    });
-                }
-            }
+        }
+            
     } catch (error) {
         console.log(error);
         res.status(500).json({
