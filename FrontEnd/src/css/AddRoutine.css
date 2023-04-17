@@ -1,3 +1,36 @@
 a.btn {
   margin-top: 10%;
 }
+
+.nombreRutina:active{
+  box-shadow: #fb465a 0px 0px 0px 2px !important;
+  color: white;
+}
+
+.fa-heart-o {
+  color: #fb465a;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: #fb465a;
+  cursor: pointer;
+}
+
+.corazonaco > i {
+  font-size: 2em;
+  margin-left: 20px;
+}
+
+
+
+.nombreRutina:active,
+.nombreRutina:focus {
+  border: none;
+  box-shadow: 2px 3px 1px 2px #fb465a !important;
+}
+
+
+.clickAddDia{
+  margin: auto !important;
+}

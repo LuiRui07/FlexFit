@@ -77,7 +77,7 @@ export default function AllWorkouts() {
           )}
 
           {workouts.map((workout) => (
-            <div className="card rutinaClikcable" onClick={alert("woow")}>
+            <div className="card rutinaClikcable">
               <h5 className="card-title titleWorkout">{workout.name}</h5>
               <div className="card-body">
                 <p className="card-text">Descripción: <strong>{workout.description}</strong></p>
