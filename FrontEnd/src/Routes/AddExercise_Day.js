@@ -61,7 +61,7 @@ const AddExercise_Day = () => {
 
                 <ul className="align-items-center" id="listaEjers"></ul>
 
-                <button className="btn btn-primary" onClick={mostrarVentana}>
+                <button className="btn btn-danger clickAddDia" onClick={mostrarVentana}>
                     Añadir Ejercicio
                 </button>
             </div>
