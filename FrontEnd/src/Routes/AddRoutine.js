@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import HeaderFF from "./HeaderFF.js";
 import "../css/AddRoutine.css";
-
+import axios from "axios";
 
 
 
@@ -15,46 +15,71 @@ export default function AddRoutine() {
     const boton_dia = document.createElement("li");
     boton_dia.classList.add("nombreDia", "list-group-ite", "d-flex");
     let lista = document.getElementById("listaDias");
-  
+
     const enlace_dia = document.createElement("a");
     enlace_dia.className = "btn btn-outline-danger ";
     enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
     enlace_dia.href = "addro/" + (lista.childElementCount + 1);
-  
+
     const boton_eliminar = document.createElement("button");
     boton_eliminar.className = "btn btn-warning mt-4";
     boton_eliminar.textContent = "Delete";
     boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
-  
+
     boton_dia.appendChild(enlace_dia);
     boton_dia.appendChild(boton_eliminar);
     lista.appendChild(boton_dia);
 
     setDiasRutina([...diasRutina, "dia"]);
   }
-  
+
   function eliminar_dia(elemento) {
     let lista = document.getElementById("listaDias");
     lista.removeChild(elemento);
   }
 
 
+
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    user_id: user.id,
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const guardarRutina = async (e) => {
+    e.preventDefault();
+    if(formData.name.length==0){
+      
+    }else{
+      const response = await axios.post('http://localhost:7777/api/workout/', formData)
+    console.log(response.data);
+    }
+    
+  }
+
   const obtenerDiasRutina = () => {
     return []
   };
-    
-  const [nombreRutina, setNombreRutina] = useState("");
+
+
   const [rutinaFavorita, setRutinaFavorita] = useState(false);
 
   const [diasRutina, setDiasRutina] = useState(obtenerDiasRutina);
 
   const favourite = () => {
     let corazon = document.getElementById("corazon");
-    if(corazon.classList.contains("fa-heart-o")){
+    if (corazon.classList.contains("fa-heart-o")) {
       corazon.classList.remove("fa-heart-o");
       corazon.classList.add("fa-heart");
       setRutinaFavorita(true);
-    }else{
+    } else {
       corazon.classList.remove("fa-heart");
       corazon.classList.add("fa-heart-o");
       setRutinaFavorita(false);
@@ -66,29 +91,53 @@ export default function AddRoutine() {
       <HeaderFF />
 
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-        
         <form>
           <div className="form-group d-flex justify-content-center">
-            <input type="text" className="form-control nombreRutina" id="nombreRutina" placeholder="Nombre de la rutina"/>
-            <span className="corazonaco"><i class="fa fa-heart" aria-hidden="true" id="corazon" onClick={favourite}></i> </span>
-          </div> 
+            <label for="nombreRutina">Nombre de la rutina</label>
+            <input type="text" className="form-control nombreRutina ml-2" name="name" id="nombreRutina" placeholder="Añade el nombre de la rutina..." onChange={handleInputChange} required/>
+            
+            <span className="corazonaco"><i class="fa fa-heart" aria-hidden="true" id="corazon" onClick={favourite}></i> </span><br/>
+          </div>
+          <div className="d-flex align-items-center justify-content-center gap-2">
+            <label for="descripcionRutina">Descripción</label>
+          <textarea className="form-control nombreRutina mt-3 rounded" placeholder="Añade una breve descripcion..." name="description" id="descripcionRutina" onChange={handleInputChange}/>
+          </div>
+          
         </form>
-
+        <div class="mt-3">
+        {
+            formData.name.length === 0 &&
+            (
+              <div className="alert alert-danger" role="alert">
+                Debe añadir un nombre a la rutina
+              </div>
+            )
+          
+          }
+          {
+            formData.name.length > 0 &&
+            (
+              <button className="btn btn-danger clickAddDia" onClick={guardarRutina}>Finalizar</button>
+            )
+          }
+          
+        </div>
         <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
 
           <ul className="align-items-center" id="listaDias"></ul>
           {
-           diasRutina.length === 0 &&
-          (
-            <div className="alert alert-danger" role="alert">
-              Debe añadir al menos un dia
-            </div>
-          )
+            diasRutina.length === 0 &&
+            (
+              <div className="alert alert-danger" role="alert">
+                Debe añadir al menos un dia
+              </div>
+            )
           }
           <button className="btn btn-danger clickAddDia" onClick={anyadir_dia}>
             Añadir dia
           </button>
         </div>
+
       </div>
     </div>
   );

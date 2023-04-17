@@ -6,14 +6,15 @@ import { Op } from "sequelize";
 
 // CREATE Workout
 export const createWorkout = async (req, res) => {
-    const { nombre, descripcion, usuario } = req.body;
+    const { name, description, user_id } = req.body;
+    console.log
     try {
         let newWorkout = await WorkoutModel.create({
-            nombre,
-            descripcion,
-            usuario
+            name,
+            description,
+            user_id
         }, {
-            fields: ['nombre', 'descripcion','usuario']
+            fields: ['name', 'description','user_id']
         });
         if (newWorkout) {
             return res.json({
