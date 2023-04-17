@@ -49,10 +49,10 @@ export default function AllWorkouts() {
   }, []);
 
   return (
-    <div>
+    <div className="backgroudTochoWorkout">
       <HeaderFF />
-      <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-        <h1>Workouts</h1>
+      <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto workoutsPanel">
+        <h1>Rutinas</h1>
 
         <div className="d-flex pb-3">
           <input className="barra" type="text" placeholder="Buscar"></input>
@@ -90,7 +90,7 @@ export default function AllWorkouts() {
 
         <div>
           <a className="btn btn-outline-danger mt-4 d-flex" href="addro">
-            Add Workout
+            Añadir Rutina
           </a>
         </div>
       </div>

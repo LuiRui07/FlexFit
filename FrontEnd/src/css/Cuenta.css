@@ -1,10 +1,14 @@
+
+
 * {
   padding: 0;
   margin: 0;
 }
 
 .fuerza2 {
-  background-image: url("../images/Posado.png");
+  background-image:
+  linear-gradient(to bottom, rgba(255, 255, 255, 0.52), rgba(74, 4, 4, 0.73)),
+  url("../images/Espalda.png");
   background-size: cover;
   height: 100vh;
   color: white;
@@ -29,8 +33,9 @@ h3 {
 
 .containerInfoUser{
   color: black;
-  margin: auto;
+  margin: 0 auto;
   width: 40%;
+  margin-top: 60px;
 }
 
 
@@ -39,6 +44,7 @@ h3 {
   height: 100px;
   border-top-left-radius: 30%;
   border-bottom-right-radius: 30%;
+  border: 4px solid #fb465a;
   
 }
 
@@ -56,4 +62,57 @@ h3 {
   color:white;
   width: 100%;
   margin-left: 10px;
+  border-top-right-radius: 20px;
+}
+
+.dataContainerInfoUser{
+  margin-top: 10px;
+  background-color: white;
+}
+
+.dataRows{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 2px solid #fb465a;
+}
+
+.dataRows > h3 > strong {
+  color: #fb465a;
+}
+
+.containerBotonEditar{
+  margin-top: 20px;
+  background-color: #fb465a;
+
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 1px 1px 1px 0px white;
+}
+
+.botonEditar{
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-decoration: none;
+  color: white;
+  padding: 20px;
+  display: block;
+  text-align: center;
+  font-size: 32px;
+
+
+
+}
+
+.botonEditar:hover{
+  background-color: #c73344;
+  text-decoration: none;
+  color: white;
+
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }

@@ -53,7 +53,7 @@ export const createUser = async (req, res) => {
 export const getAllUsers = async (req, res) => {
     try {
         let Users = await UserModel.findAll({
-            include: [{all: true}]
+            include: [{all: true,nested: true}]
         });
         if (Users) {
             return res.json({

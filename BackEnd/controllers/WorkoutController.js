@@ -6,37 +6,22 @@ import { Op } from "sequelize";
 
 // CREATE Workout
 export const createWorkout = async (req, res) => {
-    const { nombre, descripcion, tipo, duracion, fecha, usuario } = req.body;
+    const { nombre, descripcion, usuario } = req.body;
     try {
-        let Workout = await WorkoutModel.findOne({
-            where: {
-                nombre
-            }
+        let newWorkout = await WorkoutModel.create({
+            nombre,
+            descripcion,
+            usuario
+        }, {
+            fields: ['nombre', 'descripcion','usuario']
         });
-        if (Workout) {
+        if (newWorkout) {
             return res.json({
-                message: 'This workout already exists',
-                data: {}
+                message: 'Workout created successfully',
+                data: newWorkout
             });
-        }else{
-                
-                let newWorkout = await WorkoutModel.create({
-                    nombre,
-                    descripcion,
-                    tipo,
-                    duracion,
-                    fecha,
-                    usuario
-                }, {
-                    fields: ['nombre', 'descripcion', 'tipo', 'duracion', 'fecha', 'usuario']
-                });
-                if (newWorkout) {
-                    return res.json({
-                        message: 'Workout created successfully',
-                        data: newWorkout
-                    });
-                }
-            }
+        }
+            
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -78,7 +63,7 @@ export const getOneWorkout = async (req, res) => {
             where: {
                 id
             },
-            include:[{all:true}]
+            include:[{all:true,nested:true}]
         });
         if (Workout) {
             return res.json({
@@ -132,10 +117,10 @@ export const deleteWorkout = async (req, res) => {
 // UPDATE WORKOUT
 export const updateWorkout = async (req, res) => {
     const { id } = req.params;
-    const { nombre, descripcion, tipo, duracion, fecha, usuario } = req.body;
+    const { nombre, descripcion, favorite } = req.body;
     try {
         let Workouts = await WorkoutModel.findAll({
-            attributes: ['id', 'nombre', 'descripcion', 'tipo', 'duracion', 'fecha', 'usuario'],
+            attributes: ['id', 'nombre', 'descripcion', 'favorite'],
             where: {
                 id
             }
@@ -145,10 +130,8 @@ export const updateWorkout = async (req, res) => {
                 await Workout.update({
                     nombre,
                     descripcion,
-                    tipo,
-                    duracion,
-                    fecha,
-                    usuario
+                    usuario,
+                    favorite
                 });
             });
         }

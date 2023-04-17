@@ -1,5 +1,4 @@
 import WorkoutDayModel from "../models/WorkoutDayModel.js"
-import WorkoutModel from "../models/WorkoutModel.js";
 
 //CREAR DIAS
 
@@ -31,7 +30,7 @@ export const createDay = async (req, res) => {
 export const getAllDays = async (req, res) => {
     try {
         const days = await WorkoutDayModel.findAll({
-            include: []
+            include: [{all: true}]
         });
         res.json({
             data: days,
@@ -53,11 +52,19 @@ export const getOneDay = async (req, res) => {
         const day = await WorkoutDayModel.findOne({
             where: {
                 id
-            }
+            },
+            include: [{all: true, nested: true}]
         });
-        res.json({
-            data: day
-        });
+        if(day) {
+            res.json({
+                data: day
+            });
+        } else {
+            res.status(404).json({
+                message: 'Day not found',
+                data: {}
+            });
+        }
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -74,7 +81,8 @@ export const getDayByRoutine = async (req, res) => {
         const days = await WorkoutDayModel.findAll({
             where: {
                 routineId
-            }
+            },
+            include: [{all: true,nested: true}]
         });
         res.json({
             data: days

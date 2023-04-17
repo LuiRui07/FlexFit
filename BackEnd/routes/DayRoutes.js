@@ -4,7 +4,6 @@ import { getAllDays, getDayByRoutine , getOneDay , createDay, updateDay, deleteD
 const router = express.Router();
 
 router.get('/', getAllDays)
-router.get('/:routineId', getDayByRoutine)
 
 router.get('/:id', getOneDay)
 router.post('/', createDay)
