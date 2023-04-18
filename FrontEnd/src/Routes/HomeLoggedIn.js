@@ -1,14 +1,10 @@
 import foto1 from "../images/pt.png";
 import foto2 from "../images/avanzado.png";
-import foto3 from "../images/historial.png";
 import React, { useEffect, useState } from "react";
 import HeaderFF from "./HeaderFF";
 import "../css/HomeLoggedIn.css";
 
-
 function HomeLoggedIn() {
-
-
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   useEffect(() => {
@@ -41,19 +37,19 @@ function HomeLoggedIn() {
       <div className="fuerte">
         <div className="p-4 ">
           <h1>
-            Hola <span className="usernameHello">{user.username.toString().capitalize()}</span>
+            Hola{" "}
+            <span className="usernameHello">
+              {user.username.toString().capitalize()}
+            </span>
             <br />
           </h1>
 
           <div className="d-flex align-items: stretch;">
-            <h2 >¿Listo para hacer ejercicio?</h2>
-
+            <h2>¿Listo para hacer ejercicio?</h2>
           </div>
-
-
         </div>
         <div className="d-flex justify-content-around gridElements">
-          <div className="col-4 card" >
+          <div className="col-4 card">
             <div className="">
               <div className="card-body text-dark">
                 <h5 className="card-title">Principiantes</h5>
@@ -61,16 +57,23 @@ function HomeLoggedIn() {
                   src={foto1}
                   class="rounded img-fluid"
                   alt="image not found"
-                  
                 />
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Para usuarios sin experiencia previa, tenemos un catálogo de
                   rutinas prediseñadas.
                 </p>
-                <a href="/Workouts" className="btn btn-danger" style={{marginTop: 0 + "px"}}>
+                <a
+                  href="/Workouts"
+                  className="btn btn-danger"
+                  style={{ marginTop: 0 + "px" }}
+                >
                   Catálogo
                 </a>
-                <a href="/Tips" className="btn btn-danger" style={{marginTop: 0 + "px"}}>
+                <a
+                  href="/Tips"
+                  className="btn btn-danger"
+                  style={{ marginTop: 0 + "px" }}
+                >
                   Consejos
                 </a>
               </div>
@@ -88,7 +91,11 @@ function HomeLoggedIn() {
                 <p className="card-text pt-3" style={{ fontSize: "19px" }}>
                   Diseñe su propia rutina, para usuarios con más experiencia.
                 </p>
-                <a href="/Workouts" className="btn btn-danger" style={{marginTop : 50 + 'px'}}>
+                <a
+                  href="/Workouts"
+                  className="btn btn-danger"
+                  style={{ marginTop: 50 + "px" }}
+                >
                   Diseñar rutina
                 </a>
               </div>
