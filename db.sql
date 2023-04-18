@@ -165,7 +165,7 @@ CREATE TABLE `workout` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_workout_user1_idx` (`user_id`),
   CONSTRAINT `fk_workout_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
-INSERT INTO `workout` VALUES (1,'Principiante','Para aquellos que estan empezando a entrenar y quieren aprender y adaptarse.',NULL,1,0,'FÁCIL',5),(2,'Intermedio','Para aquellos que llevan un tiempo entrenando y saben moverse dentro de un gimnasio.',NULL,2,1,'INTERMEDIA',5),(3,'Avanzado','Para aquellos que tienen amplia experiencia y quieren superar sus límites',NULL,3,0,'DIFÍCIL',5);
+INSERT INTO `workout` VALUES (1,'Principiante','Para aquellos que estan empezando a entrenar y quieren aprender y adaptarse.',NULL,0,0,'FÁCIL',5),(2,'Intermedio','Para aquellos que llevan un tiempo entrenando y saben moverse dentro de un gimnasio.',NULL,0,1,'INTERMEDIA',5),(3,'Avanzado','Para aquellos que tienen amplia experiencia y quieren superar sus límites',NULL,0,0,'DIFÍCIL',5);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-18  0:29:34
+-- Dump completed on 2023-04-18 12:40:50
