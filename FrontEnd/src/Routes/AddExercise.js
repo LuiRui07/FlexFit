@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/AddExercise.css";
+import axios from 'axios';
 
 const mostrarVentana = () => {
   const ventana = document.getElementById("ventana_anyadir");
@@ -12,6 +13,53 @@ const cerrarVentana = () => {
 };
 
 export default function AddWorkout() {
+
+  const idDia = window.location.pathname.split("/")[2];
+
+  const [formData, setFormData] = useState({
+    workoutday: idDia,
+    exerciseId: '',
+    reps: '',
+    weight: '',
+    series: ''
+  })
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.reps]: e.target.value
+    })
+  }
+
+  const guardarEjer = async () => {
+    if (formData.reps.length === 0) {
+      window.confirm("Rellene las repeticiones por favor")
+    } else if (formData.series.length === 0) {
+      window.confirm("Rellene el numero de series por favor")
+    } else if (formData.weight.length === 0) {
+      window.confirm("Rellene el peso por favor")
+    } else {
+      const response = await axios.post('http://localhost:7777/api/dayexercise/')
+      console.log(response.data)
+    }
+  }
+
+  const [ejersLista, setEjersLista] = useState([])
+
+
+
+  const workoutTypess = async () => {
+
+
+    axios.get('http://localhost:7777/api/exercise/').then(res => {
+      setEjersLista(res.data.data)
+    })
+  }
+
+  useEffect(() => {
+    workoutTypess()
+  }, [])
+
   const workoutTypes = [
     {
       name: "Bench Press",
@@ -59,7 +107,7 @@ export default function AddWorkout() {
 
   function changeWorkOut(workoutName) {
     setWorkoutType(
-      workoutTypes.find((workoutX) => workoutName === workoutX.name)
+      ejersLista.find((workoutX) => workoutName === workoutX.name)
     );
   }
 
@@ -86,11 +134,12 @@ export default function AddWorkout() {
             <select
               className="form-select"
               id="sportSelector"
+              name="ej"
               onChange={() =>
                 changeWorkOut(document.getElementById("sportSelector").value)
               }
             >
-              {workoutTypes.map((workoutX) => (
+              {ejersLista.map((workoutX) => (
                 <option value={workoutX.name}>{workoutX.name}</option>
               ))}
             </select>
@@ -100,18 +149,24 @@ export default function AddWorkout() {
               <input
                 type="number"
                 placeholder="Sets"
+                name="series"
+                onChange={handleInputChange}
                 className="p-1 form-control reps hours"
                 min="0"
               />
               <input
                 type="number"
                 placeholder="Reps"
+                name="reps"
+                onChange={handleInputChange}
                 className="p-1 form-control reps hours"
                 min="0"
               />
               <input
                 type="number"
                 placeholder="Weight"
+                name="weight"
+                onChange={handleInputChange}
                 className="p-1 form-control sets hours"
                 min="0"
               />
@@ -120,6 +175,7 @@ export default function AddWorkout() {
               type="submit"
               className="btn btn-outline-danger w-100 formData"
               value="Register!"
+              onClick={guardarEjer}
             />
           </div>
         </form>

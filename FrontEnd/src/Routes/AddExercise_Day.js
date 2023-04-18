@@ -32,6 +32,7 @@ function anyadir_ejer() {
   function eliminar_dia(elemento) {
     let lista = document.getElementById("listaEjers");
     lista.removeChild(elemento);
+    
   }
 
 const mostrarVentana = () => {
@@ -55,13 +56,13 @@ const AddExercise_Day = () => {
             <AddExercise/>
 
             <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-
-
                 <ul className="align-items-center" id="listaEjers"></ul>
-
                 <button className="btn btn-danger clickAddDia" onClick={mostrarVentana}>
                     Añadir Ejercicio
                 </button>
+                <div className="mt-2">
+                   <button className="btn btn-danger clickAddDia" >FINALIZAR</button> 
+                </div>
             </div>
         </div>
 
