@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState  } from "react";
 import HeaderFF from "./HeaderFF.js";
 import "../css/AddRoutine.css";
 import axios from "axios";
@@ -6,53 +6,55 @@ import axios from "axios";
 
 
 
-export default function AddRoutine() {
-
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
-  function anyadir_dia() {
-    const nombreDia = "Dia ";
-    const boton_dia = document.createElement("li");
-    boton_dia.classList.add("nombreDia", "list-group-ite", "d-flex");
-    let lista = document.getElementById("listaDias");
-
-    const enlace_dia = document.createElement("a");
-    enlace_dia.className = "btn btn-outline-danger ";
-    enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
-    enlace_dia.href = "addro/" + (lista.childElementCount + 1);
-
-    const boton_eliminar = document.createElement("button");
-    boton_eliminar.className = "btn btn-warning mt-4";
-    boton_eliminar.textContent = "Delete";
-    boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
-
-    boton_dia.appendChild(enlace_dia);
-    boton_dia.appendChild(boton_eliminar);
-    lista.appendChild(boton_dia);
-
-    setDiasRutina([...diasRutina, "dia"]);
-  }
-
-  function eliminar_dia(elemento) {
-    let lista = document.getElementById("listaDias");
-    lista.removeChild(elemento);
-  }
+export default function EditRoutine() {
 
 
 
-  const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    user_id: user.id,
-    favorite: false
-  });
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    function anyadir_dia() {
+        const nombreDia = "Dia ";
+        const boton_dia = document.createElement("li");
+        boton_dia.classList.add("nombreDia", "list-group-ite", "d-flex");
+        let lista = document.getElementById("listaDias");
+
+        const enlace_dia = document.createElement("a");
+        enlace_dia.className = "btn btn-outline-danger ";
+        enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
+        enlace_dia.href = "addro/" + (lista.childElementCount + 1);
+
+        const boton_eliminar = document.createElement("button");
+        boton_eliminar.className = "btn btn-warning mt-4";
+        boton_eliminar.textContent = "Delete";
+        boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
+
+        boton_dia.appendChild(enlace_dia);
+        boton_dia.appendChild(boton_eliminar);
+        lista.appendChild(boton_dia);
+
+        setDiasRutina([...diasRutina, "dia"]);
+    }
+
+    function eliminar_dia(elemento) {
+        let lista = document.getElementById("listaDias");
+        lista.removeChild(elemento);
+    }
+
+
+
+    const [formData, setFormData] = useState({
+        name: '',
+        description: '',
+        user_id: user.id,
+        favorite: false
     });
-  };
+
+    const handleInputChange = (e) => {
+        setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+        });
+    };
 
   const guardarRutina = async (e) => {
     e.preventDefault();
@@ -98,7 +100,32 @@ export default function AddRoutine() {
 
   const [diasRutina, setDiasRutina] = useState(obtenerDiasRutina);
 
-  const [rutinaActual, setRutinaActual] = useState(null);
+  const getRutinaActual = async () =>  { // terminar de implementar
+    const idRoutine = window.location.pathname.split("/")[2]
+    if(idRoutine !== null){
+        return await axios.get('http://localhost:7777/api/workout/' + idRoutine)
+            .then(response => {
+                console.log(response.data)
+                if(response.data.message === "Workout found successfully"){
+
+                    setFormData({
+                        name: response.data.data.name,
+                        description: response.data.data.description,
+                        user_id: response.data.data.user_id,
+                        favorite: response.data.data.favorite
+                    })
+
+                    return response.data.data
+                }
+            })
+        }
+            
+    }
+
+  const [rutinaActual, setRutinaActual] = useState(getRutinaActual());
+
+
+
 
   const favourite = () => {
     let corazon = document.getElementById("corazon");
@@ -116,12 +143,11 @@ export default function AddRoutine() {
   return (
     <div>
       <HeaderFF />
-
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
         <form>
           <div className="form-group d-flex justify-content-center">
             <label for="nombreRutina">Nombre de la rutina</label>
-            <input type="text" className="form-control nombreRutina ml-2" name="name" id="nombreRutina" placeholder="Añade el nombre de la rutina..." onChange={handleInputChange} required/>
+            <input type="text" className="form-control nombreRutina ml-2" name="name" id="nombreRutina" placeholder="Añade el nombre de la rutina..." onChange={handleInputChange} value={formData.name} required/>
             
             { rutinaActual !== null && rutinaActual.favorite === true && <span className="corazonaco"><i className="fa fa-heart" aria-hidden="true" id="corazon" onClick={favourite}></i> </span> }
             { rutinaActual !== null && rutinaActual.favorite === false && <span className="corazonaco"><i className="fa fa-heart-o" aria-hidden="true" id="corazon" onClick={favourite}></i> </span> }
@@ -129,11 +155,11 @@ export default function AddRoutine() {
           </div>
           <div className="d-flex align-items-center justify-content-center gap-2">
             <label for="descripcionRutina">Descripción</label>
-          <textarea className="form-control nombreRutina mt-3 rounded" placeholder="Añade una breve descripcion..." name="description" id="descripcionRutina" onChange={handleInputChange}/>
+          <textarea className="form-control nombreRutina mt-3 rounded" placeholder="Añade una breve descripcion..." name="description" id="descripcionRutina" value={formData.description} onChange={handleInputChange}/>
           </div>
           
         </form>
-        <div class="mt-3">
+        <div class="mt-3">  
         {
             formData.name.length === 0 &&
             (
