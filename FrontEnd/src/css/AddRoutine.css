@@ -35,3 +35,41 @@ a.btn {
 .clickAddDia{
   margin: auto !important;
 }
+
+.diaRutina{
+  width: max-content !important;
+  background-color: #fb465a;
+  padding: 30px
+}
+
+.diaRutina a:hover {
+  color: white !important;
+}
+
+#listaDias{
+  padding: 0;
+  margin: 0;
+}
+
+.diaName {
+  margin: 0;
+}
+
+.botonDiaLista{
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+}
+
+.botonDiaLista:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#listaDias{
+  width: 100%;
+}
+
+
+.clickDeleteDia{
+  margin: none !important;
+}

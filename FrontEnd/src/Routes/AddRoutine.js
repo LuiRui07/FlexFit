@@ -11,6 +11,7 @@ export default function AddRoutine() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   function anyadir_dia() {
+
     const nombreDia = "Dia ";
     const boton_dia = document.createElement("li");
     boton_dia.classList.add("nombreDia", "list-group-ite", "d-flex");

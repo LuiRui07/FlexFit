@@ -46,8 +46,6 @@ const cerrarVentana = () => {
 
 const AddExercise_Day = () => {
     let params = useParams();
-    let dias = axios.get(URL_DIA);
-    console.log(dias)
 
     return (
 

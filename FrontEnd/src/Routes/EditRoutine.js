@@ -10,37 +10,53 @@ export default function EditRoutine() {
     const response = await axios.get(
       "http://localhost:7777/api/workout/" + idRoutine
     );
+    console.log(response.data.data);
     return response.data.data;
   };
 
 
-  const getWorkoutDays = () => {
-    return [];
-  };
-
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-  function anyadir_dia() {
-    const nombreDia = "Dia ";
+
+  const crearBotonDia = (dia) => {
     const boton_dia = document.createElement("li");
-    boton_dia.classList.add("nombreDia", "list-group-ite", "d-flex");
-    let lista = document.getElementById("listaDias");
+    boton_dia.classList.add("d-flex", "justify-content-between", "align-items-center");
 
-    const enlace_dia = document.createElement("a");
-    enlace_dia.className = "btn btn-outline-danger ";
-    enlace_dia.textContent = nombreDia + (lista.childElementCount + 1);
-    enlace_dia.href = "addro/" + (lista.childElementCount + 1);
+    const dia_container = document.createElement("div");
+    dia_container.className = "alert alert-danger d-flex justify-content-between align-items-center gap-3 botonDiaLista";
+    dia_container.addEventListener("click",() => window.location.href ="/rutina/" + rutinaActual.id + "/dia/" + dia.id)
+    
 
-    const boton_eliminar = document.createElement("button");
-    boton_eliminar.className = "btn btn-warning mt-4";
-    boton_eliminar.textContent = "Delete";
-    boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
+    boton_dia.appendChild(dia_container);
 
-    boton_dia.appendChild(enlace_dia);
-    boton_dia.appendChild(boton_eliminar);
-    lista.appendChild(boton_dia);
+    const dia_name = document.createElement("h3");
+    dia_name.className = "diaName";
+    dia_name.textContent = dia.name
 
-    setDiasRutina([...diasRutina, "dia"]);
+    dia_container.appendChild(dia_name);
+
+
+    if(rutinaActual.user_id === user.id){
+      const boton_eliminar = document.createElement("button");
+      boton_eliminar.className = "btn btn-danger clickDeleteDia";
+      boton_eliminar.textContent = "Delete";  
+      boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
+  
+      dia_container.appendChild(boton_eliminar);
+    }
+
+
+    return boton_dia;
+  }
+
+
+  function anyadir_dia() {
+    const lista = document.getElementById("listaDias");
+
+
+    //const dia = crearBotonDia({name: "Nuevo dia", id: 0});
+
+    //setDiasRutina([...diasRutina, "dia"]);
   }
 
   function eliminar_dia(elemento) {
@@ -122,6 +138,7 @@ export default function EditRoutine() {
   useEffect(() => {
     getWorkout().then((workout) => {
       setRutinaActual(workout);
+      setDiasRutina(workout.workout_days);
       setFormData({
         name: workout.name,
         description: workout.description,
@@ -132,6 +149,19 @@ export default function EditRoutine() {
     });
 
   }, []);
+
+
+  useEffect(() => {
+    console.log(diasRutina);
+    if (diasRutina !== null) {
+      let lista = document.getElementById("listaDias");
+      diasRutina.forEach((dia) => {
+        let boton = crearBotonDia(dia);
+        lista.appendChild(boton);
+      });
+    }
+  }, [loaded]);
+
 
   useEffect(() => {
     if(rutinaActual !== null && rutinaActual.user_id === user.id){
@@ -222,7 +252,7 @@ export default function EditRoutine() {
               />
             </div>
           </form>
-          <div class="mt-3">
+          <div class="mt-3" style={{textAlign: 'center'}}>
             {formData.name.length === 0 && (
               <div className="alert alert-danger" role="alert">
                 Debe añadir un nombre a la rutina
@@ -241,7 +271,7 @@ export default function EditRoutine() {
 
           {rutinaActual !== null && (
             <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-              <ul className="align-items-center" id="listaDias"></ul>
+              <ul className="align-items-center" id="listaDias" style={{overflowY: 'scroll',padding: '30px',maxHeight: '400px','marginBottom' : '30px'}}></ul>
               {diasRutina.length === 0 && (
                 <div className="alert alert-danger" role="alert">
                   Esta rutina aún no tiene dias añadidos
