@@ -119,7 +119,7 @@ export default function AddRoutine() {
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
         <form>
           <div className="form-group d-flex justify-content-center">
-            <label for="nombreRutina">Nombre de la rutina</label>
+            <label for="nombreRutina" className="justify-content-center ">Nombre de la rutina</label>
             <input type="text" className="form-control nombreRutina ml-2" name="name" id="nombreRutina" placeholder="Añade el nombre de la rutina..." onChange={handleInputChange} required />
 
             {rutinaActual !== null && rutinaActual.favorite === true && <span className="corazonaco"><i className="fa fa-heart" aria-hidden="true" id="corazon" onClick={favourite}></i> </span>}

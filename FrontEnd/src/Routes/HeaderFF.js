@@ -14,18 +14,18 @@ export default function HeaderFF() {
           <img src={Logo} width="50" height="50" alt="no disponible" />
         </li>
         <li className="nav-item-col" id="homeHeaderLi">
-          <a className="nav-link" href="../home">
+          <a className="nav-link" href="/home">
             Home
           </a>
         </li>
         <li className="nav-item-col" id="workoutsHeaderLi">
-          <a className="nav-link" href="../workouts">
+          <a className="nav-link" href="/workouts">
             Rutinas
           </a>
         </li>
 
         <li className="nav-item-col" id="cuentaHeaderLi">
-          <a className="nav-link" href="../cuenta">
+          <a className="nav-link" href="/cuenta">
             Cuenta
           </a>
         </li>

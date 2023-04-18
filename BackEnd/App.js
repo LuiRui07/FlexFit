@@ -7,6 +7,7 @@ import UserRoutes from './routes/UserRoutes.js';
 import ExerciseRoutes from './routes/ExerciseRoutes.js';
 import DayRoutes from './routes/DayRoutes.js';
 import WorkoutRoutes from './routes/WorkoutRoutes.js';
+import ExerciseDayRoutes from './routes/ExerciseDayRoutes.js';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/api/user', UserRoutes);
 app.use('/api/exercise', ExerciseRoutes);
 app.use('/api/day',DayRoutes)
 app.use('/api/workout',WorkoutRoutes)
+app.use('/api/exerciseDay', ExerciseDayRoutes);
 
 try{
     db.authenticate();

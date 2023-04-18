@@ -31,7 +31,8 @@ export default function AddWorkout() {
     })
   }
 
-  const guardarEjer = async () => {
+  const guardarEjer = async (e) => {
+    e.preventDefault()
     if (formData.reps.length === 0 || formData.series.length === 0 || formData.weight.length === 0) {
       window.confirm("Rellene los campos")
       return;
@@ -80,8 +81,7 @@ export default function AddWorkout() {
 
             <form
               className="d-flex gap-5 align-items-center"
-              action="/saveWorkout"
-              method="post"
+              
             >
               <div>
                 <img
