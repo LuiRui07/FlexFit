@@ -10,7 +10,7 @@ INTEGRANTES:
 
 
 ### Instrucciones para ejecutar el proyecto:
-- Primero se ha de añadir la base de datos "db.sql" a MySQLWorkbench.
+- Primero se ha de añadir la base de datos "db.sql" a MySQLWorkbench, la base de datos creada debe llamarse "flexfit".
 
 - Posteriormente abrir la carpeta "/BackEnd" con Visual Studio Code y en el archivo .env escribir tu usuario y contraseña de MySQL.
 
