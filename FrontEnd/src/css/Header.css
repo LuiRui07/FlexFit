@@ -1,0 +1,47 @@
+.nav {
+  background-color: rgb(227, 215, 215);
+  background-color: #fb465a;
+}
+.nav-tabs {
+  --bs-nav-tabs-link-hover-border-color: none;
+}
+
+.nav-tabs, .nav-link {
+  border: none !important;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+li a {
+  color: black !important;
+}
+
+.active {
+  background-color: #edd5d5cb;
+  border-color: #fb465a;
+  color: black;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.active > a {
+  color: black !important;
+}
+
+.nav-item-col:hover,
+.nav-link:hover {
+  border: none !important;
+  background-color: #edd5d5cb;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.logout {
+  position: relative;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
