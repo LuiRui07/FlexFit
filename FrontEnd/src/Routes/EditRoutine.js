@@ -42,7 +42,7 @@ export default function EditRoutine() {
       boton_eliminar.textContent = "Delete";  
       boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
   
-      dia_container.appendChild(boton_eliminar);
+      boton_dia.appendChild(boton_eliminar);
     }
 
 
@@ -53,6 +53,7 @@ export default function EditRoutine() {
   function anyadir_dia() {
     const lista = document.getElementById("listaDias");
 
+    
 
     //const dia = crearBotonDia({name: "Nuevo dia", id: 0});
 
