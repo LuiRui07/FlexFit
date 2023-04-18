@@ -18,3 +18,8 @@ INTEGRANTES:
 
 	npm i
 	npm start
+
+-Dentro de la app se puede usar el siguiente usuario:
+
+	username: lui
+	password: lui
