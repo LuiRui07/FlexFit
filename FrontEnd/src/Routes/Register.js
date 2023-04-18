@@ -4,12 +4,18 @@ import Logo from "../images/logoRed.png";
 import { useState } from "react";
 
 import axios from "axios";
+import { Navigate, redirect } from 'react-router';
 
 
 
 
 
 function Register() {
+
+    function sleep(time){
+        return new Promise((resolve)=>setTimeout(resolve,time)
+      )
+  }
 
     const showPopup = () => {
         const popup = document.getElementById('popup');
@@ -55,7 +61,7 @@ function Register() {
             formData.sexo = "M";
         }
 
-        if(formData.username.length === 0 || formData.password.length === 0 || formData.nombre.length === 0 || formData.apellido1.length === 0 || formData.apellido2.length === 0 || formData.edad.length === 0 || formData.altura.length === 0 || formData.peso.length === 0 || formData.sexo.length === 0){
+        if(formData.username.length === 0 || formData.password.length === 0 || formData.nombre.length === 0 || formData.apellido1.length === 0 || formData.edad.length === 0 || formData.altura.length === 0 || formData.peso.length === 0 || formData.sexo.length === 0){
             setStatusMessage('Todos los campos son obligatorios');
             showPopup();
             return;
@@ -68,7 +74,10 @@ function Register() {
 
         setStatusMessage(response.data.message)
         showPopup();
-
+        sleep(1500).then(()=>{
+            window.location.href = "/home";;
+         })
+        
       };
 
     return (
@@ -261,7 +270,7 @@ function Register() {
                         </div>
                     </div>
 
-                    <button type='submit' className='btn botonIniciarSesion registerbutton' onClick={handleSubmit}>Registrarme</button>
+                    <button type='submit' className='btn botonIniciarSesion registerbutton' onClick={handleSubmit} >Registrarme</button>
 
                     <div className='gotoRegister'>
                         <a className='link-register' href='/home'>Ya tengo una cuenta</a> 
