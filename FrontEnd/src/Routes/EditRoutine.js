@@ -40,7 +40,7 @@ export default function EditRoutine() {
       const boton_eliminar = document.createElement("button");
       boton_eliminar.className = "btn btn-danger clickDeleteDia";
       boton_eliminar.textContent = "Delete";  
-      boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
+      boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia, dia.id));
   
       boton_dia.appendChild(boton_eliminar);
     }
@@ -53,16 +53,37 @@ export default function EditRoutine() {
   function anyadir_dia() {
     const lista = document.getElementById("listaDias");
 
-    
-
-    //const dia = crearBotonDia({name: "Nuevo dia", id: 0});
-
-    //setDiasRutina([...diasRutina, "dia"]);
+    axios.post("http://localhost:7777/api/day/", {name: "Dia " + (diasRutina.length + 1), workout_id: rutinaActual.id }).then((response) => {
+      console.log(response.data);
+      if (response.data.message === "Day created successfully") {
+        const diaCreado = response.data.data;
+        lista.appendChild(crearBotonDia(diaCreado));
+        
+        setDiasRutina([...diasRutina, diaCreado]);
+      }
+    });
   }
 
-  function eliminar_dia(elemento) {
-    let lista = document.getElementById("listaDias");
-    lista.removeChild(elemento);
+  function eliminar_dia(elemento,idDia) {
+
+    console.log("Eliminando dia con id: " + idDia)
+    axios.delete("http://localhost:7777/api/day/" + idDia, {id: idDia}).then((response) => {
+      console.log(response.data);
+      if (response.data.message === "Day deleted successfully") {
+        window.confirm("Dia eliminado correctamente");        
+        diasRutina.pop();
+        if(diasRutina === undefined){
+          setDiasRutina([])
+        }else{
+          setDiasRutina(diasRutina)
+        }
+        let lista = document.getElementById("listaDias");
+        lista.removeChild(elemento);
+      }
+    });
+
+
+    
   }
 
   const [formData, setFormData] = useState({

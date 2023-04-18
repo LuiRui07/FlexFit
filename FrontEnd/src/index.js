@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   { path: "/addro", element: <AddRoutine /> },
   { path: "/register", element: <Register /> },
   { path: "/rutina/:id", element: <EditRoutine /> ,},
-  { path: "/rutina/:rutina/:dia", element: <AddExercise_Day /> },
+  { path: "/rutina/:rutina/dia/:dia", element: <AddExercise_Day /> },
   { path: "/addro/:dia/:nombreEjer", element: <AddExercise_Day /> },
 ]);
 

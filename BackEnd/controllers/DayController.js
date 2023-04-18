@@ -3,13 +3,13 @@ import WorkoutDayModel from "../models/WorkoutDayModel.js"
 //CREAR DIAS
 
 export const createDay = async (req, res) => {
-    const { name, routineId } = req.body;
+    const { name, workout_id } = req.body;
     try {
         let newDay = await WorkoutDayModel.create({
             name,
-            routineId
+            workout_id
         }, {
-            fields: ['name', 'routineId']
+            fields: ['name', 'workout_id']
         });
         if (newDay) {
             return res.json({
@@ -135,8 +135,10 @@ export const updateDay = async (req, res) => {
 
 //ELIMINAR DIAS
 export const deleteDay = async (req, res) => {
+
     try {
         const { id } = req.params;
+        console.log(id)
         const deleteRowCount = await WorkoutDayModel.destroy({
             where: {
                 id

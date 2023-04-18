@@ -31,8 +31,6 @@ export default function AddRoutine() {
     boton_dia.appendChild(boton_eliminar);
     lista.appendChild(boton_dia);
 
-
-
     setDiasRutina([...diasRutina, "dia"]);
   }
 
