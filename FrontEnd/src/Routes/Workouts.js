@@ -7,7 +7,7 @@ export default function AllWorkouts() {
 
   const getWorkouts = async () => {
     const response = await axios.get(
-      "http://localhost:7777/api/workout/user/" + user.id
+      "http://localhost:7777/api/workout/userAndPublic/" + user.id
     );
     return response.data.data;
   };
