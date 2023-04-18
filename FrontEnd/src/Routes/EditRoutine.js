@@ -81,9 +81,6 @@ export default function EditRoutine() {
         lista.removeChild(elemento);
       }
     });
-
-
-    
   }
 
   const [formData, setFormData] = useState({
@@ -222,7 +219,14 @@ export default function EditRoutine() {
         {loaded && (
           <div>
           <form>
+            <div class="alert alert-primary" role="alert">
+              Pulsa en los dias para ver más información
+            </div>
+
+          
             <div className="form-group d-flex justify-content-center">
+
+              
               <label for="nombreRutina">Nombre de la rutina</label>
               <input
                 type="text"

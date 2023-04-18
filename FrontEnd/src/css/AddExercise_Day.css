@@ -14,3 +14,28 @@
 .ventanaActiva{
   display: block !important; 
 }
+
+.imagenEjercicio{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.clickAddEjercicio{
+  margin: auto;
+  margin-top: 20px !important;
+}
+
+.listaScroleableEjs::-webkit-scrollbar{
+  width: auto !important;
+  scrollbar-width: 10px !important;
+}
+
+.containerInfoEjercicio{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

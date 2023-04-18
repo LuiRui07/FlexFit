@@ -53,7 +53,7 @@ export const getOneDay = async (req, res) => {
             where: {
                 id
             },
-            include: [{all: true, nested: true}]
+            include: [{all: true}]
         });
         if(day) {
             res.json({

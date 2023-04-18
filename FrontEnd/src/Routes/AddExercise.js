@@ -14,10 +14,10 @@ const cerrarVentana = () => {
 
 export default function AddWorkout() {
 
-  const idDia = window.location.pathname.split("/")[2];
+  const idDia = window.location.pathname.split("/")[4];
 
   const [formData, setFormData] = useState({
-    workoutday: idDia,
+    workoutday: Number(idDia),
     exerciseId: '',
     reps: '',
     weight: '',
@@ -27,7 +27,7 @@ export default function AddWorkout() {
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: Number(e.target.value)
     })
   }
 
@@ -37,8 +37,18 @@ export default function AddWorkout() {
       window.confirm("Rellene los campos")
       return;
     } else {
-      const response = await axios.post('http://localhost:7777/api/dayexercise/')
+      console.log(formData)
+      formData.exerciseId = workoutType.id
+      console.log(formData)
+      const response = await axios.post('http://localhost:7777/api/exerciseDay/',formData)
       console.log(response.data)
+      if(response.data.message === "ExerciseDay created successfully"){
+        window.confirm("Ejercicio añadido")
+        cerrarVentana()
+        window.location.reload()
+      }else{
+        window.confirm("Error al añadir ejercicio")
+      }
     }
   }
 
@@ -75,7 +85,7 @@ export default function AddWorkout() {
         loaded && (
           <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
             <div className="card-header">
-              <h1>Register a new Exercise</h1>
+              <h1>Añadir ejercicio</h1>
               <h2 onClick={cerrarVentana}>x</h2>
             </div>
 
@@ -133,7 +143,7 @@ export default function AddWorkout() {
                 <input
                   type="submit"
                   className="btn btn-outline-danger w-100 formData"
-                  value="Register!"
+                  value="Añadir"
                   onClick={guardarEjer}
                 />
               </div>

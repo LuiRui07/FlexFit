@@ -8,6 +8,8 @@ var ExerciseDayModel = db.define('dayexercise', {
     reps: { type: DataTypes.INTEGER, allowNull: false },
     weight: { type: DataTypes.INTEGER, allowNull: false },
     series: { type: DataTypes.INTEGER, allowNull: false },
+    exerciseId: { type: DataTypes.INTEGER, allowNull: false },
+    workoutday: { type: DataTypes.INTEGER, allowNull: false },
 }, {freezeTableName: true,timestamps: false,underscored: false});
 
 
