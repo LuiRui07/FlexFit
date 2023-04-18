@@ -146,7 +146,7 @@ export default function AddRoutine() {
           {
             formData.name.length > 0 &&
             (
-              <button className="btn btn-danger clickAddDia" onClick={guardarRutina}>{rutinaActual === null ? "Crear" : "Editar"}</button>
+              <button className="btn btn-danger clickAddDia" onClick={guardarRutina}>{rutinaActual === null ? "Crear" : "Guardar"}</button>
             )
           }
           

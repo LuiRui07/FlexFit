@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', getAllDays)
 
 router.get('/:id', getOneDay)
+router.get('/rutina/:id', getDayByRoutine)
 router.post('/', createDay)
 router.put('/:id', updateDay)
 router.delete('/:id', deleteDay)
