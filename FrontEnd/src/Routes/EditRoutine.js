@@ -4,6 +4,20 @@ import "../css/AddRoutine.css";
 import axios from "axios";
 
 export default function EditRoutine() {
+
+  const getWorkout = async () => {
+    const idRoutine = window.location.pathname.split("/")[2];
+    const response = await axios.get(
+      "http://localhost:7777/api/workout/" + idRoutine
+    );
+    return response.data.data;
+  };
+
+
+  const getWorkoutDays = () => {
+    return [];
+  };
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   function anyadir_dia() {
@@ -85,37 +99,11 @@ export default function EditRoutine() {
     }
   };
 
-  const obtenerDiasRutina = () => {
-    return [];
-  };
 
   const [rutinaFavorita, setRutinaFavorita] = useState(false);
-
-  const [diasRutina, setDiasRutina] = useState(obtenerDiasRutina);
-
-  const getRutinaActual = async () => {
-    // terminar de implementar
-    const idRoutine = window.location.pathname.split("/")[2];
-    if (idRoutine !== null) {
-      return await axios
-        .get("http://localhost:7777/api/workout/" + idRoutine)
-        .then((response) => {
-          console.log(response.data);
-          if (response.data.message === "Workout found successfully") {
-            setFormData({
-              name: response.data.data.name,
-              description: response.data.data.description,
-              user_id: response.data.data.user_id,
-              favorite: response.data.data.favorite,
-            });
-
-            return response.data.data;
-          }
-        });
-    }
-  };
-
-  const [rutinaActual, setRutinaActual] = useState(getRutinaActual());
+  const [rutinaActual, setRutinaActual] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+  const [diasRutina, setDiasRutina] = useState([]);
 
   const favourite = () => {
     let corazon = document.getElementById("corazon");
@@ -130,88 +118,149 @@ export default function EditRoutine() {
     }
   };
 
+
+  useEffect(() => {
+    getWorkout().then((workout) => {
+      setRutinaActual(workout);
+      setFormData({
+        name: workout.name,
+        description: workout.description,
+        user_id: user.id,
+        favorite: workout.favorite,
+      });
+      setLoaded(true);
+    });
+
+  }, []);
+
+  useEffect(() => {
+    if(rutinaActual !== null && rutinaActual.user_id === user.id){
+      document.getElementById("nombreRutina").value = formData.name;
+      document.getElementById("descripcionRutina").value = formData.description;
+      if (formData.favorite === true) {
+        let corazon = document.getElementById("corazon");
+        corazon.classList.remove("fa-heart-o");
+        corazon.classList.add("fa-heart");
+        setRutinaFavorita(true);
+      }else {
+        let corazon = document.getElementById("corazon");
+        corazon.classList.remove("fa-heart");
+        corazon.classList.add("fa-heart-o");
+        setRutinaFavorita(false);
+      }
+    }
+
+
+
+  }, [formData]);
+
   return (
     <div>
       <HeaderFF />
+
+      
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-        <form>
-          <div className="form-group d-flex justify-content-center">
-            <label for="nombreRutina">Nombre de la rutina</label>
-            <input
-              type="text"
-              className="form-control nombreRutina ml-2"
-              name="name"
-              id="nombreRutina"
-              placeholder="Añade el nombre de la rutina..."
-              onChange={handleInputChange}
-              value={formData.name}
-              required
-            />
-
-            {rutinaActual !== null && rutinaActual.favorite === true && (
-              <span className="corazonaco">
-                <i
-                  className="fa fa-heart"
-                  aria-hidden="true"
-                  id="corazon"
-                  onClick={favourite}
-                ></i>{" "}
-              </span>
-            )}
-            {rutinaActual !== null && rutinaActual.favorite === false && (
-              <span className="corazonaco">
-                <i
-                  className="fa fa-heart-o"
-                  aria-hidden="true"
-                  id="corazon"
-                  onClick={favourite}
-                ></i>{" "}
-              </span>
-            )}
-          </div>
-          <div className="d-flex align-items-center justify-content-center gap-2">
-            <label for="descripcionRutina">Descripción</label>
-            <textarea
-              className="form-control nombreRutina mt-3 rounded"
-              placeholder="Añade una breve descripcion..."
-              name="description"
-              id="descripcionRutina"
-              value={formData.description}
-              onChange={handleInputChange}
-            />
-          </div>
-        </form>
-        <div class="mt-3">
-          {formData.name.length === 0 && (
-            <div className="alert alert-danger" role="alert">
-              Debe añadir un nombre a la rutina
+        {
+          !loaded && (
+            <div className="spinner-border text-primary" role="status">
+              <span className="sr-only">Loading...</span>
             </div>
-          )}
-          {formData.name.length > 0 && (
-            <button
-              className="btn btn-danger clickAddDia"
-              onClick={guardarRutina}
-            >
-              {rutinaActual === null ? "Crear" : "Guardar"}
-            </button>
-          )}
-        </div>
+          )
+        }
+        {loaded && (
+          <div>
+          <form>
+            <div className="form-group d-flex justify-content-center">
+              <label for="nombreRutina">Nombre de la rutina</label>
+              <input
+                type="text"
+                className="form-control nombreRutina ml-2"
+                name="name"
+                id="nombreRutina"
+                placeholder="Añade el nombre de la rutina..."
+                onChange={handleInputChange}
+                value={formData.name}
+                {...(rutinaActual.user_id !== user.id && { readOnly: true })}
+                required
+              />
 
-        {rutinaActual !== null && (
-          <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-            <ul className="align-items-center" id="listaDias"></ul>
-            {diasRutina.length === 0 && (
+              {rutinaActual !== null && rutinaActual.favorite === true && rutinaActual.user_id === user.id && (
+                <span className="corazonaco">
+                  <i
+                    className="fa fa-heart"
+                    aria-hidden="true"
+                    id="corazon"
+                    onClick={favourite}
+                    
+                  ></i>
+                </span>
+              )}
+
+              {rutinaActual !== null && rutinaActual.favorite === false && rutinaActual.user_id === user.id && (
+                <span className="corazonaco">
+                  <i
+                    className="fa fa-heart-o"
+                    aria-hidden="true"
+                    id="corazon"
+                    onClick={favourite}
+
+                  ></i>
+                </span>
+              )}
+            </div>
+            <div className="d-flex align-items-center justify-content-center gap-2">
+              <label for="descripcionRutina">Descripción</label>
+              <textarea
+                className="form-control nombreRutina mt-3 rounded"
+                placeholder="Añade una breve descripcion..."
+                name="description"
+                id="descripcionRutina"
+                value={formData.description}
+                onChange={handleInputChange}
+                {...(rutinaActual.user_id !== user.id && { readOnly: true })}
+
+              />
+            </div>
+          </form>
+          <div class="mt-3">
+            {formData.name.length === 0 && (
               <div className="alert alert-danger" role="alert">
-                Debe añadir al menos un dia
+                Debe añadir un nombre a la rutina
               </div>
             )}
-            <button
-              className="btn btn-danger clickAddDia"
-              onClick={anyadir_dia}
-            >
-              Añadir dia
-            </button>
+            
+            {formData.name.length > 0 && rutinaActual.user_id === user.id && (
+              <button
+                className="btn btn-danger clickAddDia"
+                onClick={guardarRutina}
+              >
+                {rutinaActual === null ? "Crear" : "Guardar"}
+              </button>
+            )}
           </div>
+
+          {rutinaActual !== null && (
+            <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+              <ul className="align-items-center" id="listaDias"></ul>
+              {diasRutina.length === 0 && (
+                <div className="alert alert-danger" role="alert">
+                  Esta rutina aún no tiene dias añadidos
+                </div>
+              )}
+
+              {rutinaActual.user_id === user.id && (
+                <button
+                className="btn btn-danger clickAddDia"
+                onClick={anyadir_dia}
+                >
+                Añadir dia
+                </button>
+              )}
+
+
+            </div>
+          )}
+        </div>
         )}
       </div>
     </div>
