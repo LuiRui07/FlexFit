@@ -60,7 +60,7 @@ function HomeLoggedIn() {
                   <h5 className="card-title">Principiantes</h5>
                   <img
                     src={foto1}
-                    class="rounded img-fluid"
+                    className="rounded img-fluid"
                     alt="image not found"
                   />
                   <p className="card-text pt-3" style={{ fontSize: "19px" }}>
@@ -90,7 +90,7 @@ function HomeLoggedIn() {
                   <h5 className="card-title">Avanzado</h5>
                   <img
                     src={foto2}
-                    class="rounded img-fluid"
+                    className="rounded img-fluid"
                     alt="image not found"
                   />
                   <p className="card-text pt-3" style={{ fontSize: "19px" }}>

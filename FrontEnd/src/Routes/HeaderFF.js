@@ -17,17 +17,17 @@ export default function HeaderFF() {
           </a>
         </li>
         <li className="nav-item-col" id="workoutsHeaderLi">
-          <a className="nav-link" href="../workouts">
+          <a className="nav-link" href="/workouts">
             Rutinas
           </a>
         </li>
         <li className="nav-item-col" id="AboutUsHeaderLi">
-          <a className="nav-link" href="../aboutus">
+          <a className="nav-link" href="/aboutus">
             Sobre Nosotros
           </a>
         </li>
         <li className="nav-item-col ml-auto" id="cuentaHeaderLi">
-          <a className="nav-link" href="../cuenta">
+          <a className="nav-link" href="/cuenta">
             <img src={user.image} className="imgPerfil"></img>
           </a>
         </li>

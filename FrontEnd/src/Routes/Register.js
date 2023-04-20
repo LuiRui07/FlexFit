@@ -305,7 +305,10 @@ function Register() {
           </button>
 
           <div className="gotoRegister">
-            <a className="link-register" href="/home">
+            <a
+              className="btn btn-outline-secondary link-register "
+              href="/home"
+            >
               Ya tengo una cuenta
             </a>
           </div>

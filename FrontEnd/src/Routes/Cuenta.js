@@ -26,7 +26,7 @@ export default function Historial() {
             <img
               src={user.image}
               alt="no hay"
-              class="imagenUser"
+              className="imagenUser"
               height={150}
               width={150}
             ></img>
@@ -56,7 +56,7 @@ export default function Historial() {
             </div>
           </div>
           <div className="containerBotonEditar">
-            <a href="#" className="botonEditar">
+            <a href="/editarperfil" className="botonEditar">
               Editar
             </a>
           </div>
