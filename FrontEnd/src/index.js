@@ -10,6 +10,7 @@ import AddRoutine from "./Routes/AddRoutine";
 import Register from "./Routes/Register";
 import AddExercise_Day from "./Routes/AddExercise_Day";
 import EditRoutine from "./Routes/EditRoutine";
+import AboutUs from "./Routes/AboutUs";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Tips from "./Routes/Tips";
@@ -23,9 +24,10 @@ const router = createBrowserRouter([
   { path: "/cuenta", element: <Cuenta /> },
   { path: "/addro", element: <AddRoutine /> },
   { path: "/register", element: <Register /> },
-  { path: "/rutina/:id", element: <EditRoutine /> ,},
+  { path: "/rutina/:id", element: <EditRoutine /> },
   { path: "/rutina/:rutina/dia/:dia", element: <AddExercise_Day /> },
   { path: "/addro/:dia/:nombreEjer", element: <AddExercise_Day /> },
+  { path: "/aboutus", element: <AboutUs /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

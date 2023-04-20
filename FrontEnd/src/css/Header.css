@@ -6,7 +6,8 @@
   --bs-nav-tabs-link-hover-border-color: none;
 }
 
-.nav-tabs, .nav-link {
+.nav-tabs,
+.nav-link {
   border: none !important;
 }
 
@@ -44,4 +45,15 @@ li a {
 
 .logout:hover {
   cursor: pointer;
+}
+
+#cuentaHeaderLi {
+  margin-left: auto;
+}
+
+.imgPerfil {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border-style: initial;
 }

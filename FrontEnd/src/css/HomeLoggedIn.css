@@ -14,13 +14,11 @@ body {
   max-height: 600px;
 }*/
 
-
-.gridElements{
+.gridElements {
   max-height: 700px;
 }
 
-
-.usernameHello{
+.usernameHello {
   color: rgb(211, 58, 58);
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
@@ -33,4 +31,12 @@ body {
 
 .usernameHello:hover {
   box-shadow: 5px -5px 0px rgb(211, 58, 58);
+}
+
+div#Prin {
+  margin-left: 1%;
+}
+
+div#textito {
+  text-align: center;
 }

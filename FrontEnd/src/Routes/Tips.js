@@ -1,5 +1,4 @@
 import HeaderFF from "./HeaderFF";
-import "../css/Historial.css";
 
 export default function Tips() {
   return (
