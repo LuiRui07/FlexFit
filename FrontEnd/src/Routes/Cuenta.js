@@ -56,7 +56,7 @@ export default function Historial() {
             </div>
           </div>
           <div className="containerBotonEditar">
-            <a href="/editarperfil" className="botonEditar">
+            <a href="/editarcuenta" className="botonEditar">
               Editar
             </a>
           </div>

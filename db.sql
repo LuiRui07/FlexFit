@@ -63,7 +63,7 @@ CREATE TABLE `dayexercise` (
   KEY `workoutDay_idx` (`workoutday`),
   CONSTRAINT `exerciseID` FOREIGN KEY (`exerciseId`) REFERENCES `exercise` (`id`),
   CONSTRAINT `workoutDay` FOREIGN KEY (`workoutday`) REFERENCES `workout_day` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +72,7 @@ CREATE TABLE `dayexercise` (
 
 LOCK TABLES `dayexercise` WRITE;
 /*!40000 ALTER TABLE `dayexercise` DISABLE KEYS */;
-INSERT INTO `dayexercise` VALUES (1,1,3,10,25,3),(2,1,31,10,20,3),(3,1,16,10,10,3),(4,1,4,10,10,3),(5,1,5,10,5,3),(6,1,10,10,7,3),(7,13,19,10,0,3),(8,13,9,10,20,3),(9,13,18,8,25,3),(10,13,32,10,15,3),(11,13,24,8,10,3),(12,14,6,10,30,4),(13,14,12,10,30,3),(14,14,11,10,70,3),(15,14,14,8,35,3),(16,14,28,6,40,3),(17,14,13,10,15,3),(28,2,6,10,80,4),(29,2,7,10,40,3),(30,2,11,10,100,3),(31,2,12,15,40,4),(32,2,13,10,55,3),(33,3,3,10,90,4),(34,3,31,10,25,3),(35,3,17,10,25,3),(36,3,16,10,25,3),(37,3,33,8,40,3),(38,3,34,8,50,3),(39,3,10,10,30,4),(40,4,19,10,0,3),(52,4,36,10,25,3),(53,4,18,10,50,4),(54,4,32,10,40,3),(55,4,35,10,40,3),(56,4,21,10,30,3),(57,4,22,10,20,3),(58,4,24,10,20,3),(59,5,37,10,22,4),(60,5,5,10,10,4),(61,5,4,10,40,3),(62,5,25,10,15,3),(63,5,39,10,15,3),(64,5,40,10,12,3),(65,5,26,10,35,3),(66,6,28,10,100,4),(67,6,6,10,80,3),(68,6,14,10,50,4),(69,6,11,10,100,3),(70,6,30,10,30,3),(71,6,41,10,60,3),(72,7,43,10,70,4),(73,7,17,8,30,3),(74,7,33,10,40,3),(75,7,16,10,40,3),(76,7,9,6,80,4),(77,7,35,8,60,3),(78,7,21,12,30,3),(79,7,40,12,15,4),(80,7,39,12,12,4),(81,8,6,4,110,4),(82,8,7,10,80,3),(83,8,11,6,130,4),(84,8,12,6,50,4),(85,8,14,12,50,4),(86,8,28,10,140,4),(87,8,41,10,130,3),(88,8,13,15,70,3),(89,9,17,8,28,3),(90,9,33,10,50,3),(91,9,16,10,30,3),(92,9,42,4,20,8),(93,9,10,12,50,3),(94,9,44,12,30,4),(95,9,45,10,30,3),(96,10,19,10,0,4),(97,10,32,8,50,3),(98,10,18,10,50,4),(99,10,20,10,50,4),(100,10,21,15,50,4),(101,10,46,10,50,4),(102,10,24,10,20,3),(103,10,47,10,25,4),(104,10,25,15,20,3),(105,10,48,15,25,3),(106,11,37,8,30,4),(107,11,40,10,15,3),(108,11,49,10,15,4),(109,11,5,10,15,3),(110,11,25,10,20,3),(111,11,48,10,40,3),(112,11,26,10,40,3),(113,12,28,10,130,3),(114,12,12,8,65,10),(115,12,11,8,140,8),(116,12,30,10,50,8),(117,12,14,12,60,4),(118,12,29,10,30,4),(119,12,50,12,40,3),(120,12,13,15,70,3);
+INSERT INTO `dayexercise` VALUES (1,1,3,10,25,3),(2,1,31,10,20,3),(3,1,16,10,10,3),(4,1,4,10,10,3),(5,1,5,10,5,3),(6,1,10,10,7,3),(7,13,19,10,0,3),(8,13,9,10,20,3),(9,13,18,8,25,3),(10,13,32,10,15,3),(11,13,24,8,10,3),(12,14,6,10,30,4),(13,14,12,10,30,3),(14,14,11,10,70,3),(15,14,14,8,35,3),(16,14,28,6,40,3),(17,14,13,10,15,3),(28,2,6,10,80,4),(29,2,7,10,40,3),(30,2,11,10,100,3),(31,2,12,15,40,4),(32,2,13,10,55,3),(33,3,3,10,90,4),(34,3,31,10,25,3),(35,3,17,10,25,3),(36,3,16,10,25,3),(37,3,33,8,40,3),(38,3,34,8,50,3),(39,3,10,10,30,4),(40,4,19,10,0,3),(52,4,36,10,25,3),(53,4,18,10,50,4),(54,4,32,10,40,3),(55,4,35,10,40,3),(56,4,21,10,30,3),(57,4,22,10,20,3),(58,4,24,10,20,3),(59,5,37,10,22,4),(60,5,5,10,10,4),(61,5,4,10,40,3),(62,5,25,10,15,3),(63,5,39,10,15,3),(64,5,40,10,12,3),(65,5,26,10,35,3),(66,6,28,10,100,4),(67,6,6,10,80,3),(68,6,14,10,50,4),(69,6,11,10,100,3),(70,6,30,10,30,3),(71,6,41,10,60,3),(72,7,43,10,70,4),(73,7,17,8,30,3),(74,7,33,10,40,3),(75,7,16,10,40,3),(76,7,9,6,80,4),(77,7,35,8,60,3),(78,7,21,12,30,3),(79,7,40,12,15,4),(80,7,39,12,12,4),(81,8,6,4,110,4),(82,8,7,10,80,3),(83,8,11,6,130,4),(84,8,12,6,50,4),(85,8,14,12,50,4),(86,8,28,10,140,4),(87,8,41,10,130,3),(88,8,13,15,70,3),(89,9,17,8,28,3),(90,9,33,10,50,3),(91,9,16,10,30,3),(92,9,42,4,20,8),(93,9,10,12,50,3),(94,9,44,12,30,4),(95,9,45,10,30,3),(96,10,19,10,0,4),(97,10,32,8,50,3),(98,10,18,10,50,4),(99,10,20,10,50,4),(100,10,21,15,50,4),(101,10,46,10,50,4),(102,10,24,10,20,3),(103,10,47,10,25,4),(104,10,25,15,20,3),(105,10,48,15,25,3),(106,11,37,8,30,4),(107,11,40,10,15,3),(108,11,49,10,15,4),(109,11,5,10,15,3),(110,11,25,10,20,3),(111,11,48,10,40,3),(112,11,26,10,40,3),(113,12,28,10,130,3),(114,12,12,8,65,10),(115,12,11,8,140,8),(116,12,30,10,50,8),(117,12,14,12,60,4),(118,12,29,10,30,4),(119,12,50,12,40,3),(120,12,13,15,70,3),(122,26,6,90,900,90),(123,27,6,10,2,4),(125,28,3,10,250,3),(126,29,11,3,600,3),(128,32,6,12,35,4),(129,33,18,8,30,3);
 /*!40000 ALTER TABLE `dayexercise` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +132,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',171,'2023-04-14 01:59:28','2023-04-14 01:59:28','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26','https://media.thetab.com/blogs.dir/90/files/2020/10/eiddclywsamofb9-819x1024.jpeg'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(11,'LmdShow','masi','Juan Alberto','Garcia','Fuengi',27,83,'H',185,'2023-04-18 12:18:34','2023-04-18 12:18:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
+INSERT INTO `user` VALUES (5,'pepe','pepote','Jose Luis','Lopez','Ruiz',20,76,'H',171,'2023-04-14 01:59:28','2023-04-14 01:59:28','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(6,'lui','lui','Luis','Ruiz','Nuñez',20,90,'H',190,'2023-04-16 20:37:26','2023-04-16 20:37:26','https://media.thetab.com/blogs.dir/90/files/2020/10/eiddclywsamofb9-819x1024.jpeg'),(8,'rafa','rafa','Rafael','Ceballos','Martinez',43,43,'H',175,'2023-04-16 21:20:47','2023-04-16 21:20:47','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(9,'pablo','gp','Pablo','Garcia','Platero',20,12,'H',176,'2023-04-17 17:29:44','2023-04-17 17:29:44','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(10,'alba ','ocean ','Alba ','de la Torre','Segato',20,60,'F',170,'2023-04-17 17:30:34','2023-04-17 17:30:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(11,'LmdShow','masi','Juan Alberto','Garcia','Fuengi',27,83,'H',185,'2023-04-18 12:18:34','2023-04-18 12:18:34','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(12,'marina','marina','Marina','Sayago','Gutiérrez',21,50,'M',160,'2023-04-20 07:16:27','2023-04-20 07:16:27','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(13,'juanjo','juanjo','Juanjo','Dols','',21,90,'H',177,'2023-04-20 07:21:27','2023-04-20 07:21:27','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(14,'Ivan','Ivan','Ivan','Delgado','Alba',21,70,'H',172,'2023-04-20 07:27:21','2023-04-20 07:27:21','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(15,'nacho','hola','Nacho','Alba','Aviles',21,70,'H',2,'2023-04-20 07:32:50','2023-04-20 07:32:50','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(16,'Manu','12345','Manuel','Jerez','Sanchez',21,75,'H',2,'2023-04-20 07:43:01','2023-04-20 07:43:01','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(17,'marina_sayago','m','Marina','Sayago','',21,50,'M',160,'2023-04-20 07:48:11','2023-04-20 07:48:11','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg'),(18,'Marta','123','Marta','G','P',21,5,'M',3,'2023-04-20 08:03:20','2023-04-20 08:03:20','https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,7 +165,7 @@ CREATE TABLE `workout` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_workout_user1_idx` (`user_id`),
   CONSTRAINT `fk_workout_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
-INSERT INTO `workout` VALUES (1,'Principiante','Para aquellos que estan empezando a entrenar y quieren aprender y adaptarse.',NULL,0,0,'FÁCIL',5),(2,'Intermedio','Para aquellos que llevan un tiempo entrenando y saben moverse dentro de un gimnasio.',NULL,0,1,'INTERMEDIA',5),(3,'Avanzado','Para aquellos que tienen amplia experiencia y quieren superar sus límites',NULL,0,0,'DIFÍCIL',5);
+INSERT INTO `workout` VALUES (1,'Principiante','Para aquellos que estan empezando a entrenar y quieren aprender y adaptarse.',NULL,0,0,'FÁCIL',5),(2,'Intermedio','Para aquellos que llevan un tiempo entrenando y saben moverse dentro de un gimnasio.',NULL,0,1,'INTERMEDIA',5),(3,'Avanzado','Para aquellos que tienen amplia experiencia y quieren superar sus límites',NULL,0,0,'DIFÍCIL',5),(36,'El fisnes','ejersisio',NULL,1,0,'FÁCIL',13),(37,'Ivan','Rutina personalizada Ivan',NULL,1,0,'FÁCIL',14),(38,'Rutina para ponerme fuerte','Mas de lo que estoy',NULL,1,0,'FÁCIL',15),(39,'Rutina 1','Rutina nueva',NULL,1,0,'FÁCIL',16),(40,'Verano ','',NULL,1,0,'FÁCIL',17),(41,'martaGuapa','llevo 1 semana si ir a gym',NULL,1,0,'FÁCIL',18);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `workout_day` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_workout_day_workout1_idx` (`workout_id`),
   CONSTRAINT `fk_workout_day_workout1` FOREIGN KEY (`workout_id`) REFERENCES `workout` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `workout_day` (
 
 LOCK TABLES `workout_day` WRITE;
 /*!40000 ALTER TABLE `workout_day` DISABLE KEYS */;
-INSERT INTO `workout_day` VALUES (1,'dia 1',1,'2023-04-16 03:03:44','2023-04-16 03:03:44'),(2,'dia 1',2,'2023-04-16 03:03:44','2023-04-16 03:03:44'),(3,'dia 2',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(4,'dia 3',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(5,'dia 4',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(6,'dia 5',2,'2023-04-17 16:14:35','2023-04-17 16:14:35'),(7,'dia 1',3,'2023-04-17 16:31:35','2023-04-17 16:31:35'),(8,'dia 2',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(9,'dia 3',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(10,'dia 4',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(11,'dia 5',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(12,'dia 6',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(13,'dia 2',1,'2023-04-17 16:33:32','2023-04-17 16:33:32'),(14,'dia 3',1,'2023-04-17 16:33:32','2023-04-17 16:33:32');
+INSERT INTO `workout_day` VALUES (1,'Dia 1',1,'2023-04-16 03:03:44','2023-04-16 03:03:44'),(2,'Dia 1',2,'2023-04-16 03:03:44','2023-04-16 03:03:44'),(3,'Dia 2',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(4,'Dia 3',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(5,'Dia 4',2,'2023-04-17 16:13:58','2023-04-17 16:13:58'),(6,'Dia 5',2,'2023-04-17 16:14:35','2023-04-17 16:14:35'),(7,'Dia 1',3,'2023-04-17 16:31:35','2023-04-17 16:31:35'),(8,'Dia 2',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(9,'Dia 3',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(10,'Dia 4',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(11,'Dia 5',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(12,'Dia 6',3,'2023-04-17 16:32:45','2023-04-17 16:32:45'),(13,'Dia 2',1,'2023-04-17 16:33:32','2023-04-17 16:33:32'),(14,'Dia 3',1,'2023-04-17 16:33:32','2023-04-17 16:33:32'),(26,'Dia 1',36,'2023-04-20 07:22:55','2023-04-20 07:22:55'),(27,'Dia 1',37,'2023-04-20 07:29:07','2023-04-20 07:29:07'),(28,'Dia 1',38,'2023-04-20 07:35:49','2023-04-20 07:35:49'),(29,'Dia 1',39,'2023-04-20 07:44:24','2023-04-20 07:44:24'),(30,'Dia 2',39,'2023-04-20 07:44:28','2023-04-20 07:44:28'),(31,'Dia 3',39,'2023-04-20 07:44:29','2023-04-20 07:44:29'),(32,'Dia 1',40,'2023-04-20 07:49:03','2023-04-20 07:49:03'),(33,'Dia 1',41,'2023-04-20 08:05:18','2023-04-20 08:05:18');
 /*!40000 ALTER TABLE `workout_day` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -217,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-18 21:05:48
+-- Dump completed on 2023-04-23 14:00:57

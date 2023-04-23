@@ -220,6 +220,7 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="age"
+                  placeholder="Introduce tu Edad"
                   aria-describedby="ageHelp"
                   name="edad"
                   required
@@ -234,6 +235,7 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="weight"
+                  placeholder="Peso en Kilogramos"
                   aria-describedby="weightHelp"
                   name="peso"
                   required
@@ -287,6 +289,7 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="height"
+                  placeholder="Altura en centímetros"
                   aria-describedby="heightHelp"
                   name="altura"
                   required

@@ -4,14 +4,12 @@ import HeaderFF from "./HeaderFF.js";
 import axios from "axios";
 
 export default function AllWorkouts() {
-
   const getWorkouts = async () => {
     const response = await axios.get(
       "http://localhost:7777/api/workout/userAndPublic/" + user.id
     );
     return response.data.data;
   };
-
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
@@ -33,15 +31,14 @@ export default function AllWorkouts() {
     e.preventDefault();
 
     setFiltro(document.getElementById("filtroNombre").value);
-  
 
     getWorkouts().then((workouts) => {
-      let filtrados = workouts.filter(workout => workout.name.includes(filtro));
+      let filtrados = workouts.filter((workout) =>
+        workout.name.includes(filtro)
+      );
       setWorkouts(filtrados);
     });
-    
   };
-
 
   const goToRoutine = (id) => (e) => {
     e.preventDefault();
@@ -55,34 +52,40 @@ export default function AllWorkouts() {
         <h1>Rutinas</h1>
 
         <div className="d-flex pb-3">
-          <input className="barra" type="text" placeholder="Buscar" id="filtroNombre"></input>
+          <input
+            className="barra"
+            type="text"
+            placeholder="Buscar"
+            id="filtroNombre"
+          ></input>
           <div className="btn" id="search" onClick={filtrarWorkouts}>
             <i className="fa fa-search"></i>
           </div>
         </div>
 
         {workouts.length === 0 && (
-            <div className="card noRutinas">
-              <div className="card-body">
-                <h5 className="card-title ">No hay rutinas</h5>
-              </div>
+          <div className="card noRutinas">
+            <div className="card-body">
+              <h5 className="card-title ">No hay rutinas</h5>
             </div>
-          )}
+          </div>
+        )}
 
         <div className="cardTag" id="cardsSport">
-
-
           {workouts.map((workout) => (
-            <div className="card rutinaClickable" onClick={goToRoutine(workout.id)}>
-              { workout.private === true && (
+            <div
+              className="card rutinaClickable"
+              onClick={goToRoutine(workout.id)}
+            >
+              {workout.private === true && (
                 <h5 className="card-title titleWorkout ">{workout.name}</h5>
-              )  
-              }
-              { workout.private === false && (
-                <h5 className="card-title titleWorkout publicWorkout">{workout.name}</h5>
-              )  
-              }
-              
+              )}
+              {workout.private === false && (
+                <h5 className="card-title titleWorkout publicWorkout">
+                  {workout.name}
+                </h5>
+              )}
+
               <div className="card-body">
                 <p className="card-text">
                   Descripción: <strong>{workout.description}</strong>

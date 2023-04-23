@@ -11,6 +11,7 @@ import Register from "./Routes/Register";
 import AddExercise_Day from "./Routes/AddExercise_Day";
 import EditRoutine from "./Routes/EditRoutine";
 import AboutUs from "./Routes/AboutUs";
+import EditarCuenta from "./Routes/EditarCuenta";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Tips from "./Routes/Tips";
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   { path: "/rutina/:rutina/dia/:dia", element: <AddExercise_Day /> },
   { path: "/addro/:dia/:nombreEjer", element: <AddExercise_Day /> },
   { path: "/aboutus", element: <AboutUs /> },
+  { path: "/editarcuenta", element: <EditarCuenta /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

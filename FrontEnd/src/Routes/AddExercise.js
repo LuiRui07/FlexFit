@@ -49,7 +49,6 @@ export default function AddWorkout() {
       );
       console.log(response.data);
       if (response.data.message === "ExerciseDay created successfully") {
-        window.confirm("Ejercicio añadido");
         cerrarVentana();
         window.location.reload();
       } else {

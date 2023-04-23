@@ -1,0 +1,37 @@
+.formEdit {
+  width: 900px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.52);
+  margin: auto;
+}
+
+.botones {
+  text-align: center;
+  margin-top: 0;
+  place-items: initial;
+}
+
+.profile-picture {
+  margin-right: 50%;
+  border-radius: 10%;
+}
+
+.editarHead {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fb465a;
+  border-radius: 60%;
+  border-radius: 1%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.fuerza {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.52),
+      rgba(74, 4, 4, 0.73)
+    ),
+    url("../images/Espalda.png");
+  background-size: cover;
+}

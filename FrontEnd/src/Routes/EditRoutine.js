@@ -80,7 +80,6 @@ export default function EditRoutine() {
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "Day deleted successfully") {
-          window.confirm("Dia eliminado correctamente");
           diasRutina.pop();
           if (diasRutina === undefined) {
             setDiasRutina([]);
@@ -123,6 +122,7 @@ export default function EditRoutine() {
         if (response.data.message === "Workout created successfully") {
           window.confirm("Rutina guardada correctamente");
           setRutinaActual(response.data.data);
+          window.location.href = "/workouts";
         } else {
           window.confirm("Error al guardar la rutina");
         }
@@ -137,6 +137,7 @@ export default function EditRoutine() {
         if (response.data.message === "Workout updated successfully") {
           window.confirm("Rutina actualizada correctamente");
           setRutinaActual(response.data.data);
+          window.location.href = "/workouts";
         } else {
           window.confirm("Error al guardar la rutina");
         }

@@ -23,7 +23,6 @@ const AddExercise_Day = () => {
       .then((response) => {
         console.log(response.data);
         if (response.data.message === "ExerciseDay deleted successfully") {
-          window.confirm("Ejercicio eliminado correctamente");
           ejerciciosDia.pop();
           if (ejerciciosDia === undefined) {
             setEjerciciosDia([]);

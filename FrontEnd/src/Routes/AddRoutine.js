@@ -63,7 +63,6 @@ export default function AddRoutine() {
         console.log(response.data);
 
         if (response.data.message === "Workout created successfully") {
-          window.confirm("Rutina guardada correctamente");
           window.location.href = "/rutina/" + response.data.data.id;
         } else {
           window.confirm("Error al guardar la rutina");
