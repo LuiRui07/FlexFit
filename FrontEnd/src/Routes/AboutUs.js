@@ -1,7 +1,7 @@
 import "../css/AboutUs.css";
 import HeaderFF from "./HeaderFF";
 import { FaInstagram } from "react-icons/fa";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 const AboutUs = () => {
   useEffect(() => {
