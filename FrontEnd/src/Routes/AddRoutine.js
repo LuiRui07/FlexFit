@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderFF from "./HeaderFF.js";
 import "../css/AddRoutine.css";
 import axios from "axios";
@@ -19,7 +19,7 @@ export default function AddRoutine() {
 
     const boton_eliminar = document.createElement("button");
     boton_eliminar.className = "btn btn-warning mt-4";
-    boton_eliminar.textContent = "Delete";
+    boton_eliminar.textContent = "Borrar";
     boton_eliminar.addEventListener("click", () => eliminar_dia(boton_dia));
 
     boton_dia.appendChild(enlace_dia);
@@ -108,11 +108,20 @@ export default function AddRoutine() {
     }
   };
 
+
   return (
     <div>
       <HeaderFF />
 
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+      <ul className="breadcrumb">
+          <li>FlexFit</li>
+          <li>/</li>
+          <li>Mis Rutinas</li>
+          <li>/</li>
+          <li className="breadcrumbActive">Añadir Rutina</li>
+        </ul>
+        
         <form>
           <div className="form-group d-flex justify-content-center">
             <label htmlFor="nombreRutina" className="justify-content-center ">

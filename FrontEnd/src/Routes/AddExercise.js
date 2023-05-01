@@ -91,7 +91,7 @@ export default function AddWorkout() {
             <h2 onClick={cerrarVentana}>x</h2>
           </div>
 
-          <form className="d-flex gap-5 align-items-center">
+          <form className="d-flex gap-5 align-items-center formAddExercise">
             <div>
               <img
                 src={workoutType.image}

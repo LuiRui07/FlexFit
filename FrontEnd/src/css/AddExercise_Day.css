@@ -33,9 +33,74 @@
 }
 
 .containerInfoEjercicio{
-  width: 100%;
+  width: 400px;
   height: 100%;
+  display: flex;
+  justify-items: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.imagenEjercicioContainer{
+  width: 150px !important;
+  height: 150px !important;
+
+}
+
+.containerforInfo{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+}
+
+.container_info{
+  display: flex;
+  flex-direction: row;
+}
+
+.ejerContainer{
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+}
+
+@media screen and (max-width: 550px) {
+  .containerInfoEjercicio{
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .containerInfoEjercicio{
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .containerInfoEjercicio{
+    width: 150px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .imagenEjercicioContainer{
+    display: none;
+  }
 }

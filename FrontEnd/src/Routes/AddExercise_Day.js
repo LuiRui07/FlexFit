@@ -60,23 +60,24 @@ const AddExercise_Day = () => {
 
     const ejercicio_container = document.createElement("div");
     ejercicio_container.className =
-      "alert alert-secondary d-flex align-items-center gap-3 botonDiaLista";
+      "alert alert-secondary d-flex botonDiaLista ejerContainer";
 
     const imagen_container = document.createElement("div");
+    imagen_container.className = "imagenEjercicioContainer";
 
     const imagen = document.createElement("img");
     imagen.className = "imagenEjercicio";
     imagen.src = TipoEjercicio.image;
     imagen.height = "50";
-    imagen.style.border = "3px solid #fb465a";
     imagen.style.borderRadius = "10px";
     imagen.width = "50";
     imagen.alt = "No disponible";
 
     imagen_container.style.width = "150px";
-    imagen_container.style.marginLeft = "36%";
+    imagen_container.style.height = "150px";
 
     imagen_container.appendChild(imagen);
+
 
     const container_info = document.createElement("div");
     container_info.className = "containerInfoEjercicio alert alert-secondary";
@@ -84,8 +85,6 @@ const AddExercise_Day = () => {
     const ejer_name = document.createElement("h4");
     ejer_name.className = "diaName";
     ejer_name.textContent = TipoEjercicio.name;
-
-    container_info.appendChild(ejer_name);
 
     const ejer_reps = document.createElement("span");
     ejer_reps.className = "diaReps";
@@ -99,17 +98,25 @@ const AddExercise_Day = () => {
     ejer_peso.className = "diaPeso";
     ejer_peso.textContent = "Peso: " + ejercicio.weight + " kg";
 
-    container_info.appendChild(ejer_reps);
-    container_info.appendChild(ejer_sets);
-    container_info.appendChild(ejer_peso);
+    const containerforInfo = document.createElement("div");
+    containerforInfo.className = "containerforInfo";
+
+    containerforInfo.appendChild(ejer_name);
+    containerforInfo.appendChild(ejer_reps);
+    containerforInfo.appendChild(ejer_sets);
+    containerforInfo.appendChild(ejer_peso);
+
+    
     container_info.appendChild(imagen_container);
+    
+    container_info.appendChild(containerforInfo);
 
     liEjercicio.appendChild(container_info);
 
     if (rutinaActual.user_id === user.id) {
       const boton_eliminar = document.createElement("button");
       boton_eliminar.className = "btn btn-danger clickDeleteDia";
-      boton_eliminar.textContent = "Delete";
+      boton_eliminar.textContent = "Borrar";
       boton_eliminar.addEventListener("click", () =>
         eliminar_dia(liEjercicio, ejercicio.idExercise)
       );
@@ -187,6 +194,17 @@ const AddExercise_Day = () => {
 
       {loaded && (
         <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+        <ul className="breadcrumb">
+            <li><a href="/">FlexFit</a></li>
+            <li>/</li>
+            <li><a href="/workouts">Mis Rutinas</a></li>
+            <li>/</li>
+            <li><a href={'/rutina/' + rutinaActual.id}>{rutinaActual.name}</a></li>
+            <li>/</li>
+            <li>{diaActual.name}</li>
+            <li>/</li>
+            <li className="breadcrumbActive">Ejercicios</li>
+          </ul>
           <h1 style={{ color: "#fb465a" }}>{rutinaActual.name}</h1>
           <h3>
             Dia: <label style={{ color: "#fb465a" }}>{diaActual.name}</label>

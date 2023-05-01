@@ -40,3 +40,41 @@ div#Prin {
 div#textito {
   text-align: center;
 }
+
+
+@media screen and (max-width: 870px) {
+  .fuerte > div {
+    flex-direction: column;
+  }
+
+  .textoListoEjer {
+    display: flex !important;
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 670px) {
+
+
+  .fuerte {
+    background-size: cover !important;
+    background-repeat: repeat !important;
+    height: 100% !important;
+  }
+  
+
+  
+  #tiposRutina{
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    align-items: center;
+    padding: auto;
+  }
+  #tiposRutina > div{
+    width: 80%;
+  }
+
+
+}

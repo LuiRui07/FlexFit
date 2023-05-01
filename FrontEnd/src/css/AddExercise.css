@@ -41,3 +41,25 @@
 .card-header > h2:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 870px) {
+  .formAddExercise{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+}
+
+@media screen and (max-width:575px) {
+  .formAddExercise{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:410px) {
+  #sportSelector{
+    width: 40%;
+    margin: auto;
+  }
+}

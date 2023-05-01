@@ -104,3 +104,32 @@ li#add {
 .publicWorkout{
   background-color: #379f5b !important;
 }
+
+.breadcrumbActive{
+  font-weight: bold;
+  color: #fb465a !important;
+}
+
+.breadcrumb {
+  list-style: none;
+  align-self: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (max-width: 990px) {
+    .cardTag{
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 575px) {
+  .cardTag{
+    grid-template-columns: 1fr;
+  }
+  .workoutsPanel{
+    padding: 0px;
+    width: fit-content;
+  }
+}
+

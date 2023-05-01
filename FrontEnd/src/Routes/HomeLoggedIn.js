@@ -45,14 +45,14 @@ function HomeLoggedIn() {
               <br />
             </h1>
 
-            <div className="d-flex align-items: stretch;">
+            <div className="d-flex textoListoEjer">
               <h2>¿Listo para hacer ejercicio?</h2>
             </div>
           </div>
 
           <div
-            className="d-flex justify-content-around gridElements flex-wrap"
-            id="Prin"
+            className="d-flex justify-content-around flex-wrap"
+            id="tiposRutina"
           >
             <div className="col-4 card h-100">
               <div className="">

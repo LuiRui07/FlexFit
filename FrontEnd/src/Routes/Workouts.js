@@ -49,6 +49,12 @@ export default function AllWorkouts() {
     <div className="backgroudTochoWorkout">
       <HeaderFF />
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto workoutsPanel">
+        <ul className="breadcrumb">
+          <li><a href="/">FlexFit</a></li>
+          <li>/</li>
+          <li className="breadcrumbActive">Mis Rutinas</li>  
+        </ul>
+
         <h1>Rutinas</h1>
 
         <div className="d-flex pb-3">
@@ -102,7 +108,7 @@ export default function AllWorkouts() {
         </div>
 
         <div>
-          <a className="btn btn-outline-danger mt-4 d-flex" href="addro">
+          <a className="btn btn-danger mt-4 d-flex" href="addro">
             Añadir Rutina
           </a>
         </div>

@@ -35,3 +35,11 @@
     url("../images/Espalda.png");
   background-size: cover;
 }
+
+
+@media screen and (max-width: 1350px) {
+  .containerInfoUser{
+    padding: 5px;
+    width: 80%;
+  }
+}

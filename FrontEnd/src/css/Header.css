@@ -57,3 +57,23 @@ li a {
   border-radius: 50%;
   border-style: initial;
 }
+
+
+@media screen and (max-width:420px) {
+  .nav-tabs {
+    display: flex!important;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  #cuentaHeaderLi{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}

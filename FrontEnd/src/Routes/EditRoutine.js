@@ -43,7 +43,7 @@ export default function EditRoutine() {
     if (rutinaActual.user_id === user.id) {
       const boton_eliminar = document.createElement("button");
       boton_eliminar.className = "btn btn-danger clickDeleteDia";
-      boton_eliminar.textContent = "Delete";
+      boton_eliminar.textContent = "Borrar";
       boton_eliminar.addEventListener("click", () =>
         eliminar_dia(boton_dia, dia.id)
       );
@@ -164,6 +164,8 @@ export default function EditRoutine() {
   };
 
   useEffect(() => {
+    document.getElementById("workoutsHeaderLi").classList.add("active");
+
     getWorkout().then((workout) => {
       setRutinaActual(workout);
       setDiasRutina(workout.workout_days);
@@ -206,11 +208,21 @@ export default function EditRoutine() {
     }
   }, [formData]);
 
+  
+
+
   return (
     <div>
       <HeaderFF />
 
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
+      <ul className="breadcrumb">
+          <li><a href="/">FlexFit</a></li>
+          <li>/</li>
+          <li><a href="/workouts">Mis Rutinas</a></li>
+          <li>/</li>
+          <li className="breadcrumbActive">Añadir Rutina</li>
+        </ul>
         {!loaded && (
           <div className="spinner-border text-primary" role="status">
             <span className="sr-only">Loading...</span>
