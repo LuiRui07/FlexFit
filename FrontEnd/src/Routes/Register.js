@@ -243,6 +243,7 @@ function Register() {
                   id="weight"
                   aria-describedby="weightHelp"
                   name="peso"
+                  placeholder="Peso en kg"
                   required
                   onChange={handleChange}
                 />
@@ -296,6 +297,7 @@ function Register() {
                   id="height"
                   aria-describedby="heightHelp"
                   name="altura"
+                  placeholder="Altura en cm"
                   required
                   onChange={handleChange}
                 />
