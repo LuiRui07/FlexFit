@@ -111,7 +111,7 @@ function Register() {
               <h2 className="display-6 title">Regístrate</h2>
             </div>
           </div>
-          <div className="d-flex gap-3 justify-content-around">
+          <div className="d-flex gap-3 justify-content-around formRegisterData">
             <div>
               <label htmlFor="username" className="fs-6">
                 Usuario (*)

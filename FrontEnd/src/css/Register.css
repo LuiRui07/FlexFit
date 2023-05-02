@@ -169,3 +169,44 @@
 .registerbutton {
   margin: auto;
 }
+
+
+@media screen and (max-width: 985px) {
+  .formRegister{
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 768px){
+  .container, .container-md, .container-sm {
+      max-width: 800px;
+  }
+}
+
+
+@media screen and (max-width: 570px) {
+  .formRegister{
+    width: 100%;
+
+    height: 100% !important;
+    position: relative;
+  }
+  
+
+  .bg-form{
+    height: 100% !important;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  
+  .datos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nombreInputs div .fs-6{
+    margin-left: 0;
+  }
+}

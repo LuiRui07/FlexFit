@@ -83,3 +83,34 @@
   border: none;
   box-shadow: 2px 3px 1px 2px #4a0404;
 }
+
+
+@media screen and (max-width: 580px) {
+  .bg-form{
+    height: 100% !important;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+
+  #root {
+    height: 100% !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .formLogin {
+    width: 80%;
+  }
+
+}
+
+@media screen and (max-width: 470px) {
+  .formLogo {
+    width: 100px;
+    height: auto;
+  }
+
+  .formLogin{
+    width: 90%;
+  }
+}
