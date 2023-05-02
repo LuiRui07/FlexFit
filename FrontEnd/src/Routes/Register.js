@@ -30,6 +30,7 @@ function Register() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
+    repeat_password: "",
     nombre: "",
     apellido1: "",
     apellido2: "",
@@ -66,6 +67,12 @@ function Register() {
       formData.sexo.length === 0
     ) {
       setStatusMessage("Todos los campos son obligatorios");
+      showPopup();
+      return;
+    }
+
+    if (formData.password !== formData.repeat_password) {
+      setStatusMessage("Las contraseñas no coinciden");
       showPopup();
       return;
     }
@@ -111,7 +118,7 @@ function Register() {
               <h2 className="display-6 title">Regístrate</h2>
             </div>
           </div>
-          <div className="d-flex gap-3 justify-content-around formRegisterData">
+          <div className="d-flex gap-3 justify-content-around">
             <div>
               <label htmlFor="username" className="fs-6">
                 Usuario (*)
@@ -220,7 +227,6 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="age"
-                  placeholder="Introduce tu Edad"
                   aria-describedby="ageHelp"
                   name="edad"
                   required
@@ -235,7 +241,6 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="weight"
-                  placeholder="Peso en Kilogramos"
                   aria-describedby="weightHelp"
                   name="peso"
                   required
@@ -289,7 +294,6 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="height"
-                  placeholder="Altura en centímetros"
                   aria-describedby="heightHelp"
                   name="altura"
                   required
@@ -308,10 +312,7 @@ function Register() {
           </button>
 
           <div className="gotoRegister">
-            <a
-              className="btn btn-outline-secondary link-register "
-              href="/home"
-            >
+            <a className="link-register" href="/home">
               Ya tengo una cuenta
             </a>
           </div>
