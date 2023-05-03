@@ -28,7 +28,7 @@ export default function HeaderFF() {
         </li>
         <li className="nav-item-col ml-auto" id="cuentaHeaderLi">
           <a className="nav-link" href="/cuenta">
-            <img src={user.image} className="imgPerfil"></img>
+            <img src={user.image} className="imgPerfil" alt="Mi Perfil"></img>
           </a>
         </li>
       </ul>

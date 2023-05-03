@@ -30,7 +30,6 @@ function Register() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    repeat_password: "",
     nombre: "",
     apellido1: "",
     apellido2: "",
@@ -71,7 +70,7 @@ function Register() {
       return;
     }
 
-    if (formData.password !== formData.repeat_password) {
+    if (formData.password !== document.getElementById("repeat-password").value) {
       setStatusMessage("Las contraseñas no coinciden");
       showPopup();
       return;
@@ -162,7 +161,6 @@ function Register() {
                 placeholder="Repite tu contraseña"
                 name="repeatPassword"
                 required
-                onChange={handleChange}
               />
             </div>
           </div>
