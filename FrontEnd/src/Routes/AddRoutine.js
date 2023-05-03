@@ -108,24 +108,27 @@ export default function AddRoutine() {
     }
   };
 
-
   return (
     <div>
       <HeaderFF />
 
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-      <ul className="breadcrumb">
+        <ul className="breadcrumb">
           <li>FlexFit</li>
           <li>/</li>
           <li>Mis Rutinas</li>
           <li>/</li>
           <li className="breadcrumbActive">Añadir Rutina</li>
         </ul>
-        
+
         <form>
           <div className="form-group d-flex justify-content-center">
-            <label htmlFor="nombreRutina" className="justify-content-center ">
-              Nombre de la rutina
+            <label
+              id="nombre"
+              htmlFor="nombreRutina"
+              className="justify-content-center"
+            >
+              Nombre
             </label>
             <input
               type="text"
@@ -215,6 +218,10 @@ export default function AddRoutine() {
             </div>
           </div>
         )}
+
+        <a id="volver" href="/workouts" className="btn btn-warning">
+          Volver
+        </a>
       </div>
     </div>
   );

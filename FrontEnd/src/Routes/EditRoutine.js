@@ -208,18 +208,19 @@ export default function EditRoutine() {
     }
   }, [formData]);
 
-  
-
-
   return (
     <div>
       <HeaderFF />
 
       <div className="mt-5 card container p-4 justify-content-center align-items-center overflow-auto">
-      <ul className="breadcrumb">
-          <li><a href="/">FlexFit</a></li>
+        <ul className="breadcrumb">
+          <li>
+            <a href="/">FlexFit</a>
+          </li>
           <li>/</li>
-          <li><a href="/workouts">Mis Rutinas</a></li>
+          <li>
+            <a href="/workouts">Mis Rutinas</a>
+          </li>
           <li>/</li>
           <li className="breadcrumbActive">Añadir Rutina</li>
         </ul>
@@ -335,6 +336,9 @@ export default function EditRoutine() {
             )}
           </div>
         )}
+        <a id="volver" href="/workouts" className="btn btn-warning">
+          Volver
+        </a>
       </div>
     </div>
   );

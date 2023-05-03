@@ -227,6 +227,7 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="age"
+                  min={1}
                   aria-describedby="ageHelp"
                   name="edad"
                   required
@@ -243,6 +244,7 @@ function Register() {
                   id="weight"
                   aria-describedby="weightHelp"
                   name="peso"
+                  min={1}
                   placeholder="Peso en kg"
                   required
                   onChange={handleChange}
@@ -293,6 +295,7 @@ function Register() {
                 </label>
                 <input
                   type="number"
+                  min={1}
                   className="form-control user-data-input"
                   id="height"
                   aria-describedby="heightHelp"
