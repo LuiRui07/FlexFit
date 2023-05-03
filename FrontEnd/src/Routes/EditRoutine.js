@@ -26,6 +26,7 @@ export default function EditRoutine() {
     const dia_container = document.createElement("div");
     dia_container.className =
       "alert alert-danger d-flex justify-content-between align-items-center gap-3 botonDiaLista";
+    dia_container.tabIndex = 0;  
     dia_container.addEventListener(
       "click",
       () =>

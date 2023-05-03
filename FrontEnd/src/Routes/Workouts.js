@@ -81,6 +81,7 @@ export default function AllWorkouts() {
           {workouts.map((workout) => (
             <div
               className="card rutinaClickable"
+              tabIndex={0}
               onClick={goToRoutine(workout.id)}
             >
               {workout.private === true && (
