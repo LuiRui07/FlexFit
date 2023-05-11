@@ -7,7 +7,7 @@ const AboutUs = () => {
   useEffect(() => {
     document.getElementById("AboutUsHeaderLi").classList.add("active");
   }, []);
-
+  document.title="Sobre Nosotros";
   return (
     <div className="backgroudTochoAbout">
       <HeaderFF />
