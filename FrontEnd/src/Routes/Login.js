@@ -27,7 +27,7 @@ function Login() {
     axios
       .get("http://localhost:7777/api/user/" + username + "/" + password)
       .then((res) => {
-        if (res.data.message === "Invalid username or password") {
+        if (res.data.message === "Invalid username or password" || username == "" || password == "") {
           setStatusMessage("Usuario o contraseña incorrectos");
           showPopup();
         } else {
