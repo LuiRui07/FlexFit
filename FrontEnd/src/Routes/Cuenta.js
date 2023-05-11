@@ -15,7 +15,7 @@ export default function Historial() {
   useEffect(() => {
     document.getElementById("cuentaHeaderLi").classList.add("active");
   }, []);
-
+  document.title="Cuenta";
   return (
     <div className="h-100">
       <HeaderFF />
