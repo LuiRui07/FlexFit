@@ -32,12 +32,15 @@ export default function Historial() {
             ></img>
             <div className="nameInfoContainer">
               <h1>
-                {user.nombre} {user.apellido1} {user.apellido2}
+                {user.username}
               </h1>
             </div>
           </div>
           <div className="dataContainerInfoUser">
             <div className="dataRows">
+              <h3>
+                <strong>Nombre: </strong> {user.nombre} {user.apellido1} {user.apellido2}
+              </h3>
               <h3>
                 <strong>Sexo:</strong> {user.sexo === "H" ? "Hombre" : "Mujer"}{" "}
               </h3>
