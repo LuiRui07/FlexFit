@@ -107,7 +107,7 @@ export default function AddRoutine() {
       setRutinaFavorita(false);
     }
   };
-
+  document.title="Añadir Rutina";
   return (
     <div>
       <HeaderFF />
