@@ -64,7 +64,7 @@ export default function AllWorkouts() {
             placeholder="Buscar"
             id="filtroNombre"
           ></input>
-          <div className="btn" id="search" onClick={filtrarWorkouts}>
+          <div className="btn" id="search" onClick={filtrarWorkouts} tabIndex={0}>
             <i className="fa fa-search"></i>
           </div>
         </div>
