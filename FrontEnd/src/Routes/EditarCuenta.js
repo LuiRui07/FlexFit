@@ -1,10 +1,46 @@
 import HeaderFF from "./HeaderFF";
-import React, { useEffect, useState } from "react";
-import Logo from "../images/logoRed.png";
+import { useState } from "react";
+import axios from "axios";
 import "../css/EditarCuenta.css";
 
 export default function EditarCuenta() {
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const [formData, setFormData] = useState({
+    username: user.username,
+    image : user.image,
+    nombre: user.nombre,
+    apellido1: user.apellido1,
+    apellido2: user.apellido2,
+    peso: user.peso,
+    altura: user.altura,
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.put(
+      "http://localhost:7777/api/user/" + user.id,
+      formData
+    );
+
+    console.log(response.data);
+
+    setStatusMessage(response.data.message);
+    alert("Actualizado correctamente")
+    window.location.href = "/home";
+  };
 
   return (
     <div>
@@ -44,10 +80,9 @@ export default function EditarCuenta() {
                   className="form-control   user-data-input"
                   id="nombre"
                   aria-describedby="nameHelp"
-                  placeholder="Introduce tu nombre"
                   maxLength={50}
                   name="nombre"
-                  value={user.image}
+                  value={formData.image}
                   required
                   onChange={""}
                 />
@@ -64,12 +99,11 @@ export default function EditarCuenta() {
                 className="form-control w-20"
                 id="username"
                 aria-describedby="usernameHelp"
-                placeholder="Introduce tu usuario"
                 maxLength={30}
-                name="username"
-                value={user.username}
+                name="username"   
+                value={formData.username}
                 required
-                onChange={""}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -84,12 +118,11 @@ export default function EditarCuenta() {
                   className="form-control   user-data-input"
                   id="nombre"
                   aria-describedby="nameHelp"
-                  placeholder="Introduce tu nombre"
                   maxLength={50}
                   name="nombre"
-                  value={user.nombre}
+                  value={formData.nombre}
                   required
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -101,12 +134,11 @@ export default function EditarCuenta() {
                   className="form-control user-data-input"
                   id="apellido1"
                   aria-describedby="apellido1Help"
-                  placeholder="Introduce tu apellido 1"
                   maxLength={50}
-                  value={user.apellido1}
+                  value={formData.apellido1}
                   name="apellido1"
                   required
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -118,31 +150,15 @@ export default function EditarCuenta() {
                   className="form-control user-data-input"
                   id="apellido2"
                   aria-describedby="apellido2Help"
-                  placeholder="Introduce tu apellido 2"
                   maxLength={50}
-                  value={user.apellido2}
+                  value={formData.apellido2}
                   name="apellido2"
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
             </div>
 
             <div className="dataInputs">
-              <div>
-                <label htmlFor="age" className="fs-6">
-                  Edad (*)
-                </label>
-                <input
-                  type="number"
-                  className="form-control user-data-input"
-                  id="age"
-                  aria-describedby="ageHelp"
-                  name="edad"
-                  required
-                  value={user.edad}
-                  onChange={""}
-                />
-              </div>
               <div>
                 <label htmlFor="weight" className="fs-6">
                   Peso (*)
@@ -153,9 +169,9 @@ export default function EditarCuenta() {
                   id="weight"
                   aria-describedby="weightHelp"
                   name="peso"
-                  value={user.peso}
+                  value={formData.peso}
                   required
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -169,15 +185,17 @@ export default function EditarCuenta() {
                   id="height"
                   aria-describedby="heightHelp"
                   name="altura"
-                  value={user.altura}
+                  value={formData.altura}
                   required
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
             </div>
           </div>
           <div className="botones">
-            <a className="btn btn-outline-danger">Guardar Cambios</a>
+            <button className="btn btn-outline-danger" onClick={handleSubmit}>
+              Guardar Cambios
+            </button>
             <a className="btn btn-outline-dark"> Cambiar Contraseña</a>
           </div>
         </form>
