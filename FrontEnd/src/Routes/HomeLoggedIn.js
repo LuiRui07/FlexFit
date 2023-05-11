@@ -29,7 +29,7 @@ function HomeLoggedIn() {
   String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
   };
-
+  document.title="Home";
   return (
     <div>
       <HeaderFF />
