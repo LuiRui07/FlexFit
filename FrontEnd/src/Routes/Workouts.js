@@ -44,7 +44,7 @@ export default function AllWorkouts() {
     e.preventDefault();
     window.location.href = "/rutina/" + id;
   };
-
+  document.title="Rutinas";
   return (
     <div className="backgroudTochoWorkout">
       <HeaderFF />
