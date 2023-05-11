@@ -80,3 +80,8 @@ label#nombre {
 a#volver {
   margin-left: auto;
 }
+
+#borrarRutina{
+  float: left;
+  margin-left: 0;
+}

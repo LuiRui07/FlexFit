@@ -26,7 +26,7 @@ export default function EditRoutine() {
     const dia_container = document.createElement("div");
     dia_container.className =
       "alert alert-danger d-flex justify-content-between align-items-center gap-3 botonDiaLista";
-    dia_container.tabIndex = 0;  
+    dia_container.tabIndex = 0;
     dia_container.addEventListener(
       "click",
       () =>
@@ -145,6 +145,18 @@ export default function EditRoutine() {
       }
     }
   };
+
+  function borrarRutina() {
+    console.log("Eliminando rutina con id: " + rutinaActual.id);
+    axios
+      .delete("http://localhost:7777/api/workout/" + rutinaActual.id, { id: rutinaActual.id })
+      .then((response) => {
+        console.log(response.data);
+        alert("Borrado");
+        window.location.href = "/workouts";
+      });
+  }
+
 
   const [rutinaFavorita, setRutinaFavorita] = useState(false);
   const [rutinaActual, setRutinaActual] = useState(null);
@@ -335,8 +347,38 @@ export default function EditRoutine() {
                 )}
               </div>
             )}
+
+            {rutinaActual.user_id === user.id && (
+              <div>
+                <button type="button" id="borrarRutina" class="btn btn-danger mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Borrar rutina
+                </button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Borrar rutina</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        ¿Estás seguro? Esta accion no sera reversible.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" onClick={borrarRutina} class="btn btn-danger" >Confirmar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
+
+
+
+
         <a id="volver" href="/workouts" className="btn btn-warning">
           Volver
         </a>
