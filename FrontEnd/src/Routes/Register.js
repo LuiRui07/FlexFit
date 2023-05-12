@@ -88,26 +88,6 @@ function Register() {
     }
   };
 
-    if (formData.password !== document.getElementById("repeat-password").value) {
-      setStatusMessage("Las contraseñas no coinciden");
-      showPopup();
-      return;
-    }
-
-    const response = await axios.post(
-      "http://localhost:7777/api/user",
-      formData
-    );
-
-    console.log(response.data);
-
-    setStatusMessage(response.data.message);
-    showPopup();
-    sleep(1500).then(() => {
-      window.location.href = "/home";
-    });
-  };
-
   return (
     <div className="bg-form">
       <div className="container">
