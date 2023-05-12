@@ -39,53 +39,59 @@ function Register() {
     sexo: "",
   });
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const confirmed = window.confirm("¿Está seguro de que se quiere registrar?");
+    const confirmed = window.confirm("¿Está seguro de que quiere registrarse?");
     if (confirmed) {
-      if (selectedOption === "option1") {
-        formData.sexo = "H";
-      } else {
-        formData.sexo = "M";
-      }
-
-      if (
-        formData.username.length === 0 ||
-        formData.password.length === 0 ||
-        formData.nombre.length === 0 ||
-        formData.apellido1.length === 0 ||
-        formData.edad.length === 0 ||
-        formData.altura.length === 0 ||
-        formData.peso.length === 0 ||
-        formData.sexo.length === 0
-      ) {
-        setStatusMessage("Todos los campos son obligatorios");
-        showPopup();
-        return;
-      }
-
-      if (formData.password !== document.getElementById("repeat-password").value) {
-        setStatusMessage("Las contraseñas no coinciden");
-        showPopup();
-        return;
-      }
-
-
-      const response = await axios.post(
-        "http://localhost:7777/api/user",
-        formData
-      );
-
-      console.log(response.data);
-
-      setStatusMessage(response.data.message);
-      showPopup();
-      sleep(1500).then(() => {
-        window.location.href = "/home";
-      });
+    if (selectedOption === "option1") {
+      formData.sexo = "H";
     } else {
-      window.close();
+      formData.sexo = "M";
     }
+
+    if (
+      formData.username.length === 0 ||
+      formData.password.length === 0 ||
+      formData.nombre.length === 0 ||
+      formData.apellido1.length === 0 ||
+      formData.edad.length === 0 ||
+      formData.altura.length === 0 ||
+      formData.peso.length === 0 ||
+      formData.sexo.length === 0
+    ) {
+      setStatusMessage("Todos los campos son obligatorios");
+      showPopup();
+      return;
+    }
+
+    if (formData.password !== document.getElementById("repeat-password").value) {
+      setStatusMessage("Las contraseñas no coinciden");
+      showPopup();
+      return;
+    }
+
+    const response = await axios.post(
+      "http://localhost:7777/api/user",
+      formData
+    );
+
+    console.log(response.data);
+
+    setStatusMessage(response.data.message);
+    showPopup();
+    sleep(1500).then(() => {
+      window.location.href = "/home";
+    });
+  } else {
+    window.close();
+  }
   };
 
   return (
