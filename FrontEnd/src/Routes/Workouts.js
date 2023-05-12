@@ -41,39 +41,29 @@ export default function AllWorkouts() {
   };
 
   const goToRoutine = (id) => (e) => {
+    e.stopPropagation();
     e.preventDefault();
     window.location.href = "/rutina/" + id;
   };
 
  
 
-  const [showModal, setShowModal] = useState(false);
-
- 
-
-  const handleDeleteClick = (event) => {
-    event.stopPropagation(); // Evita que el evento se propague al card
-    setShowModal(true);
-  };
-
-  const handleModalClose = (event) => {
-    event.stopPropagation();
-    setShowModal(false);
+  const handleDeleteClick = (e) => {
+    e.cancelBubble = true;
+    e.stopPropagation();
   };
 
 
-  function borrarRutina(workout,event) {
-    event.stopPropagation();
+  function borrarRutina(workout) {
     console.log("Eliminando rutina con id: " + workout.id);
-    setShowModal(false);
     axios
       .delete("http://localhost:7777/api/workout/" + workout.id, { id: workout.id })
       .then((response) => {
         console.log(response.data);
         alert("Borrado");
-        setShowModal(false);
         window.location.href = "/workouts";
       });
+    
   }
 
   document.title="Rutinas";
@@ -119,15 +109,14 @@ export default function AllWorkouts() {
               {workout.private === true && (
                 <div className="card-title titleWorkout">
                   <div className="borrarRutina" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h5>{workout.name}</h5>
-                    <div>
-                      <button type="button" name="preAlert" className="btn btn-danger custom-cursor-on-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleDeleteClick} onMouseDown={(event) => event.stopPropagation()}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill custom-cursor-on-hover" viewBox="0 0 16 16">
+                    <h5 style={{margin: 'auto'}}>{workout.name}</h5>
+                    <div className="modalDelete">
+                      <button type="button" name="preAlert" class="btn btn-danger custom-cursor-on-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleDeleteClick}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill custom-cursor-on-hover" viewBox="0 0 16 16">
                           <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" className="custom-cursor-on-hover"></path>
                         </svg>
                       </button>
-                      {showModal === true && (
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade modalDelete" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -137,22 +126,27 @@ export default function AllWorkouts() {
                             <div class="modal-body">
                               ¿Estás seguro? Esta accion no sera reversible.
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={handleModalClose}>Cancelar</button>
-                              <button type="button" onClick={(event) => borrarRutina(event)} class="btn btn-danger" >Confirmar</button>
+                            <div className="modal-footer">
+                              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={(e) => {
+                                    if (!e) var e = window.event;
+                                    e.cancelBubble = true;
+                                    if (e.stopPropagation) e.stopPropagation();
+                              }}>Cancelar</button>
+                              <button type="button" onClick={(event) => {
+                                borrarRutina(workout);
+                                event.stopPropagation();
+                                event.preventDefault();
+                              }} className="btn btn-danger" >Confirmar</button>
                             </div>
                           </div>
                         </div>
                       </div>
-                      )}
                     </div>
                   </div>
                 </div>
-
-
               )}
               {workout.private === false && (
-                <h5 className="card-title titleWorkout publicWorkout">
+                <h5 className="card-title titleWorkout publicWorkout" >
                   {workout.name}
                 </h5>
               )}

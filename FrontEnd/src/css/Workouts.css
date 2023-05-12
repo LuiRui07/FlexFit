@@ -52,8 +52,17 @@ li#add {
 
 .rutinaClickable:hover{
   cursor: pointer;
-  transform: scale(1.05) rotate3d(1, 1, 1, -5deg);
 }
+
+.modalDelete {
+  transform: none !important;
+  cursor: initial !important;
+}
+
+.modalDelete {
+  color: black !important;
+}
+
 
 .backgroudTochoWorkout{
   height: 100vh !important;
