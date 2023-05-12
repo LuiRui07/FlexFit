@@ -19,6 +19,7 @@ export default function EditarCuenta() {
     apellido2: user.apellido2,
     peso: user.peso,
     altura: user.altura,
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -30,6 +31,24 @@ export default function EditarCuenta() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (document.getElementById("password").value !== ""){
+    if (formData.password !== user.password) {
+      window.confirm("Contraseña incorrecta")
+      console.log(document.getElementById("repeat-newpassword").value)
+      return;
+    }
+    if (document.getElementById("repeat-newpassword").value === document.getElementById("newpassword").value) {
+      formData.password = document.getElementById("newpassword").value
+    } 
+    if (document.getElementById("repeat-newpassword").value !== document.getElementById("newpassword").value) {
+      window.confirm("Las contraseñas nuevas no coinciden")
+      return;
+    }
+    } else {
+      formData.password = user.password
+    } 
+
     const response = await axios.put(
       "http://localhost:7777/api/user/" + user.id,
       formData
@@ -39,8 +58,15 @@ export default function EditarCuenta() {
 
     setStatusMessage(response.data.message);
     alert("Actualizado correctamente")
+    localStorage.removeItem("user");
     window.location.href = "/home";
   };
+
+  const volver = () => {
+    if (window.confirm("¿Quieres volver a tu perfil?")) {
+      window.location.href = "../cuenta";
+    }
+  }
 
   return (
     <div>
@@ -52,7 +78,7 @@ export default function EditarCuenta() {
               <h2 className="editarHead">Editar Perfil </h2>
             </div>
           </div>
-          Foto de perfil
+          Foto de perfil:
           <div
             className="d-flex justify-content-center profile-container foto"
             style={{
@@ -78,13 +104,13 @@ export default function EditarCuenta() {
                 <input
                   type="text"
                   className="form-control   user-data-input"
-                  id="nombre"
-                  aria-describedby="nameHelp"
-                  maxLength={50}
-                  name="nombre"
+                  id="image"
+                  aria-describedby="imageHelp"
+                  maxLength={1000}
+                  name="image"
                   value={formData.image}
                   required
-                  onChange={""}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -191,12 +217,62 @@ export default function EditarCuenta() {
                 />
               </div>
             </div>
-          </div>
+          </div >
+          <h1> Cambio de constraseña: </h1>
+          <div className="dataInputs">
+              <div>
+                <label htmlFor="password" className="fs-6">
+                Contraseña actual:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  aria-describedby="usernameHelp"
+                  placeholder="Introduce tu contraseña actual"
+                  name="password"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="fs-6">
+                  Nueva contraseña:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="newpassword"
+                  aria-describedby="usernameHelp"
+                  placeholder="Introduce tu nueva contraseña"
+                  name="newpassword"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="password" className="fs-6">
+                  Repite la contraseña:
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="repeat-newpassword"
+                  aria-describedby="usernameHelp"
+                  placeholder="Repite tu nueva contraseña"
+                  name="repeat-newpassword"
+                  required
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
           <div className="botones">
             <button className="btn btn-outline-danger" onClick={handleSubmit}>
               Guardar Cambios
             </button>
-            <a className="btn btn-outline-dark"> Cambiar Contraseña</a>
+            <button className="btn btn-outline-dark" onClickCapture={volver}> Volver </button>
           </div>
         </form>
       </div>

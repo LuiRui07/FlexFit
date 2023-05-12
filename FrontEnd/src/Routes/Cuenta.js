@@ -25,7 +25,7 @@ export default function Historial() {
           <div className="headerContainerInfoUser">
             <img
               src={user.image}
-              alt="no hay"
+              alt=""
               className="imagenUser"
               height={150}
               width={150}
