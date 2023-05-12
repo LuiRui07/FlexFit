@@ -131,5 +131,12 @@ li#add {
     padding: 0px;
     width: fit-content;
   }
+
+.borrarRutina{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 }
 
