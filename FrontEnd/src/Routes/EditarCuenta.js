@@ -19,7 +19,7 @@ export default function EditarCuenta() {
     apellido2: user.apellido2,
     peso: user.peso,
     altura: user.altura,
-    password: "",
+    password: user.password,
   });
 
   const handleChange = (e) => {
@@ -33,18 +33,18 @@ export default function EditarCuenta() {
     e.preventDefault();
 
     if (document.getElementById("password").value !== ""){
-    if (formData.password !== user.password) {
-      window.confirm("Contraseña incorrecta")
-      console.log(document.getElementById("repeat-newpassword").value)
-      return;
-    }
-    if (document.getElementById("repeat-newpassword").value === document.getElementById("newpassword").value) {
-      formData.password = document.getElementById("newpassword").value
-    } 
-    if (document.getElementById("repeat-newpassword").value !== document.getElementById("newpassword").value) {
-      window.confirm("Las contraseñas nuevas no coinciden")
-      return;
-    }
+      if (formData.password !== user.password) {
+        window.confirm("Contraseña incorrecta")
+        console.log(document.getElementById("repeat-newpassword").value)
+        return;
+      }
+      if (document.getElementById("repeat-newpassword").value === document.getElementById("newpassword").value) {
+        formData.password = document.getElementById("newpassword").value
+      } 
+      if (document.getElementById("repeat-newpassword").value !== document.getElementById("newpassword").value) {
+        window.confirm("Las contraseñas nuevas no coinciden")
+        return;
+      }
     } else {
       formData.password = user.password
     } 
@@ -59,7 +59,9 @@ export default function EditarCuenta() {
     setStatusMessage(response.data.message);
     alert("Actualizado correctamente")
     localStorage.removeItem("user");
-    window.location.href = "/home";
+    localStorage.setItem("user", JSON.stringify(response.data.data[0]));
+
+    window.location.href = "/cuenta";
   };
 
   const volver = () => {
@@ -232,7 +234,6 @@ export default function EditarCuenta() {
                   placeholder="Introduce tu contraseña actual"
                   name="password"
                   required
-                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -247,7 +248,6 @@ export default function EditarCuenta() {
                   placeholder="Introduce tu nueva contraseña"
                   name="newpassword"
                   required
-                  onChange={handleChange}
                 />
               </div>
 
@@ -263,7 +263,6 @@ export default function EditarCuenta() {
                   placeholder="Repite tu nueva contraseña"
                   name="repeat-newpassword"
                   required
-                  onChange={handleChange}
                 />
               </div>
             </div>
