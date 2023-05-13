@@ -33,14 +33,18 @@ export default function EditarCuenta() {
     e.preventDefault();
 
     if (document.getElementById("password").value !== ""){
-      if (formData.password !== user.password) {
+      if (document.getElementById("password").value !== user.password) {
         window.confirm("Contraseña incorrecta")
         console.log(document.getElementById("repeat-newpassword").value)
         return;
       }
+      if (document.getElementById("repeat-newpassword").value === "" || document.getElementById("newpassword").value === ""){
+           window.confirm("Rellene con su nueva contraseña")
+          return;
+      }
       if (document.getElementById("repeat-newpassword").value === document.getElementById("newpassword").value) {
-        formData.password = document.getElementById("newpassword").value
-      } 
+          formData.password = document.getElementById("newpassword").value
+      }
       if (document.getElementById("repeat-newpassword").value !== document.getElementById("newpassword").value) {
         window.confirm("Las contraseñas nuevas no coinciden")
         return;
