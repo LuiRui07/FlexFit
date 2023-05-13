@@ -119,7 +119,7 @@ function Register() {
               />
             </div>
             <div>
-              <h2 className="display-6 title">Regístrate</h2>
+              <h1 className="display-6 title">Regístrate</h1>
             </div>
           </div>
           <div className="d-flex gap-3 justify-content-around">
