@@ -57,15 +57,26 @@ export default function AddWorkout() {
     }
   };
 
+
+  const [todosLosEjs, setTodosLosEjs] = useState([]);
+
   const [ejersLista, setEjersLista] = useState([]);
+
+  const [bodyPartList, setBodyPartList] = useState([]);
 
   const [loaded, setLoaded] = useState(false);
 
   const workoutTypess = async () => {
     axios.get("http://localhost:7777/api/exercise/").then((res) => {
       setEjersLista(res.data.data);
+      setTodosLosEjs(res.data.data);
       setWorkoutType(res.data.data[0]);
-      setLoaded(true);
+
+      axios.get("http://localhost:7777/api/bodypart/").then((bp) => {
+        let lista = [{ name: "Todo", idBodyPart: 0, subpart: null }, ...bp.data.data];
+        setBodyPartList(lista);
+        setLoaded(true);
+      });
     });
   };
 
@@ -80,6 +91,20 @@ export default function AddWorkout() {
     setWorkoutType(
       ejersLista.find((workoutX) => workoutName === workoutX.name)
     );
+  }
+
+  function filterWorkouts(bodyPart) {
+    if(bodyPart === '0'){
+      console.log(bodyPart);
+      console.log(todosLosEjs);
+      setEjersLista(todosLosEjs);
+      setWorkoutType(ejersLista.data[0]);
+
+    }
+    axios.get("http://localhost:7777/api/exercise/bodypart/" +bodyPart).then((bp) => {
+      setEjersLista(bp.data.data);
+      setWorkoutType(ejersLista.data[0]);
+    });
   }
 
   return (
@@ -99,6 +124,19 @@ export default function AddWorkout() {
                 height="350"
                 width="350"
               ></img>
+              <select
+                className="form-select"
+                id="bodyPartSelector"
+                name="bp"
+                onChange={() =>
+                  filterWorkouts(document.getElementById("bodyPartSelector").value)
+                }
+              >
+                {bodyPartList.map((bp) => (
+                  <option value={bp.idBodyPart}>{bp.name} {bp.subpart != null ? `(${bp.subpart})` : ``}</option>
+                ))}
+              </select>
+
               <select
                 className="form-select"
                 id="sportSelector"
