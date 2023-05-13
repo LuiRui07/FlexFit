@@ -31,7 +31,8 @@ export default function EditarCuenta() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const confirmed = window.confirm("¿Está seguro de los cambios realizados?");
+    if (confirmed) {
     if (document.getElementById("password").value !== ""){
       if (document.getElementById("password").value !== user.password) {
         window.confirm("Contraseña incorrecta")
@@ -66,6 +67,9 @@ export default function EditarCuenta() {
     localStorage.setItem("user", JSON.stringify(response.data.data[0]));
 
     window.location.href = "/cuenta";
+    } else {
+      window.close();
+      return;
   };
 
   const volver = () => {
