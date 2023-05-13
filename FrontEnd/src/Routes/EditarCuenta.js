@@ -70,6 +70,7 @@ export default function EditarCuenta() {
     } else {
       window.close();
       return;
+    }
   };
 
   const volver = () => {
