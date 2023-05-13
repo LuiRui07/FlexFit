@@ -98,7 +98,7 @@ export default function AddWorkout() {
       console.log(bodyPart);
       console.log(todosLosEjs);
       setEjersLista(todosLosEjs);
-      setWorkoutType(todosLosEjs[0]);
+      setWorkoutType(ejersLista.data[0]);
     }
     axios.get("http://localhost:7777/api/exercise/bodypart/" +bodyPart).then((bp) => {
       setEjersLista(bp.data.data);
