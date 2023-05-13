@@ -98,12 +98,11 @@ export default function AddWorkout() {
       console.log(bodyPart);
       console.log(todosLosEjs);
       setEjersLista(todosLosEjs);
-      setWorkoutType(ejersLista.data[0]);
-
+      setWorkoutType(todosLosEjs[0]);
     }
     axios.get("http://localhost:7777/api/exercise/bodypart/" +bodyPart).then((bp) => {
       setEjersLista(bp.data.data);
-      setWorkoutType(ejersLista.data[0]);
+      setWorkoutType(bp.data.data[0]);
     });
   }
 
@@ -141,6 +140,7 @@ export default function AddWorkout() {
                 className="form-select"
                 id="sportSelector"
                 name="ej"
+                value = {workoutType.name}
                 onChange={() =>
                   changeWorkOut(document.getElementById("sportSelector").value)
                 }
