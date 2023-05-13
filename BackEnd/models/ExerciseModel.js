@@ -8,9 +8,13 @@ var ExerciseModel = db.define('exercise', {
     name: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.STRING, allowNull: false },
     image: { type: DataTypes.STRING, allowNull: false },
+    bodyPart: { type: DataTypes.INTEGER, allowNull: false , references: {
+        model: BodyPartModel,
+        key: 'idBodyPart'
+    }},
 }, {freezeTableName: true} );
 
-ExerciseModel.hasOne(BodyPartModel, {foreignKey: 'idBodyPart' },{as : 'bodyPart'}, {onDelete: 'NO ACTION'}, {onUpdate: 'NO ACTION'})
+//ExerciseModel.hasOne(BodyPartModel, {foreignKey: "idBodyPart" },{as : "BodyPart"})
 
 
 export default ExerciseModel;

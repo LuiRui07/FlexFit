@@ -8,4 +8,5 @@ var BodyPartModel = db.define('bodypart', {
     subpart: { type: DataTypes.STRING, allowNull: true },
 }, {freezeTableName: true,timestamps: false,underscored: false} );
 
+
 export default BodyPartModel;
