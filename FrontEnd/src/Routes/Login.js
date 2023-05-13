@@ -67,7 +67,7 @@ function Login() {
               />
             </div>
             <div>
-              <h2 className="display-6 title">Inicia Sesión</h2>
+              <h1 className="display-6 title">Inicia Sesión</h1>
             </div>
           </div>
           <div className="form-group">
