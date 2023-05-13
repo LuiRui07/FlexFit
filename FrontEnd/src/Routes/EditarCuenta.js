@@ -73,7 +73,7 @@ export default function EditarCuenta() {
   }};
 
   const volver = () => {
-    if (window.confirm("¿Quieres volver a tu perfil?")) {
+    if (window.confirm("¿Estas seguro de que quieres volver a tu perfil? \n" + "Perderas los cambios no guardados.")) {
       window.location.href = "../cuenta";
     }
   }
