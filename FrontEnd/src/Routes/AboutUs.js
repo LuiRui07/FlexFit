@@ -13,7 +13,7 @@ const AboutUs = () => {
       <HeaderFF />
       <div className="aboutUsContainer">
         <div className="container align-items-center">
-          <h2>¡Bienvenidos a FlexFit!</h2>
+          <h1>¡Bienvenidos a FlexFit!</h1>
           <p>
             Nuestra aplicación es una herramienta útil para los entusiastas del
             deporte que desean llevar un registro de sus entrenamientos y tener
