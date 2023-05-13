@@ -91,6 +91,7 @@ function Register() {
     });
   } else {
     window.close();
+    return;
   }
   };
 
