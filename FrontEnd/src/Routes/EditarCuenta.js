@@ -70,7 +70,7 @@ export default function EditarCuenta() {
     } else {
       window.close();
       return;
-  };
+  }};
 
   const volver = () => {
     if (window.confirm("¿Quieres volver a tu perfil?")) {
