@@ -12,10 +12,9 @@
     url("../images/Espalda.png");
   background-size: cover;
   height: 100vh;
-  color: white;
-  font-size: 70px;
+  font-size: 70em;
   padding-left: 2%;
-  padding-top: 1%;
+  padding-top: 1%;  
 }
 
 h3 {
@@ -100,7 +99,7 @@ h3 {
   padding: 20px;
   display: block;
   text-align: center;
-  font-size: 32px;
+  font-size: 0.029em;
 }
 
 .botonEditar:hover {
@@ -129,7 +128,7 @@ h3 {
   padding: 20px;
   display: block;
   text-align: center;
-  font-size: 32px;
+  font-size: 0.029em;
 }
 
 .botonBorrar:hover {

@@ -13,7 +13,7 @@
     url("../images/Biceps.png");
   background-size: cover;
   color: white;
-  font-size: 70px;
+  font-size: 2em;
   padding-left: 2%;
   padding-top: 1%;
 }
@@ -35,7 +35,7 @@
   border-radius: 10px;
   background-color: #4a0404;
   color: white;
-  font-size: 20px;
+  font-size: 2em;
   border: none;
 }
 
@@ -58,7 +58,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 25px;
-  font-size: 30px;
+  font-size: 3em;
 }
 
 .gotoRegister {
@@ -68,7 +68,7 @@
 
 .link-register {
   color: #4a0404;
-  font-size: 20px;
+  font-size: 2em;
   text-decoration: none;
   text-align: center;
 }
