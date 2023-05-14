@@ -48,7 +48,8 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const confirmed = window.confirm("¿Está seguro de que quiere registrarse?");
+    if (confirmed) {
     if (selectedOption === "option1") {
       formData.sexo = "H";
     } else {
@@ -70,6 +71,12 @@ function Register() {
       return;
     }
 
+    if (formData.password !== document.getElementById("repeat-password").value) {
+      setStatusMessage("Las contraseñas no coinciden");
+      showPopup();
+      return;
+    }
+
     const response = await axios.post(
       "http://localhost:7777/api/user",
       formData
@@ -82,6 +89,10 @@ function Register() {
     sleep(1500).then(() => {
       window.location.href = "/home";
     });
+  } else {
+    window.close();
+    return;
+  }
   };
 
   return (
@@ -108,7 +119,7 @@ function Register() {
               />
             </div>
             <div>
-              <h2 className="display-6 title">Regístrate</h2>
+              <h1 className="display-6 title">Regístrate</h1>
             </div>
           </div>
           <div className="d-flex gap-3 justify-content-around">
@@ -155,7 +166,6 @@ function Register() {
                 placeholder="Repite tu contraseña"
                 name="repeatPassword"
                 required
-                onChange={handleChange}
               />
             </div>
           </div>
@@ -220,6 +230,7 @@ function Register() {
                   type="number"
                   className="form-control user-data-input"
                   id="age"
+                  min={1}
                   aria-describedby="ageHelp"
                   name="edad"
                   required
@@ -236,6 +247,8 @@ function Register() {
                   id="weight"
                   aria-describedby="weightHelp"
                   name="peso"
+                  min={1}
+                  placeholder="Peso en kg"
                   required
                   onChange={handleChange}
                 />
@@ -285,10 +298,12 @@ function Register() {
                 </label>
                 <input
                   type="number"
+                  min={1}
                   className="form-control user-data-input"
                   id="height"
                   aria-describedby="heightHelp"
                   name="altura"
+                  placeholder="Altura en cm"
                   required
                   onChange={handleChange}
                 />

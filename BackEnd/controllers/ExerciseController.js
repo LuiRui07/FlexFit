@@ -1,3 +1,4 @@
+import BodyPartModel from "../models/BodyPartModel.js";
 import ExerciseModel from "../models/ExerciseModel.js";
 
 // Creamos el CRUD PARA LOS EJERCICIOS
@@ -48,7 +49,7 @@ export const createExercise = async (req, res) => {
 export const getAllExercises = async (req, res) => {
     try {
         let Exercises = await ExerciseModel.findAll({
-            include: ['bodypart']
+            include: [{all:true}]
         });
         if (Exercises) {
             return res.json({
@@ -175,8 +176,7 @@ export const getExercisesByBodyPart = async (req, res) => {
         let Exercises = await ExerciseModel.findAll({
             where: {
                 bodypart: idBodyPart
-            },
-            include: ['bodypart']
+            }        
         });
         if (Exercises) {
             

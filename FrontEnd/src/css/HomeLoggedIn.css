@@ -14,13 +14,11 @@ body {
   max-height: 600px;
 }*/
 
-
-.gridElements{
+.gridElements {
   max-height: 700px;
 }
 
-
-.usernameHello{
+.usernameHello {
   color: rgb(211, 58, 58);
   background-color: rgb(255, 255, 255);
   border-radius: 15px;
@@ -33,4 +31,50 @@ body {
 
 .usernameHello:hover {
   box-shadow: 5px -5px 0px rgb(211, 58, 58);
+}
+
+div#Prin {
+  margin-left: 1%;
+}
+
+div#textito {
+  text-align: center;
+}
+
+
+@media screen and (max-width: 870px) {
+  .fuerte > div {
+    flex-direction: column;
+  }
+
+  .textoListoEjer {
+    display: flex !important;
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 670px) {
+
+
+  .fuerte {
+    background-size: cover !important;
+    background-repeat: repeat !important;
+    height: 100% !important;
+  }
+  
+
+  
+  #tiposRutina{
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    align-items: center;
+    padding: auto;
+  }
+  #tiposRutina > div{
+    width: 80%;
+  }
+
+
 }

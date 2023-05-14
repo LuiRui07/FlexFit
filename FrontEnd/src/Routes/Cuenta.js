@@ -15,7 +15,7 @@ export default function Historial() {
   useEffect(() => {
     document.getElementById("cuentaHeaderLi").classList.add("active");
   }, []);
-
+  document.title="Cuenta";
   return (
     <div className="h-100">
       <HeaderFF />
@@ -25,19 +25,22 @@ export default function Historial() {
           <div className="headerContainerInfoUser">
             <img
               src={user.image}
-              alt="no hay"
-              class="imagenUser"
+              alt=""
+              className="imagenUser"
               height={150}
               width={150}
             ></img>
             <div className="nameInfoContainer">
               <h1>
-                {user.nombre} {user.apellido1} {user.apellido2}
+                {user.username}
               </h1>
             </div>
           </div>
           <div className="dataContainerInfoUser">
             <div className="dataRows">
+              <h3>
+                <strong>Nombre: </strong> {user.nombre} {user.apellido1} {user.apellido2}
+              </h3>
               <h3>
                 <strong>Sexo:</strong> {user.sexo === "H" ? "Hombre" : "Mujer"}{" "}
               </h3>
@@ -56,7 +59,7 @@ export default function Historial() {
             </div>
           </div>
           <div className="containerBotonEditar">
-            <a href="#" className="botonEditar">
+            <a href="/editarcuenta" className="botonEditar">
               Editar
             </a>
           </div>
