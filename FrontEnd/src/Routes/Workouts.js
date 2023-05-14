@@ -159,11 +159,12 @@ export default function AllWorkouts() {
                 <p className="card-text ">
                   Dias: <strong>{workout.workout_days.length}</strong>
                 </p>
+                {workout.private === false && (
                 <p className="card-text ">
-                  Dificultad: <strong>{workout.difficulty}</strong>
+                Dificultad: <strong>{workout.difficulty}</strong>
                 </p>
+              )}
               </div>
-
             </div>
           ))}
         </div>
